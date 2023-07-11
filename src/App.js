@@ -1,12 +1,12 @@
 
 import './App.css';
-
+import Header from './components/header/Header';
+import Home from './page/home/Home';
 function App() {
   return (
     <div className="App">
-      <h1 >
-        Rasco
-      </h1>
+      <Header />
+      <Home />
     </div>
   );
 }
