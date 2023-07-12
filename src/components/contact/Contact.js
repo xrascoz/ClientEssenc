@@ -12,7 +12,7 @@ import Title from '../title/Title'
 function Contact() {
 
   let titleObject = {
-    "nameTitle": "Our services",
+    "nameTitle": "Contact Us",
     "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
   }
 

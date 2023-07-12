@@ -27,6 +27,7 @@ function Home() {
             <WhyUs />
             <MobileApp />
             <Contact />
+           
         </>
     )
 }

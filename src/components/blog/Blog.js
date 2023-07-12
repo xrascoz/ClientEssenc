@@ -6,7 +6,7 @@ import image from "../../assets/imgs/article/image.webp"
 
 function Blog() {
     let titleObject = {
-        "nameTitle": "Our services",
+        "nameTitle": "Blog",
         "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
       }
     let servicesArray = [
