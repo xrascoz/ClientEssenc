@@ -61,7 +61,7 @@ function Team() {
         <section>
             <div class="container">
                 <Title titleObject={titleObject} />
-                <div class="team-grid grid-style">
+                <div class="team-grid grid-style" >
                     {servicesArray.map((data) => {
                         return (
                             <Card data={data} />

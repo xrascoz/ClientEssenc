@@ -57,14 +57,14 @@ function Review() {
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
         },
     ]
-    console.log(reviewObj)
+
 
     return (
         <div>
-            <div className="container">
-                <Title titleObject={titleObject} />
+            <div className="container" data-aos="fade-up" data-aos-duration="1200">
+                <Title titleObject={titleObject}  />
                 <div className='review-grid' >
-                    <Swiper
+                    <Swiper loop
                         spaceBetween={10}
                         slidesPerView={3}
                         autoplay={{
@@ -74,16 +74,16 @@ function Review() {
                         // modules={[Autoplay]}
                         breakpoints={{
                             50: {
-                                slidesPerView: 1,
+                                slidesPerView: 3,
                             },
                             576: {
-                                slidesPerView: 1,
+                                slidesPerView: 3,
                             },
                             1000: {
-                                slidesPerView: 2,
+                                slidesPerView: 3,
                             },
                             1500: {
-                                slidesPerView: 2,
+                                slidesPerView: 3,
                             },
                         }}
                     >

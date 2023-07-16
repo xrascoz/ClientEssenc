@@ -21,7 +21,7 @@ function Card({ data }) {
         </h1>
         <p data-aos="fade-up" data-aos-duration="1300" className="">{descriptionServe}</p>
       </div>
-      <div className="social-media">
+      <div className="social-media" data-aos="fade-up" data-aos-duration="1200">
         <a href="https://www.facebook.com/xrascoz/" target="_blank">
           <img src={facebook} alt="icon" />
         </a>

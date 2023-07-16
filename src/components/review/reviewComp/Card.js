@@ -2,16 +2,19 @@ import React from 'react'
 import star from "../../../assets/imgs/icon/star.svg"
 import imgReview from "../../../assets/imgs/review/photo.jpg"
 function Card({ data }) {
-    
-        let {title , description} = data
+
+    let { title, description } = data
+
+
+
     return (
-        <div className='card-review'  >
+        <div className='card-review' data-aos="fade-up" data-aos-duration="1000"  >
             <div className='img-name-div' >
-                <div className='img-reviewer'>
+                <div className='img-reviewer' data-aos="fade-up" data-aos-duration="1100">
                     <img src={imgReview} />
                 </div>
-                <div className='about-reviewer' >
-                    <h2>Raco</h2>
+                <div className='about-reviewer' data-aos="fade-up" data-aos-duration="1200" >
+                    <h2>{title}</h2>
                     <div className='star-div'>
                         <img src={star} alt='star' />
                         <img src={star} alt='star' />
@@ -22,8 +25,8 @@ function Card({ data }) {
 
                 </div>
             </div>
-            <p className='reviewer-text'>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+            <p className='reviewer-text' data-aos="fade-up" data-aos-duration="1300">
+                {description}
             </p>
             <span class="shadow-card"></span>
             <span class="shadow-card2"></span>

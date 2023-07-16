@@ -8,26 +8,21 @@ import WhyUs from '../../components/why_us/WhyUs'
 import MobileApp from '../../components/mobile_app/MobileApp'
 import Contact from '../../components/contact/Contact'
 
-import  { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
+
 
 function Home() {
-    useEffect(() => {
-        AOS.init();
-        AOS.refresh();
-      }, []);
+   
     return (
         <>
             <HeroSection />
-            <Services />
+            <Services limit={true} />
             <Review />
             <Team />
             <Blog />
             <WhyUs />
             <MobileApp />
             <Contact />
-           
         </>
     )
 }

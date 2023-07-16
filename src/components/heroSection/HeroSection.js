@@ -1,5 +1,6 @@
 import React from 'react'
 import heroImg from "../../assets/imgs/elment/heroImg.png"
+import heroImg2 from "../../assets/imgs/elment/heroImg2.png"
 import brainImg from "../../assets/imgs/icon/brain.svg"
 import brain2Img from "../../assets/imgs/icon/brain2.svg"
 import vectorImg from "../../assets/imgs/icon/vector.svg"
@@ -42,7 +43,7 @@ function HeroSection() {
                                 <img src={vectorImg} alt="anime img" data-aos="fade-up" data-aos-duration="1250" />
                             </div>
 
-                            <img alt="phone app" className="hero-img" src={heroImg} 
+                            <img alt="phone app" className="hero-img" src={heroImg2} 
                                 data-aos="fade-up" data-aos-duration="1000" 
                                 />
                         </div>

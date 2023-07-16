@@ -36,9 +36,9 @@ function Contact() {
 
   return (
     <div className="section-6 section" id="section-6" >
-      <Title titleObject={titleObject} />
       <div className="container">
-        <div className='form-container'>
+        <Title titleObject={titleObject} />
+        <div className='form-container' data-aos="fade-up" data-aos-duration="1200">
           <form onSubmit={(e) => addMessage(e)} >
             <div className='name-phone-div' >
               <div className='div-img-input'>
