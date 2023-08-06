@@ -21,38 +21,47 @@ function Review() {
 
     let reviewObj = [
         {
+            "id": 1,
             "title": "Rasco",
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
         },
         {
+            "id": 2,
             "title": "Rasco",
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
         },
         {
+            "id": 3,
             "title": "Rasco",
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
         },
         {
+            "id": 4,
             "title": "Rasco",
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
         },
         {
+            "id": 5,
             "title": "Rasco",
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
         },
         {
+            "id": 6,
             "title": "Rasco",
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
         },
         {
+            "id": 7,
             "title": "Rasco",
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
         },
         {
+            "id": 8,
             "nTitle": "Rasco",
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
         },
         {
+            "id": 9,
             "title": "Rasco",
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
         },
@@ -62,7 +71,7 @@ function Review() {
     return (
         <div>
             <div className="container" data-aos="fade-up" data-aos-duration="1200">
-                <Title titleObject={titleObject}  />
+                <Title titleObject={titleObject} />
                 <div className='review-grid' >
                     <Swiper loop
                         spaceBetween={10}
@@ -91,7 +100,7 @@ function Review() {
                             reviewObj.map((data) => {
 
                                 return (
-                                    <SwiperSlide >
+                                    <SwiperSlide key={data.id} >
                                         <Card data={data} />
                                     </SwiperSlide>
                                 )

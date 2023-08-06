@@ -18,22 +18,22 @@ function BookNowComp() {
     },
     {
       id: "2",
-      name: "Initial assessment",
-      price: "$800",
+      name: "Initial Assessment",
+      price: "800",
       time: "4 hours",
       advantages: ["zoom 30 20 minutes", "five centuries, but", "many centuries", "Ipsum is simply dummy", "Lorem Ipsum has been"]
     },
     {
       id: "3",
-      name: "Psychotherapy session",
-      price: "$150",
+      name: "Psychotherapy Session",
+      price: "150",
       time: "60 minutes",
       advantages: ["zoom 30 20 minutes", "five centuries, but", "many centuries", "Ipsum is simply dummy", "Lorem Ipsum has been", "Ipsum is simply dummy"]
     },
     {
       id: "4",
-      name: "Family therapy",
-      price: "$270",
+      name: "Family Therapy",
+      price: "270",
       time: "90 minutes",
       advantages: ["zoom 30 20 minutes", "five centuries, but", "many centuries", "Ipsum is simply dummy", "Lorem Ipsum has been", "Ipsum is simply dummy", "Lorem Ipsum has been"]
     },
@@ -48,13 +48,14 @@ function BookNowComp() {
         {
           bookNowServiceObject.map((data) => {
             return (
-              <Card data={data} />
+              <Card data={data}  key={data.id}/>
             )
           })
         }
       </div>
     </div>
   )
+
 }
 
 export default BookNowComp

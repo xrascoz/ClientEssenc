@@ -6,7 +6,6 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 function BlogDetails() {
-
     const { id } = useParams()
     let [dataBlog, setDataBlog] = useState([])
     console.log(dataBlog)
@@ -25,12 +24,11 @@ function BlogDetails() {
 
             <div className='blog-article' >
                 <div className='date-title'>
-                    <p>19 Jan 2022</p>
+                    
                     <h1>
                         {title}
                     </h1>
                 </div>
-
                 <img className='img-blog' src={`http://localhost:5000/${cover}`} />
                 <div dangerouslySetInnerHTML={{ __html: content }} className='div-content' />
             </div>

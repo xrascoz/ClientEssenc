@@ -3,25 +3,40 @@ import Title from "../title/Title"
 import Card from './blogComp.js/Card'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import image from "../../assets/imgs/article/image.webp"
 
 
 function Blog() {
 
+  const location = useLocation().pathname;
+
+
   let [dataBlog, setDataBlog] = useState([])
-  console.log(dataBlog)
+
+
+
+
 
   useEffect(() => {
 
-    axios.get("http://localhost:5000/api/blog-home").then((response) => {
-      setDataBlog(response.data)
-    })
+
+    if (location == "/") {
+      axios.get("http://localhost:5000/api/blog-home").then((response) => {
+        setDataBlog(response.data)
+      })
+
+    } else {
+      axios.get("http://localhost:5000/api/blog").then((response) => {
+        setDataBlog(response.data)
+      })
+    }
+
+
 
   }, [])
 
-
-  
 
   let titleObject = {
     "nameTitle": "Blog",
@@ -35,7 +50,7 @@ function Blog() {
       <div className="blog-grid grid-style">
         {dataBlog.map((data) => {
           return (
-            <Card data={data} />
+            <Card data={data} key={data._id} />
           )
         })}
       </div>

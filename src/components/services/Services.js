@@ -98,7 +98,7 @@ function Services({ limit }) {
         <div className="services-grid grid-style">
           {limitArray.map((data) => {
             return (
-              <Card data={data} />
+              <Card data={data} key={data.id} />
             )
           })}
         </div>

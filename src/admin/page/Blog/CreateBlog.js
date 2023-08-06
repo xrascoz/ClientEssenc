@@ -38,7 +38,7 @@ function CreateBlog() {
 
                     <ReactQuill value={content} onChange={setContent} />;
 
-                    <button type="submit" >Create Blog</button>
+                    <button type="submit" className='button' >Create Blog</button>
                 </form>
             </div>
         </div>

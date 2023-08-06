@@ -28,8 +28,8 @@ function Card({ data }) {
             <p className='reviewer-text' data-aos="fade-up" data-aos-duration="1300">
                 {description}
             </p>
-            <span class="shadow-card"></span>
-            <span class="shadow-card2"></span>
+            <span className="shadow-card"></span>
+            <span className="shadow-card2"></span>
         </div>
     )
 }

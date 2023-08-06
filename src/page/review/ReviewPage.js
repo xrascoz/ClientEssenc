@@ -105,7 +105,7 @@ function ReviewPage() {
                         {
                             reviewObj.map((data) => {
                                 return (
-                                    <Card data={data} />
+                                    <Card data={data} key={data.title} />
                                 )
                             })
                         }

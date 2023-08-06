@@ -59,12 +59,12 @@ function Team() {
 
     return (
         <section>
-            <div class="container">
+            <div className="container">
                 <Title titleObject={titleObject} />
-                <div class="team-grid grid-style" >
+                <div className="team-grid grid-style" >
                     {servicesArray.map((data) => {
                         return (
-                            <Card data={data} />
+                            <Card data={data} key={data.id} />
                         )
                     })}
                 </div>

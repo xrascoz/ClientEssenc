@@ -1,14 +1,14 @@
 import React from 'react'
 import iconCheck from "../../assets/imgs/icon/check.svg"
 
-function SuccessAlert() {
+function SuccessAlert({ AlertMessage, toggleAlert }) {
     return (
-        <div class="alert-div-parent alert-success">
-            <div class="icon-alert">
-                <img class="icon" src={iconCheck} alt="bell.svg" />
+        <div className={!toggleAlert ? "alert-div-parent alert-success " : "alert-div-parent alert-success active"}>
+            <div className="icon-alert">
+                <img className="icon" src={iconCheck} alt="bell.svg" />
             </div>
             <p>
-                Success! This alert box indicates a successful or positive action.
+                {AlertMessage}
             </p>
         </div>
     )

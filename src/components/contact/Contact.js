@@ -16,9 +16,6 @@ function Contact() {
     "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
   }
 
-
-
-
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
   const [gmail, setGmail] = useState("")
@@ -27,7 +24,7 @@ function Contact() {
 
   let addMessage = (e) => {
     e.preventDefault()
-    axios.post("http://localhost:9600/api/contact", { name, phone, gmail, message }).then((response) => {
+    axios.post("http://localhost:5000/api/contact", { name, phone, gmail, message }).then((response) => {
       console.log(response.data);
       setName("")
     })

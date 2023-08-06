@@ -44,13 +44,13 @@ function WhyUs() {
       
       ]
     return (
-        <div class="container">
+        <div className="container">
             <Title titleObject={titleObject} />
-            <div class="grid-why-us">
+            <div className="grid-why-us">
                 {
                     whyUsData.map((data) => {
                         return (
-                            <Card whyUsData={data} />
+                            <Card whyUsData={data}  key={data.id}/>
                         )
                     })
                 }

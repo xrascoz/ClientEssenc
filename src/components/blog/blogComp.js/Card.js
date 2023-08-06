@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Card({ data }) {
   let { _id, title, summary, cover, content } = data
-  console.log(cover)
+
 
 
 

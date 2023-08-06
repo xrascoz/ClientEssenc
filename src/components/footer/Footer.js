@@ -22,28 +22,28 @@ function Footer() {
 
                 </div>
                 <p  className='about-p-footer'>Launch your own Software As A Service Application with Flex Solutions. Launch your own Software As A Service Application with Flex Solutions.        </p>
-                <ul class="list-website">
-                    <li class="list-ul-phone">
+                <ul className="list-website">
+                    <li className="list-ul-phone">
                         <a href="/"> Home</a>
                     </li>
-                    <li class="list-ul-phone">
+                    <li className="list-ul-phone">
                         <a href="/our-services"> Our services</a>
                     </li>
-                    <li class="list-ul-phone">
+                    <li className="list-ul-phone">
                         <a href="/review"> Review</a>
                     </li>
-                    <li class="list-ul-phone">
+                    <li className="list-ul-phone">
                         <a href="/blog"> Blog</a>
                     </li>
-                    <li class="list-ul-phone">
+                    <li className="list-ul-phone">
                         <a href="/contact"> Contact</a>
                     </li>
-                    <li class="list-ul-phone">
+                    <li className="list-ul-phone">
                         <a href="/book"> Book now</a>
                     </li>
-                    <li class="li-login">
-                        <a class="a-login" href="/login">
-                            <span class="login-span">Login</span>
+                    <li className="li-login">
+                        <a className="a-login" href="/login">
+                            <span className="login-span">Login</span>
                         </a>
                     </li>
                 </ul>
