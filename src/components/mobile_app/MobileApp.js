@@ -56,7 +56,7 @@ function MobileApp() {
                                         style={{ width: "80px", height: "80px" }}
                                     ></lord-icon>
                                 </div>
-                            </div>
+                            </div> 
                             <h2 data-aos="fade-up" data-aos-duration="1600" className="h1-app-text">
                             Launch your own Software As A Service Application with Flex Solutions.
                             </h2>
