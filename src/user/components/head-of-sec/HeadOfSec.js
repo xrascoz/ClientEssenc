@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
+import {BASE_URL} from "../../../server/server"
+
 function HeadOfSec({ appointmentsLength, appointmentsLengthFalse }) {
 
 
@@ -21,7 +23,7 @@ function HeadOfSec({ appointmentsLength, appointmentsLengthFalse }) {
 
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/appointment").then(response => {
+        axios.get(`${BASE_URL}/api/appointment`).then(response => {
             setAppointmentAvailable(response.data.filter(item => item.booked === false).length);
         });
     }, []);

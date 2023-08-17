@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
+import {BASE_URL} from "../../../server/server"
+
 function Card({ data }) {
   let { _id, title, summary, cover, content } = data
 
@@ -11,7 +13,7 @@ function Card({ data }) {
   return (
     <div className="serv card " data-aos="fade-up" data-aos-duration="1000"  >
       <Link className="a-img" to={`/blog/${_id}`} data-aos="fade-up" data-aos-duration="1100">
-        <img alt="img" loading="lazy" src={`http://localhost:5000/${cover}`} />
+        <img alt="img" loading="lazy" src={`${BASE_URL}/${cover}`} />
       </Link>
       <div className="content-serv content-card">
         <Link to={`/blog/${_id}`}>

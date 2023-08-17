@@ -39,7 +39,7 @@ function Footer() {
                         <a href="/contact"> Contact</a>
                     </li>
                     <li className="list-ul-phone">
-                        <a href="/book"> Book now</a>
+                        <a href="/book-now"> Book now</a>
                     </li>
                     <li className="li-login">
                         <a className="a-login" href="/login">

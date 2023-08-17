@@ -1,14 +1,7 @@
 import React from 'react'
-import profileImg from "../../../assets/imgs/team/photo.jpg"
-import chevronDown from "../../../assets/imgs/icon/chevron-down.svg"
-import logOutIcon from "../../../assets/imgs/icon/arrow-right-from-line.svg"
-import settingIcon from "../../../assets/imgs/icon/gear.svg"
-import toggleImg from "../../../assets/imgs/icon/toggle.svg"
-import dashboard from "../../../assets/imgs/icon/widget.svg"
 
+import toggleImg from "../../../assets/imgs/icon/toggle-dark.svg"
 import UserToggle from '../userToggle/UserToggle'
-
-
 import { Link } from 'react-router-dom'
 
 import { useState } from 'react'
@@ -16,13 +9,22 @@ import { useState } from 'react'
 
 function Header() {
     let [toggle, setToggle] = useState(false)
+
+    let toggleNavPar = () => {
+        let navParSide = document.querySelector(".nav-par-side")
+        navParSide.classList.toggle("active")
+    }
+
+
     return (
         <div className='header-dashboard'>
-        <div className='toggle-div-parent'>
-            <UserToggle />
-            <img src={toggleImg} alt="bars-sort.svg" className="icon toggle" />
+            <div className='toggle-div-parent'>
+                <UserToggle />
+                <div className='toggle-dashboard' onClick={toggleNavPar} >
+                    <img src={toggleImg} alt="bars-sort.svg" className="icon toggle" />
+                </div>
+            </div>
         </div>
-    </div>
     )
 }
 

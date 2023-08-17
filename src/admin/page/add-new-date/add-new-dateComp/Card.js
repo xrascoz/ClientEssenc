@@ -2,21 +2,18 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import ErrorAlert from '../../../../components/alertCopm/ErrorAlert';
-import SuccessAlert from '../../../../components/alertCopm/SuccessAlert'
 
-function Card({ item , setUpdateUi }) {
-    let [successAlertMessage, setSuccessAlertMessage] = useState("")
-    let [toggleAlertSucsses, setToggleAlertSucsses] = useState(false)
+import {BASE_URL} from "../../../../server/server"
 
-    let [errorAlertMessage, setErrorAlertMessage] = useState("")
-    let [toggleAlertError, setToggleAlertError] = useState(false)
+
+function Card({ item , setUpdateUi , setSuccessAlertMessage , setErrorAlertMessage , setToggleAlertSucsses , setToggleAlertError }) {
+   
 
     let { dateHour, dateHourEnd, dateDay, category, available, booked , _id } = item
  
     let deleteDate = (e) => {
         e.preventDefault()
-        axios.delete(`http://localhost:5000/api/appointment/${_id}`).then((response) => {
+        axios.delete(`${BASE_URL}/api/appointment/${_id}`).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)
@@ -26,7 +23,6 @@ function Card({ item , setUpdateUi }) {
 
             } else {
                 setSuccessAlertMessage(response.data.success)
-                console.log(response.data.success)
                 setToggleAlertSucsses(true)
                 setTimeout(() => {
                     setToggleAlertSucsses(false)
@@ -39,11 +35,11 @@ function Card({ item , setUpdateUi }) {
 
     return (
         <div className='card-date' >
-            <ErrorAlert AlertMessage={errorAlertMessage} toggleAlert={toggleAlertError} />
-            <SuccessAlert AlertMessage={successAlertMessage} toggleAlert={toggleAlertSucsses} />
+
             <div className='time-date'  >
                 <h2>{dateHour} , {dateHourEnd}</h2>
                 <p>{dateDay}</p>
+                <h3>{category}</h3>
             </div>
             <div className='buttons-date' >
                 <button className='delete-button' onClick={(e) => deleteDate(e)} >Delete</button>

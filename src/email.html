@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ======================== Style ======================== -->
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            border: none;
+            outline: none;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            font-family: "Inter", sans-serif;
+        }
+
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+         
+            width: 95%;
+            max-width: 630px;
+            background: #f6fbff;
+            padding: 110px 20px;
+            border-radius: 25px;
+            border: #0084ff 1px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .verify-button {
+            padding: 10px;
+            background: #0084ff;
+            border-radius: 5px;
+            width: fit-content;
+            flex-shrink: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            padding: 15px;
+            border-radius: 10px;
+            margin: auto;
+            text-transform: capitalize;
+            cursor: pointer;
+            padding: 15px 40px;
+        }
+
+
+        .social-media {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+      
+
+        .icon-a-card img {
+            height: 24px;
+            filter: invert(1);
+            -webkit-filter: invert(1);
+        }
+
+        .icon-a-card {
+            width: 60px;
+            height: 60px;
+            background-color: #0084ff;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            margin-top: 20px;
+            margin: 0;
+        }
+
+        .p-message {
+            max-width: 620px;
+            margin: auto;
+        }
+
+        a {
+            color: white;
+        }
+
+        .h1-text {
+            text-align: center;
+            font-size: 66px;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding-left: var(--padding);
+            padding-right: var(--padding);
+
+            background-image: linear-gradient(90deg, #007cf0, #5c00ff);
+            position: relative;
+            z-index: 1;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-weight: 500;
+        }
+
+        @media (max-width:700px) {
+            .h1-text {
+                font-size: 36px;
+            }
+        }
+
+        .container::after {
+            content: "";
+            width: 90%;
+            height: 40%;
+            background-color: #0084ff;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%);
+            -webkit-transform: translate(-50%);
+            -moz-transform: translate(-50%);
+            -ms-transform: translate(-50%);
+            -o-transform: translate(-50%);
+
+            z-index: 0;
+            border-radius: 345px 345px 0 0;
+            filter: blur(177px);
+            bottom: -160px;
+        }
+    </style>
+    <!-- ======================== Google Font ======================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+
+            <h1 class="h1-text">Essence of Being</h1>
+
+            <h1>Hello Abdul hai, </h1>
+            <p class="p-message">Thanks for sign uo for Cyber Translate. Use the following link to verify your email:
+            </p>
+
+            <a class="verify-button" href="#" target="_blank" rel="noopener noreferrer">verify</a>
+            <p>Follow and contact US: </p>
+            <div class="social-media">
+                <div class="div-git-hub">
+                    <a href="#" target="_blank" class="icon-a-card">
+                        <img src="asset/img/icon/github.svg" alt="github.svg">
+                    </a>
+
+                </div>
+                <a href="#" target="_blank" class="icon-a-card">
+                    <img src="asset/img/icon/linkedin-in.svg" alt="linkedin.svg">
+                </a>
+                <a href="#" target="_blank" class="icon-a-card">
+                    <img src="asset/img/icon/twitter.svg" alt="twitter.svg">
+                </a>
+                <a href="#" target="_blank" class="icon-a-card">
+                    <img src="asset/img/icon/envelope.svg" alt="envelope.svg">
+                </a>
+            </div>
+            <p>By: Labatrix</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

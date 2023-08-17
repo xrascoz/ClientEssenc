@@ -6,8 +6,9 @@ import DocumentText from "../../../assets/imgs/icon/Document Text.svg"
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import {BASE_URL} from "../../../server/server"
 
-function HeadOfSec({ appointmentsLength, appointmentsLengthFalse }) {
+function HeadOfSec() {
 
     let [adminId, setAdminId] = useState("")
 
@@ -18,10 +19,33 @@ function HeadOfSec({ appointmentsLength, appointmentsLengthFalse }) {
     let [appointmentAvailable, setAppointmentAvailable] = useState("")
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/appointment").then(response => {
+        axios.get(`${BASE_URL}/api/appointment`).then(response => {
             setAppointmentAvailable(response.data.filter(item => item.booked === false).length);
         });
     }, []);
+    
+    let [userAppointments, setUserAppointments] = useState([])
+
+    let appointmentsLength = userAppointments.length
+    
+    const totalAppointments = userAppointments.reduce((acc, user) => acc + user.appointments.length, 0);
+
+    const totalAvailableAppointments = userAppointments.reduce((acc, user) => {
+        return acc + user.appointments.filter(appointment => appointment.available).length;
+    }, 0);
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/api/user`)
+            .then(response => {
+                const usersData = response.data;
+                const filteredUsers = usersData.filter(userAvi => userAvi.appointments && userAvi.appointments.length > 0);
+                setUserAppointments(filteredUsers);
+            })
+            .catch(error => {
+                console.error('حدث خطأ في استرجاع البيانات:', error);
+            });
+    }, []);
+
 
 
     return (
@@ -39,19 +63,19 @@ function HeadOfSec({ appointmentsLength, appointmentsLengthFalse }) {
                         <img src={DocumentText} alt='icon' className='icon' />
                     </div>
                 </Link>
-                <Link to={`/user/appointment-end/${adminId}`} className='card-head' >
+                <Link to={`/admin/appointment-end/${adminId}`} className='card-head' >
                     <p className='p-name'>Appointment End</p>
                     <div className='div-number-card-dashboard-icon'>
                         <div className='number-line' >
                             <h2>
-                                {appointmentsLengthFalse}
+                                {totalAppointments}
                             </h2>
                             <span className='line-span'></span>
                         </div>
                         <img src={ClipboardRemove} alt='icon' className='icon' />
                     </div>
                 </Link>
-                <Link to="/book-now" className='card-head' >
+                <Link to={`/admin/add-new-date/${adminId}`} className='card-head' >
                     <p className='p-name'>New appointment </p>
                     <div className='div-number-card-dashboard-icon'>
                         <div className='number-line' >

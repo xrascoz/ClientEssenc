@@ -1,11 +1,13 @@
 import React from 'react'
-import img from "../../../assets/imgs/icon/circle-info.svg"
-import ClipboardCheck from "../../../assets/imgs/icon/Clipboard Check.svg"
-import ClipboardRemove from "../../../assets/imgs/icon/Clipboard Remove.svg"
-import DocumentText from "../../../assets/imgs/icon/Document Text.svg"
+
 import { NavLink } from 'react-router-dom'
 import logo from "../../../assets/imgs/logo/logo.png"
 import logo2 from "../../../assets/imgs/logo/logo2.png"
+
+
+import calendar from "../../../assets/imgs/icon/calendar.svg"
+import calendarEnd from "../../../assets/imgs/icon/calendarend.svg"
+import calendarNew from "../../../assets/imgs/icon/calendarNew.svg"
 
 import { useEffect, useState } from 'react'
 
@@ -30,23 +32,34 @@ function Navpar() {
             <ul className="nav-sec nav-home-sec">
                 <li>
                     <NavLink aria-label="Rasco-Borma" to={`/user/appointment/${userId}`} >
-                        <img className="svg-icon-header" src={DocumentText}
-                            alt="icon-house-home" className='icon' />
-                        Appointment
+                        <div className='list-icon' >
+                            <img className="svg-icon-header icon" src={calendar}
+                                alt="icon-house-home" />
+                            Appointment
+                        </div>
+
                     </NavLink>
                 </li>
                 <li>
                     <NavLink aria-label="Rasco-Borma" to={`/user/appointment-end/${userId}`} >
-                        <img className="svg-icon-header" src={ClipboardCheck}
-                            alt="icon-house-home" className='icon' />
-                        Appointment End
+                        <div className='list-icon' >
+
+                            <img className="svg-icon-header icon" src={calendarEnd}
+                                alt="icon-house-home" />
+                            Appointment End
+                        </div>
+
                     </NavLink>
                 </li>
                 <li>
                     <NavLink aria-label="Rasco-Borma" to="/book-now" >
-                        <img className="svg-icon-header" src={ClipboardCheck}
-                            alt="icon-house-home" className='icon' />
-                        New appointment
+                        <div className='list-icon' >
+
+                            <img className="svg-icon-header icon" src={calendarNew}
+                                alt="icon-house-home" />
+                            New appointment
+                        </div>
+
                     </NavLink>
                 </li>
 

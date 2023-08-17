@@ -37,6 +37,13 @@ function BookNowComp() {
       time: "90 minutes",
       advantages: ["zoom 30 20 minutes", "five centuries, but", "many centuries", "Ipsum is simply dummy", "Lorem Ipsum has been", "Ipsum is simply dummy", "Lorem Ipsum has been"]
     },
+    {
+      id: "4",
+      name: "Supervision",
+      price: "100",
+      time: "90 minutes",
+      advantages: ["zoom 30 20 minutes", "five centuries, but", "many centuries", "Ipsum is simply dummy", "Lorem Ipsum has been", "Ipsum is simply dummy", "Lorem Ipsum has been"]
+    },
 
   ]
 

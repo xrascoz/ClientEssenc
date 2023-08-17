@@ -4,55 +4,236 @@ import axios from 'axios';
 import PaymentPaypal from './paypal/PaymentPaypal';
 import { useParams } from 'react-router-dom';
 
+import { BASE_URL } from "../../../server/server"
+
+import { useNavigate } from 'react-router-dom';
+
+import NotFound from '../../../page/not-found/NotFound';
+import Page404 from '../../../page/not-found/Page404';
+
+import Title from "../../../components/title/Title"
+import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
+import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
+
+
 function Order() {
+    const navigate = useNavigate();
+    const [appleToNavigate, setAppleToNavigate] = useState(false)
+
+    let [errorAlertMessage, setErrorAlertMessage] = useState("")
+    let [successAlertMessage, setSuccessAlertMessage] = useState("")
+
+    let [toggleAlertError, setToggleAlertError] = useState(false)
+    let [toggleAlertSucsses, setToggleAlertSucsses] = useState(false)
+
+
+
     let nameCatogry = useParams().id.toLowerCase();
-  
 
-    let [price , setPrice] = useState("")
-    
-
+    let [price, setPrice] = useState("")
     const [order, setOrder] = useState([]);
+    let [userId, setUserId] = useState("")
 
-    let getData = (e) => {
-        console.log(e.currentTarget);
+
+
+    let [couponCode, setCouponCode] = useState("")
+    console.log(couponCode)
+
+    let [toggleCoupon, setToggleCoupon] = useState(false)
+
+
+    let toggleCouponFunc = (e) => {
+     e.currentTarget.parentNode.querySelector(".form-coupon").classList.toggle("active") 
     }
 
+
     useEffect(() => {
-        if (nameCatogry == "Initial Assessment".toLowerCase() ) {
+
+        setUserId(localStorage.getItem("userId"))
+        if (nameCatogry == "Initial Assessment".toLowerCase()) {
             setPrice("800")
         } else if (nameCatogry == "Consultation".toLowerCase()) {
             setPrice("0")
-        }else if (nameCatogry == "Psychotherapy Session".toLowerCase()) {
+        } else if (nameCatogry == "Psychotherapy Session".toLowerCase()) {
             setPrice("150")
-        }else if (nameCatogry == "Family Therapy".toLowerCase()) {
+        } else if (nameCatogry == "Family Therapy".toLowerCase()) {
             setPrice("270")
         }
-        axios.get("http://localhost:5000/api/appointment").then(response => {
+        else if (nameCatogry == "Supervision".toLowerCase()) {
+            setPrice("100")
+        }
+        axios.get(`${BASE_URL}/api/appointment`).then(response => {
             setOrder(response.data.filter(item => item.booked === false && item.category.toLowerCase() === nameCatogry));
         });
+
+        if (appleToNavigate) {
+            navigate(`/user/appointment/${userId}`)
+        }
+
     }, [nameCatogry]);
 
+    useEffect(() => {
+
+        if (appleToNavigate) {
+            navigate(`/user/appointment/${userId}`)
+        }
+
+    }, [appleToNavigate]);
+
+
+
+    let getOrderFree = (e) => {
+
+        let dateHour = e.target.getAttribute("dateHour")
+        let dateHourEnd = e.target.getAttribute("dateHourEnd")
+        let dateDay = e.target.getAttribute("dateDay")
+        let category = e.target.getAttribute("category")
+        let booked = e.target.getAttribute("booked")
+        let available = e.target.getAttribute("available")
+        let id = e.target.getAttribute("id")
+
+        axios.post(`${BASE_URL}/api/coupon-user/${userId}`, {
+            "dateHour": dateHour,
+            "dateHourEnd": dateHourEnd,
+            "dateDay": dateDay,
+            "category": category,
+
+            "booked": true,
+            "available": true
+        }).then((response) => {
+            if (response.data.error) {
+                setErrorAlertMessage(response.data.error)
+                setToggleAlertError(true)
+                setTimeout(() => {
+                    setToggleAlertError(false)
+                }, 5000)
+            } else {
+                setSuccessAlertMessage(response.data.success)
+                setToggleAlertSucsses(true)
+                setTimeout(() => {
+                    setToggleAlertSucsses(false)
+                }, 5000)
+                setAppleToNavigate(true)
+                axios.put(`${BASE_URL}/api/appointment/${id}`, {
+                    "booked": true,
+                }).then((response) => {
+                    console.log(response);
+                })
+            }
+        })
+    }
+
+    let getOrderCoupon = (e) => {
+        e.preventDefault()
+        const button = e.target.querySelector('.button');
+        let dateHour = button.getAttribute("dateHour")
+        let dateHourEnd = button.getAttribute("dateHourEnd")
+        let dateDay = button.getAttribute("dateDay")
+        let category = button.getAttribute("category")
+        let booked = button.getAttribute("booked")
+        let available = button.getAttribute("available")
+        let id = button.getAttribute("id")
+
+        axios.post(`${BASE_URL}/api/coupon-user/${userId}`, {
+            "dateHour": dateHour,
+            "dateHourEnd": dateHourEnd,
+            "dateDay": dateDay,
+            "category": nameCatogry,
+            "couponCode": couponCode,
+            "booked": true,
+            "available": true
+        }).then((response) => {
+            if (response.data.error) {
+                setErrorAlertMessage(response.data.error)
+                setToggleAlertError(true)
+                setTimeout(() => {
+                    setToggleAlertError(false)
+                }, 5000)
+            } else {
+                setSuccessAlertMessage(response.data.success)
+                setToggleAlertSucsses(true)
+                setTimeout(() => {
+                    setToggleAlertSucsses(false)
+                }, 5000)
+                axios.put(`${BASE_URL}/api/appointment/${id}`, {
+                    "booked": true,
+                }).then((response) => {
+                    console.log(response);
+                })
+
+                axios.post(`${BASE_URL}/api/update-coupon`, {
+                    "couponCode": couponCode,
+                }).then((response) => {
+                    console.log(response);
+                })
+                setAppleToNavigate(true)
+            }
+        })
+    }
+
+    let titleObject = {
+        "nameTitle": nameCatogry,
+        "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+    }
+    let buttonNotFoundTittle = "choose another Appointment"
+    let pNotFound = "the all of Appointment are booked Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of    "
+    let LinkTo = "/book-now"
+
+
     return (
-        <div className='container'>
-            <div className='card-date-grid card-date-grid-div' >
-                {order.map(item => {
-                    return (
-                        <div className="card-date" key={item.dateHour} key={item._id} >
-                            <div className="time-date">
-                                <div>
-                                    <h2>{item.dateHour}</h2>
-                                   <h2>to</h2> 
-                                <h2>{item.dateHourEnd}</h2>
+        <div>
+            <ErrorAlert AlertMessage={errorAlertMessage} toggleAlert={toggleAlertError} />
+            <SuccessAlert AlertMessage={successAlertMessage} toggleAlert={toggleAlertSucsses} />
+            {order.length > 0 ? (
+                <div className='container'>
+                    <div className='container-page'>
+
+                        <Title titleObject={titleObject} />
+
+                        <div className='card-date-grid card-date-grid-div'>
+
+
+                            {order.map(item => (
+                                <div className="card-date" key={item._id} data-aos="fade-up" data-aos-duration="1200">
+                                    <div className="time-date">
+                                        <div>
+                                            <h2>{item.dateHour}</h2>
+                                            <h2>to</h2>
+                                            <h2>{item.dateHourEnd}</h2>
+                                        </div>
+                                        <p>{item.dateDay}</p>
+                                    </div>
+                                    {
+                                        nameCatogry === "Consultation".toLowerCase() ? (
+                                            <button className='button' onClick={(e) => getOrderFree(e)} dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id}>add it</button>
+                                        ) : (
+                                            <PaymentPaypal dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id} price={price} />
+                                        )
+                                    }
+
+                                    <div className='div-coupon-form' >
+                                        <button className='button' onClick={(e) => toggleCouponFunc(e)} > i have coupon</button>
+                                        <form className={toggleCoupon ? "form-coupon active" : "form-coupon"} onSubmit={(e) => getOrderCoupon(e)} >
+                                            <input type="text" placeholder="enter the coupon" required value={couponCode} onChange={(e) => setCouponCode(e.target.value)} />
+                                            <button className='button' dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id}> add it</button>
+                                        </form>
+
+                                    </div>
                                 </div>
-                                <p>{item.dateDay}</p>
-                            </div>
-                            <PaymentPaypal dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay}  available={item.available} booked={item.booked} category={item.category} id={item._id} price={price} />
+                            ))}
                         </div>
-                    );
-                })}
-            </div>
-        </div>
+
+                    </div>
+                </div>
+            ) : (
+                <div>
+                    <NotFound buttonNotFoundTittle={buttonNotFoundTittle} LinkTo={LinkTo} pNotFound={pNotFound} />
+                </div>
+            )
+            }
+        </div >
     );
+
 }
 
 export default Order;

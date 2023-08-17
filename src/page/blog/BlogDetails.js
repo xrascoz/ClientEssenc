@@ -1,6 +1,7 @@
 import React from 'react'
 import blogImg from "../../assets/imgs/article/blogimg.png"
 import { useParams } from 'react-router-dom'
+import {BASE_URL} from "../../server/server"
 
 import axios from 'axios'
 import { useEffect, useState } from 'react'
@@ -8,12 +9,9 @@ import { useEffect, useState } from 'react'
 function BlogDetails() {
     const { id } = useParams()
     let [dataBlog, setDataBlog] = useState([])
-    console.log(dataBlog)
     let { _id, title, summary, cover, content } = dataBlog
-    console.log(content)
-    console.log(title)
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/blog/${id}`).then((response) => {
+        axios.get(`${BASE_URL}/api/blog/${id}`).then((response) => {
             setDataBlog(response.data)
            
         })
@@ -29,7 +27,7 @@ function BlogDetails() {
                         {title}
                     </h1>
                 </div>
-                <img className='img-blog' src={`http://localhost:5000/${cover}`} />
+                <img className='img-blog' src={`${BASE_URL}/${cover}`} />
                 <div dangerouslySetInnerHTML={{ __html: content }} className='div-content' />
             </div>
         </div>

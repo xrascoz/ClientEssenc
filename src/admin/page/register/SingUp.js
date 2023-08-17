@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
+import {BASE_URL} from "../../../server/server"
 
 
 import PhoneInput from "react-phone-input-2";
@@ -33,8 +34,7 @@ function SingUp() {
 
         if (password == confirmPassword) {
 
-            axios.post("http://localhost:5000/api/register-admin", { fullName, phone, email, password }).then((response) => {
-                console.log(response.data);
+            axios.post(`${BASE_URL}/api/register-admin`, { fullName, phone, email, password }).then((response) => {
                 if (response.data.error) {
                     setErrorAlertMessage(response.data.error)
                     setToggleAlertError(true)
@@ -60,8 +60,7 @@ function SingUp() {
     let [otp, setOtp] = useState("")
     let sendOTPForm = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:5000/api/register-submit-admin", { email, otp }).then((response) => {
-            console.log(response.data);
+        axios.post(`${BASE_URL}/api/register-submit-admin`, { email, otp }).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)
@@ -81,8 +80,7 @@ function SingUp() {
     }
     let resendOtp = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:5000/api/register-resend-otp-admin", { email }).then((response) => {
-            console.log(response.data);
+        axios.post(`${BASE_URL}/api/register-resend-otp-admin`, { email }).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)

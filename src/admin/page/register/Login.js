@@ -7,20 +7,21 @@ import { useNavigate } from 'react-router-dom';
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 
+import {BASE_URL} from "../../../server/server"
+
 function Login() {
     const [cookies, setCookie] = useCookies(['access_token']);
+    const [cookiesUser, setCookieUser ] = useCookies(['access_token_User']);
+
     const navigate = useNavigate();
-    
     let [errorAlertMessage, setErrorAlertMessage] = useState("")
     let [toggleAlertError, setToggleAlertError] = useState(false)
-
     let [email, setEmail] = useState("")
     let [password, setPassword] = useState("")
 
     let sendDataForm = (e) => {
         e.preventDefault()
-
-        axios.post("http://localhost:5000/api/login-admin", { email, password }).then((response) => {
+        axios.post(`${BASE_URL}/api/login-admin`, { email, password }).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)
@@ -28,9 +29,11 @@ function Login() {
                     setToggleAlertError(false)
                 }, 5000)
             } else {
+                localStorage.removeItem("userId")
+                localStorage.removeItem("emailUser")
+                setCookieUser('access_token_User', '');
                 
                 setCookie('access_token', response.data.token)
-                console.log(response)
                 window.localStorage.setItem("adminId", response.data.adminId)
                 navigate(`/admin/appointment/${response.data.adminId}`)
             }

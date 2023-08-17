@@ -7,8 +7,12 @@ import { useNavigate } from 'react-router-dom';
 import ErrorAlert from '../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../components/alertCopm/SuccessAlert'
 
+import {BASE_URL} from "../../server/server"
+
 function Login() {
-    const [cookies, setCookie] = useCookies(['access_token_User']);
+    const [cookiesUser, setCookieUser] = useCookies(['access_token_User']);
+    const [cookies, setCookie] = useCookies(['access_token']);
+    
     const navigate = useNavigate();
     let [errorAlertMessage, setErrorAlertMessage] = useState("")
     let [toggleAlertError, setToggleAlertError] = useState(false)
@@ -17,8 +21,7 @@ function Login() {
 
     let sendDataForm = (e) => {
         e.preventDefault()
-
-        axios.post("http://localhost:5000/api/login-user", { email, password }).then((response) => {
+        axios.post(`${BASE_URL}/api/login-user`, { email, password }).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)
@@ -26,9 +29,11 @@ function Login() {
                     setToggleAlertError(false)
                 }, 5000)
             } else {
+                localStorage.removeItem("adminId")
+                localStorage.removeItem("emailUser")
+                setCookie('access_token', '');
                 
-                setCookie('access_token_User', response.data.token)
-                console.log(response)
+                setCookieUser('access_token_User', response.data.token)
                 window.localStorage.setItem("userId", response.data.userId)
                 navigate(`/user/appointment/${response.data.userId}`)
             }

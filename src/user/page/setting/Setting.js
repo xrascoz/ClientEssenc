@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie"
 import axios from 'axios'
 
-import profileImg from "../../../assets/imgs/team/photo.jpg"
+import profileImg from "../../../assets/imgs/proFile/imgDefult.svg"
 import uploadImg from "../../../assets/imgs/icon/arrow-up-from-line.svg"
 
 import PhoneInput from "react-phone-input-2";
@@ -17,6 +17,8 @@ import { useLocation } from 'react-router-dom';
 
 import SuccessAlert from "../../../components/alertCopm/SuccessAlert"
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
+
+import {BASE_URL} from "../../../server/server"
 
 
 function Setting() {
@@ -49,7 +51,7 @@ function Setting() {
 
     useEffect(() => {
         let userId = localStorage.getItem("userId")
-        axios.get(`http://localhost:5000/api/user/${userId}`).then(response => {
+        axios.get(`${BASE_URL}/api/user/${userId}`).then(response => {
             setUser(response.data);
             setAppointments(response.data.appointments.filter(item => item.booked === true && item.available === true))
             setAppointmentsFalse(response.data.appointments.filter(item => item.booked === true && item.available === false))
@@ -62,12 +64,11 @@ function Setting() {
     let updateUserData = (e) => {
         e.preventDefault()
         let userId = localStorage.getItem("userId")
-        console.log(userId)
         const formData = new FormData()
         formData.append('image', imgFile);
         formData.append('phone', phoneState);
         formData.append('fullName', fullNameState);
-        axios.put(`http://localhost:5000/api/user-update/${userId}`, formData).then((response) => {
+        axios.put(`${BASE_URL}/api/user-update/${userId}`, formData).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)
@@ -106,7 +107,7 @@ function Setting() {
                                 </label>
                                 <div className="avatar-div-img-change-img">
                                     <div className="avatar-div">
-                                        <img src={img ? `http://localhost:5000/${img}` : profileImg} alt="avatar img"
+                                        <img src={img ? `${BASE_URL}/${img}` : profileImg} alt="avatar img"
                                             className="avatar-img" />
                                     </div>
                                 </div>

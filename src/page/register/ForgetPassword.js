@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import ErrorAlert from '../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../components/alertCopm/SuccessAlert'
 
+import {BASE_URL} from "../../server/server"
+
 function ForgetPassword() {
     const navigate = useNavigate();
     let [errorAlertMessage, setErrorAlertMessage] = useState("")
@@ -19,8 +21,7 @@ function ForgetPassword() {
 
     let sendDataForm = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:5000/api/send-otp-user", { email }).then((response) => {
-            console.log(response)
+        axios.post(`${BASE_URL}/api/send-otp-user`, { email }).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)

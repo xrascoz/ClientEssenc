@@ -1,6 +1,7 @@
 import React from 'react'
 import star from "../../../assets/imgs/icon/star.svg"
-import imgReview from "../../../assets/imgs/review/photo.jpg"
+import imgReview from "../../../assets/imgs/proFile/imgDefult.svg"
+
 function Card({ data }) {
 
     let { title, description } = data

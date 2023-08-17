@@ -5,6 +5,18 @@ import brainImg from "../../assets/imgs/icon/brain.svg"
 import brain2Img from "../../assets/imgs/icon/brain2.svg"
 import vectorImg from "../../assets/imgs/icon/vector.svg"
 import playImg from "../../assets/imgs/icon/play.svg"
+
+import company1 from "../../assets/imgs/company/1.svg"
+import company2 from "../../assets/imgs/company/2.svg"
+import company3 from "../../assets/imgs/company/3.svg"
+import company4 from "../../assets/imgs/company/4.svg"
+import company5 from "../../assets/imgs/company/5.svg"
+import company6 from "../../assets/imgs/company/6.svg"
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from "swiper";
+
+
 function HeroSection() {
     return (
         <main className="main-sec">
@@ -43,13 +55,34 @@ function HeroSection() {
                                 <img src={vectorImg} alt="anime img" data-aos="fade-up" data-aos-duration="1250" />
                             </div>
 
-                            <img alt="phone app" className="hero-img" src={heroImg2} 
-                                data-aos="fade-up" data-aos-duration="1000" 
-                                />
+                            <img alt="phone app" className="hero-img" src={heroImg2}
+                                data-aos="fade-up" data-aos-duration="1000"
+                            />
                         </div>
                     </div>
                 </div>
+                <div class="company-img-partner" data-aos="fade-up" data-aos-duration="1400">
+
+                    <div name-company="nana" className='company-div-img'> <img src={company1} alt="company-img" /></div>
+                    <div name-company="unifonic" className='company-div-img'> <img src={company2} alt="company-img" /></div>
+                    <div name-company="robustagroup" className='company-div-img'> <img src={company3} alt="company-img" /></div>
+                    <div name-company="instabug" className='company-div-img'> <img src={company4} alt="company-img" /></div>
+
+
+                    <div name-company="united" className='company-div-img'> <img src={company6} alt="company-img" /></div>
+
+                </div>
+
             </div>
+
+
+
+
+
+
+
+
+
 
         </main>
     )

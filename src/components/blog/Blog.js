@@ -5,6 +5,8 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
+import {BASE_URL} from "../../server/server"
+
 import image from "../../assets/imgs/article/image.webp"
 
 
@@ -23,12 +25,12 @@ function Blog() {
 
 
     if (location == "/") {
-      axios.get("http://localhost:5000/api/blog-home").then((response) => {
+      axios.get(`${BASE_URL}/api/blog-home`).then((response) => {
         setDataBlog(response.data)
       })
 
     } else {
-      axios.get("http://localhost:5000/api/blog").then((response) => {
+      axios.get(`${BASE_URL}/api/blog`).then((response) => {
         setDataBlog(response.data)
       })
     }

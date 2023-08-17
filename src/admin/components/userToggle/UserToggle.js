@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie"
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
-import profileImg from "../../../assets/imgs/team/photo.jpg"
+import profileImg from "../../../assets/imgs/proFile/imgDefult.svg"
 import chevronDown from "../../../assets/imgs/icon/chevron-down.svg"
 import logOutIcon from "../../../assets/imgs/icon/arrow-right-from-line.svg"
 import settingIcon from "../../../assets/imgs/icon/gear.svg"
 import dashboard from "../../../assets/imgs/icon/widget.svg"
+import {BASE_URL} from "../../../server/server"
 
 
 
@@ -25,7 +26,7 @@ function UserToggle() {
     let { fullName, img, _id } = admin
     useEffect(() => {
         let adminId = localStorage.getItem("adminId")
-        axios.get(`http://localhost:5000/api/admin/${adminId}`).then(response => {
+        axios.get(`${BASE_URL}/api/admin/${adminId}`).then(response => {
             setAdmin(response.data);
         })
     }, [])
@@ -34,10 +35,11 @@ function UserToggle() {
     let logOutFunction = (e) => {
         e.preventDefault()
         localStorage.removeItem("adminId")
+        localStorage.removeItem("userId")
         localStorage.removeItem("emailUser")
         setCookie('access_token', '');
         setCookieUser('access_token_User', '');
-        navigate("/")
+        // navigate("/")
     }
 
 
@@ -46,7 +48,7 @@ function UserToggle() {
         <div className="account-parent " onClick={() => setToggle(!toggle)}>
             <div className="account-name-photo">
                 <div className="img-account">
-                    <img src={img ? `http://localhost:5000/${img}` : profileImg} alt="profileImg" />
+                    <img src={img ? `${BASE_URL}/${img}` : profileImg} alt="profileImg" />
                 </div>
                 <div className="name-username">
                     <b className="name-user">{fullName}</b>

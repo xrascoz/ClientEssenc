@@ -12,6 +12,8 @@ import axios from 'axios';
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 
+import {BASE_URL} from "../../../server/server"
+
 function AddNewDate() {
 
 
@@ -60,12 +62,9 @@ function AddNewDate() {
 
     const [order, setOrder] = useState([]);
    
-
     useEffect(() => {
-        axios.get("http://localhost:5000/api/appointment").then(response => {
-            console.log(response.data);
+        axios.get(`${BASE_URL}/api/appointment`).then(response => {
             setOrder(response.data.filter(item => item.booked == false && item.available == true));
-            // setOrder(response.data.filter(item => item.booked === false && item.category.toLowerCase() === nameCatogry));
             
         });
     }, [updateUi]);
@@ -73,7 +72,7 @@ function AddNewDate() {
 
     let addDate = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:5000/api/appointment", { dateHour, dateHourEnd, dateDay, category }).then((response) => {
+        axios.post(`${BASE_URL}/api/appointment`, { dateHour, dateHourEnd, dateDay, category }).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)
@@ -91,6 +90,26 @@ function AddNewDate() {
             }
         })
     }
+
+
+    
+    let [userAppointments, setUserAppointments] = useState([])
+
+
+
+
+    useEffect(() => {
+        // استرجاع بيانات المستخدمين من API
+        axios.get(`${BASE_URL}/api/user`)
+            .then(response => {
+                const usersData = response.data;
+                const filteredUsers = usersData.filter(userAvi => userAvi.appointments && userAvi.appointments.length > 0);
+                setUserAppointments(filteredUsers);
+            })
+            .catch(error => {
+                console.error('حدث خطأ في استرجاع البيانات:', error);
+            });
+    }, [updateUi]);
 
 
 
@@ -122,11 +141,12 @@ function AddNewDate() {
                         </div>
 
                         <p className='label-p'>category date</p>
-                        <select name="cars" id="cars" value={category} onChange={(e) => setCategory(e.target.value)}>
+                        <select name="appointment" id="appointment" value={category} onChange={(e) => setCategory(e.target.value)}>
                             <option value="Consultation">Consultation</option>
                             <option value="Initial Assessment">Initial Assessment</option>
                             <option value="Psychotherapy Session">Psychotherapy Session</option>
                             <option value="Family Therapy">Family Therapy</option>
+                            <option value="Family Therapy">Supervision</option>
                         </select>
                         <button className="button-form " >add new Date</button>
                     </form>
@@ -135,14 +155,22 @@ function AddNewDate() {
             </div>
             <div className='content-dashboard' >
                 <Header />
-                <HeadOfSec />
-                <div className='grid-card-dashboard card-date-grid' >
+                <HeadOfSec  />
+                <div className='card-date-grid' >
                     <div className='add-new-date' onClick={toggleCardPop} >
                         <img src={plusIcon} alt='img' />
                     </div>
                     {order.map(item => {
                         return (
-                            <Card item={item} setUpdateUi={setUpdateUi} key={item._id} />
+                            <Card item={item} setUpdateUi={setUpdateUi} key={item._id}
+                            
+                            setToggleAlertError={setToggleAlertError}
+                            setErrorAlertMessage={setErrorAlertMessage}
+                            setToggleAlertSucsses={setToggleAlertSucsses}
+                            setSuccessAlertMessage={setSuccessAlertMessage}
+
+
+                            />
                         );
                     })}
 

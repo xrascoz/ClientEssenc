@@ -5,7 +5,6 @@ import checkbox from "../../../assets/imgs/icon/Checkbox.svg"
 
 
 function Card({ data }) {
-    console.log(data)
 
     let { name, price, time, advantages } = data
 

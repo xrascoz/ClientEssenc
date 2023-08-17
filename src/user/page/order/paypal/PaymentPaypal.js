@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
+import {BASE_URL} from "../../../../server/server"
+
 function PaymentPaypal({ dateHour, dateHourEnd, dateDay, price, category, booked, available, id }) {
     const navigate = useNavigate();
 
@@ -27,24 +29,26 @@ function PaymentPaypal({ dateHour, dateHourEnd, dateDay, price, category, booked
             },
             onApprove: async (data, actions) => {
                 const order = await actions.order.capture()
-                console.log(order);
-                axios.post(`http://localhost:5000/api/appointment-user/${userId}`, {
+
+                axios.post(`${BASE_URL}/api/appointment-user/${userId}`, {
                     "dateHour": dateHour,
                     "dateHourEnd": dateHourEnd,
                     "dateDay": dateDay,
                     "category": category,
                     "booked": true,
-                    "available": available
+                    "available": available,
+                    "price": price
                 }).then((response) => {
                     console.log(response);
                    
                 })
-                axios.put(`http://localhost:5000/api/appointment/${id}`, {
+                axios.put(`${BASE_URL}/api/appointment/${id}`, {
                     "booked": true,
                 }).then((response) => {
                     console.log(response);
                 })
                 navigate(`/user/appointment/${userId}`)
+                
             },
             onError: (err) => {
                 console.log(err);
@@ -54,7 +58,7 @@ function PaymentPaypal({ dateHour, dateHourEnd, dateDay, price, category, booked
 
     return (
         <div>
-            <div ref={paypal}  ></div>
+            <div ref={paypal}></div>
         </div>
     )
 }

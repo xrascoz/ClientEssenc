@@ -8,12 +8,14 @@ import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie"
 import axios from 'axios'
 
-import profileImg from "../../../assets/imgs/team/photo.jpg"
+import profileImg from "../../../assets/imgs/proFile/imgDefult.svg"
 import uploadImg from "../../../assets/imgs/icon/arrow-up-from-line.svg"
 
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 import { useLocation } from 'react-router-dom';
+
+import { BASE_URL } from "../../../server/server"
 
 import SuccessAlert from "../../../components/alertCopm/SuccessAlert"
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
@@ -49,9 +51,9 @@ function Setting() {
 
     useEffect(() => {
         let adminId = localStorage.getItem("adminId")
-        axios.get(`http://localhost:5000/api/admin/${adminId}`).then(response => {
+        axios.get(`${BASE_URL}/api/admin/${adminId}`).then(response => {
             setUser(response.data);
-    
+
         })
         setFullName(fullName)
         setPhone(phone)
@@ -61,12 +63,11 @@ function Setting() {
     let updateUserData = (e) => {
         e.preventDefault()
         let adminId = localStorage.getItem("adminId")
-        console.log(adminId)
         const formData = new FormData()
         formData.append('image', imgFile);
         formData.append('phone', phoneState);
         formData.append('fullName', fullNameState);
-        axios.put(`http://localhost:5000/api/update-data-admin/${adminId}`, formData).then((response) => {
+        axios.put(`${BASE_URL}/api/update-data-admin/${adminId}`, formData).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)
@@ -103,7 +104,7 @@ function Setting() {
                                 </label>
                                 <div className="avatar-div-img-change-img">
                                     <div className="avatar-div">
-                                        <img src={img ? `http://localhost:5000/${img}` : profileImg} alt="avatar img"
+                                        <img src={img ? `${BASE_URL}/${img}` : profileImg} alt="avatar img"
                                             className="avatar-img" />
                                     </div>
                                 </div>

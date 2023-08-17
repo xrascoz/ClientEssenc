@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import ErrorAlert from '../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../components/alertCopm/SuccessAlert'
 
+import {BASE_URL} from "../../server/server"
+
 
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
@@ -21,10 +23,11 @@ function SingUp() {
     let [togglePasswordMatch, setTogglePasswordMatch] = useState(false)
 
     let [errorAlertMessage, setErrorAlertMessage] = useState("")
-
     let [successAlertMessage, setSuccessAlertMessage] = useState("")
+
     let [toggleAlertError, setToggleAlertError] = useState(false)
     let [toggleAlertSucsses, setToggleAlertSucsses] = useState(false)
+    
     const navigate = useNavigate();
    
 
@@ -33,8 +36,7 @@ function SingUp() {
 
         if (password == confirmPassword) {
 
-            axios.post("http://localhost:5000/api/register-user", { fullName, phone, email, password }).then((response) => {
-                console.log(response.data);
+            axios.post(`${BASE_URL}/api/register-user`, { fullName, phone, email, password }).then((response) => {
                 if (response.data.error) {
                     setErrorAlertMessage(response.data.error)
                     setToggleAlertError(true)
@@ -60,8 +62,7 @@ function SingUp() {
     let [otp, setOtp] = useState("")
     let sendOTPForm = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:5000/api/register-submit", { email, otp }).then((response) => {
-            console.log(response.data);
+        axios.post(`${BASE_URL}/api/register-submit`, { email, otp }).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)
@@ -81,8 +82,7 @@ function SingUp() {
     }
     let resendOtp = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:5000/api/register-resend-otp", { email }).then((response) => {
-            console.log(response.data);
+        axios.post(`${BASE_URL}/api/register-resend-otp`, { email }).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import ErrorAlert from '../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../components/alertCopm/SuccessAlert'
 
-
+import {BASE_URL} from "../../server/server"
 
 function SubmitOtpUser() {
     const navigate = useNavigate();
@@ -19,7 +19,6 @@ function SubmitOtpUser() {
     
     let [email, setEmail] = useState("")
     let [password, setPassword] = useState("")
-    console.log(email)
     let [otp, setOtp] = useState("")
 
     let [toggleForm, setToggleForm] = useState(false)
@@ -29,8 +28,7 @@ function SubmitOtpUser() {
     }, [])
     let sendDataForm = (e) => {
         e.preventDefault()
-        axios.put("http://localhost:5000/api/submit-otp-user", { email, otp , password }).then((response) => {
-            console.log(response.data)
+        axios.put(`${BASE_URL}/api/submit-otp-user`, { email, otp , password }).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)
@@ -53,8 +51,7 @@ function SubmitOtpUser() {
     }
     let reSendOTP = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:5000/api/register-resend-otp", { email  }).then((response) => {
-            console.log(response.data)
+        axios.post(`${BASE_URL}/api/register-resend-otp`, { email  }).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)

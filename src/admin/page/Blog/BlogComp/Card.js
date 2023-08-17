@@ -11,22 +11,19 @@ import { useState, useEffect } from 'react';
 import ErrorAlert from '../../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../../components/alertCopm/SuccessAlert'
 
+import {BASE_URL} from "../../../../server/server"
 
 
 
-function Card({ data }) {
+function Card({ data , setUpdateUi  ,setErrorAlertMessage , setSuccessAlertMessage , setToggleAlertError , setToggleAlertSucsses }) {
   let { _id, title, summary, cover, content } = data
 
 
-  let [successAlertMessage, setSuccessAlertMessage] = useState("")
-  let [toggleAlertSucsses, setToggleAlertSucsses] = useState(false)
-
-  let [errorAlertMessage, setErrorAlertMessage] = useState("")
-  let [toggleAlertError, setToggleAlertError] = useState(false)
+ 
 
   let DeleteBlog = (e) => {
     e.preventDefault()
-    axios.delete(`http://localhost:5000/api/blog/${_id}`).then((response) => {
+    axios.delete(`${BASE_URL}/api/blog/${_id}`).then((response) => {
       if (response.data.error) {
         setErrorAlertMessage(response.data.error)
         setToggleAlertError(true)
@@ -40,16 +37,16 @@ function Card({ data }) {
         setTimeout(() => {
           setToggleAlertSucsses(false)
         }, 5000)
+        setUpdateUi(prev => (!prev))
       }
     })
   }
 
   return (
     <div className="serv card "   >
-      <ErrorAlert AlertMessage={errorAlertMessage} toggleAlert={toggleAlertError} />
-      <SuccessAlert AlertMessage={successAlertMessage} toggleAlert={toggleAlertSucsses} />
+
       <Link className="a-img" to={`/blog/${_id}`} >
-        <img alt="img" loading="lazy" src={`http://localhost:5000/${cover}`} />
+        <img alt="img" loading="lazy" src={`${BASE_URL}/${cover}`} />
       </Link>
       <div className="content-serv content-card">
         <Link to={`/blog/${_id}`}>

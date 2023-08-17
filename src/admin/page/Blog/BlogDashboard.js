@@ -2,23 +2,23 @@ import React from 'react'
 import Card from './BlogComp/Card'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-
-function BlogDashboard() {
-
-
- 
+import {BASE_URL} from "../../../server/server"
 
 
+function BlogDashboard({updateUi , setUpdateUi , setErrorAlertMessage , setSuccessAlertMessage , setToggleAlertError , setToggleAlertSucsses}) {
+
+  
+  
 
   let [dataBlog, setDataBlog] = useState([])
-  console.log(dataBlog)
+
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/blog").then((response) => {
+    axios.get(`${BASE_URL}/api/blog`).then((response) => {
       setDataBlog(response.data)
     })
 
-  }, [])
+  }, [updateUi])
 
 
   return (
@@ -26,7 +26,7 @@ function BlogDashboard() {
       <div className="blog-grid grid-style">
         {dataBlog.map((data) => {
           return (
-            <Card data={data} key={data._id} />
+            <Card data={data} key={data._id} setUpdateUi={setUpdateUi}  setSuccessAlertMessage={setSuccessAlertMessage} setErrorAlertMessage={setErrorAlertMessage} setToggleAlertError={setToggleAlertError} setToggleAlertSucsses={setToggleAlertSucsses} />
           )
         })}
       </div>

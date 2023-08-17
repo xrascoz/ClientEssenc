@@ -1,21 +1,78 @@
 import React from 'react'
 import img from "../../../assets/imgs/icon/circle-info.svg"
-import ClipboardCheck from "../../../assets/imgs/icon/Clipboard Check.svg"
-import ClipboardRemove from "../../../assets/imgs/icon/Clipboard Remove.svg"
-import DocumentText from "../../../assets/imgs/icon/Document Text.svg"
+
+
+import calendar from "../../../assets/imgs/icon/calendar.svg"
+import calendarEnd from "../../../assets/imgs/icon/calendarend.svg"
+import calendarNew from "../../../assets/imgs/icon/calendarNew.svg"
+import blogIcon from "../../../assets/imgs/icon/blog.svg"
+import chatIcon from "../../../assets/imgs/icon/chat.svg"
+import couponIcon from "../../../assets/imgs/icon/coupon.svg"
+
+
+
+
 import { NavLink } from 'react-router-dom'
 import logo from "../../../assets/imgs/logo/logo.png"
 import logo2 from "../../../assets/imgs/logo/logo2.png"
 
 import { useEffect, useState } from 'react'
+import { BASE_URL } from "../../../server/server"
+import axios from 'axios'
 
 function Navpar() {
-    
-    let [adminId, setAdminId] = useState("")
 
+
+    let [adminId, setAdminId] = useState("")
     useEffect(() => {
         setAdminId(localStorage.getItem("adminId"))
     }, [])
+    let [appointmentAvailable, setAppointmentAvailable] = useState("")
+    useEffect(() => {
+        axios.get(`${BASE_URL}/api/appointment`).then(response => {
+            setAppointmentAvailable(response.data.filter(item => item.booked === false).length);
+        });
+    }, []);
+    
+    let [userAppointments, setUserAppointments] = useState([])
+    let appointmentsLength = userAppointments.length
+
+    const totalAppointments = userAppointments.reduce((acc, user) => acc + user.appointments.length, 0);
+    const totalAvailableAppointments = userAppointments.reduce((acc, user) => {
+        return acc + user.appointments.filter(appointment => appointment.available).length;
+    }, 0);
+
+    useEffect(() => {
+        axios.get(`${BASE_URL}/api/user`)
+            .then(response => {
+                const usersData = response.data;
+                const filteredUsers = usersData.filter(userAvi => userAvi.appointments && userAvi.appointments.length > 0);
+                setUserAppointments(filteredUsers);
+            })
+            .catch(error => {
+                console.error('حدث خطأ في استرجاع البيانات:', error);
+            });
+    }, []);
+
+
+
+    let [dataBlog, setDataBlog] = useState([])
+    useEffect(() => {
+        axios.get(`${BASE_URL}/api/blog`).then((response) => {
+            setDataBlog(response.data.length)
+        })
+    }, [])
+
+
+    let [dataMessage, setDataMessage] = useState([])
+    useEffect(() => {
+        axios.get(`${BASE_URL}/api/contact`).then((response) => {
+            setDataMessage(response.data.length);
+        })
+    }, [])
+
+
+    
 
     return (
         <div className="nav-par-side">
@@ -25,37 +82,63 @@ function Navpar() {
             <ul className="nav-sec nav-home-sec">
                 <li>
                     <NavLink aria-label="Rasco-Borma" to={`/admin/appointment/${adminId}`} >
-                        <img className="svg-icon-header" src={DocumentText}
-                            alt="icon-house-home" className='icon' />
-                        Appointment
+                        <div className='list-icon' >
+                            <img className="svg-icon-header icon" src={calendar}
+                                alt="icon-house-home" />
+                            Appointment
+                        </div>
+                        <span>{appointmentsLength}</span>
                     </NavLink>
                 </li>
                 <li>
                     <NavLink aria-label="Rasco-Borma" to={`/admin/appointment-end/${adminId}`} >
-                        <img className="svg-icon-header" src={ClipboardCheck}
-                            alt="icon-house-home" className='icon' />
-                        Appointment End
+                        <div className='list-icon' >
+                            <img className="svg-icon-header icon" src={calendarEnd}
+                                alt="icon-house-home" />
+                            Appointment End
+                        </div>
+                        <span>{totalAppointments}</span>
+
                     </NavLink>
                 </li>
                 <li>
                     <NavLink aria-label="Rasco-Borma" to={`/admin/add-new-date/${adminId}`} >
-                        <img className="svg-icon-header" src={ClipboardCheck}
-                            alt="icon-house-home" className='icon' />
-                        New appointment
+                        <div className='list-icon' >
+                            <img className="svg-icon-header icon" src={calendarNew}
+                                alt="icon-house-home" />
+                            New appointment
+                        </div>
+                        <span>{appointmentAvailable}</span>
                     </NavLink>
                 </li>
                 <li>
                     <NavLink aria-label="Rasco-Borma" to={`/admin/add-new-blog/${adminId}`} >
-                        <img className="svg-icon-header" src={ClipboardCheck}
-                            alt="icon-house-home" className='icon' />
-                        Add new blog
+                        <div className='list-icon' >
+                            <img className="svg-icon-header icon" src={blogIcon}
+                                alt="icon-house-home" />
+                            Add new blog
+                        </div>
+                        <span>{dataBlog}</span>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink aria-label="Rasco-Borma" to={`/admin/admin/message/${adminId}`} >
-                        <img className="svg-icon-header" src={ClipboardCheck}
-                            alt="icon-house-home" className='icon' />
-                        message
+                    <NavLink aria-label="Rasco-Borma" to={`/admin/message/${adminId}`} >
+                        <div className='list-icon' >
+                            <img className="svg-icon-header icon" src={chatIcon}
+                                alt="icon-house-home" />
+                            message
+                        </div>
+                        <span>{dataMessage}</span>
+
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink aria-label="Rasco-Borma" to={`/admin/coupon/${adminId}`} >
+                        <div className='list-icon' >
+                            <img className="svg-icon-header icon" src={couponIcon}
+                                alt="icon-house-home" />
+                            coupon
+                        </div>
                     </NavLink>
                 </li>
             </ul>
