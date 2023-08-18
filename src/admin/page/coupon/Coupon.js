@@ -102,19 +102,24 @@ function Coupon() {
     }
 
     let [updateUi, setUpdateUi] = useState(false)
-    let [userAppointments, setUserAppointments] = useState([])
+    let [userAppointmentsCoupon, setUserAppointmentsCoupon] = useState([])
     useEffect(() => {
         axios.get(`${BASE_URL}/api/company`)
             .then(response => {
                 const usersData = response.data;
                 const filteredUsers = usersData.filter(userAvi => userAvi.availableAppointment.length > 0);
-                setUserAppointments(filteredUsers);
+                setUserAppointmentsCoupon(filteredUsers);
             })
 
             .catch(error => {
                 console.error('حدث خطأ في استرجاع البيانات:', error);
             });
     }, [updateUi]);
+
+
+
+
+
     return (
         <div className='grid-dashboard grid-company'>
             <ErrorAlert AlertMessage={errorAlertMessage} toggleAlert={toggleAlertError} />
@@ -141,9 +146,9 @@ function Coupon() {
                             <option value="Initial Assessment">Initial Assessment</option>
                             <option value="Psychotherapy Session">Psychotherapy Session</option>
                             <option value="Family Therapy">Family Therapy</option>
-                            <option value="Family Therapy">Supervision</option>
+                            <option value="Supervision">Supervision</option>
                         </select>
-                        <button className="button-form" >send message</button>
+                        <button className="button-form" >New Company Coupon</button>
                     </form>
                 </div>
             </div>
@@ -167,7 +172,7 @@ function Coupon() {
                             <option value="Family Therapy">Family Therapy</option>
                             <option value="Family Therapy">Supervision</option>
                         </select>
-                        <button className="button-form" >send message</button>
+                        <button className="button-form" >New Coupon</button>
                     </form>
                 </div>
             </div>
@@ -182,7 +187,7 @@ function Coupon() {
                         <img src={plusIcon} alt='img' />
                     </div>
                     
-                    {userAppointments.map(user => (
+                    {userAppointmentsCoupon.map(user => (
                         <Card company={user}
                             setUpdateUi={setUpdateUi}
                             key={user._id}

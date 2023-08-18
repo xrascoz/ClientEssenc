@@ -133,11 +133,11 @@ function AddNewDate() {
                         <input type="date" required onChange={(e) => setDateDay(e.target.value)} value={dateDay} />
                         <p className='label-p'>start hour date </p>
                         <div className='input-time' >
-                            <p className='value-time'> {dateHour}</p>    <input type="time" id="appt" name="appt" min="09:00" max="18:00" required onChange={handleStartTimeChange} ></input>
+                            <p className='value-time'> {dateHour}</p>  <input type="time" id="appt" name="appt"   onChange={handleStartTimeChange} ></input>
                         </div>
                         <p className='label-p'>end hour date</p>
                         <div className='input-time' >
-                            <p className='value-time'> {dateHourEnd}</p>   <input type="time" id="appt" name="appt" min="09:00" max="18:00" required onChange={handleEndTimeChange} ></input>
+                            <p className='value-time'> {dateHourEnd}</p>   <input type="time" id="appt" name="appt"    onChange={handleEndTimeChange} ></input>
                         </div>
 
                         <p className='label-p'>category date</p>
@@ -146,7 +146,7 @@ function AddNewDate() {
                             <option value="Initial Assessment">Initial Assessment</option>
                             <option value="Psychotherapy Session">Psychotherapy Session</option>
                             <option value="Family Therapy">Family Therapy</option>
-                            <option value="Family Therapy">Supervision</option>
+                            <option value="Supervision">Supervision</option>
                         </select>
                         <button className="button-form " >add new Date</button>
                     </form>

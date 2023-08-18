@@ -58,20 +58,20 @@ function Contact() {
           <form onSubmit={(e) => addMessage(e)} >
             <div className='name-phone-div' >
               <div className='div-img-input'>
-                <img src={userSvg} />
+                <img src={userSvg} alt='icon-contact' />
                 <input type="text" placeholder="name" required value={name} onChange={(e) => setName(e.target.value)} />
               </div>
               <div className='div-img-input'>
-                <img src={phoneSvg} />
+                <img src={phoneSvg} alt='icon-contact' />
                 <PhoneInput country={'ca'} enableSearch={true} required value={phone} onChange={(phone) => setPhone(phone)} />
               </div>
             </div>
             <div className='div-img-input'>
-              <img src={emailSvg} />
+              <img src={emailSvg} alt='icon-contact' />
               <input type="email" placeholder="email" required value={gmail} onChange={(e) => setGmail(e.target.value)} />
             </div>
             <div className='div-img-input textarea-div'>
-              <img src={messageSvg} />
+              <img src={messageSvg} alt='icon-contact' />
               <textarea placeholder="your message" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
             </div>
             <button type="submit">Send</button>

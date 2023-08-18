@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 function BlogDetails() {
     const { id } = useParams()
     let [dataBlog, setDataBlog] = useState([])
-    let { _id, title, summary, cover, content } = dataBlog
+    let { _id, title, cover, content } = dataBlog
     useEffect(() => {
         axios.get(`${BASE_URL}/api/blog/${id}`).then((response) => {
             setDataBlog(response.data)
@@ -22,7 +22,6 @@ function BlogDetails() {
 
             <div className='blog-article' >
                 <div className='date-title'>
-                    
                     <h1>
                         {title}
                     </h1>

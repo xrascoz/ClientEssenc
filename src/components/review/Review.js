@@ -1,7 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from "swiper";
-import { useState, useEffect, useRef } from 'react';
+
 
 
 import 'swiper/css';
@@ -80,7 +79,7 @@ function Review() {
                             delay: 2500,
                             disableOnInteraction: false,
                         }}
-                        // modules={[Autoplay]}
+                      
                         breakpoints={{
                             50: {
                                 slidesPerView: 3,
@@ -98,7 +97,6 @@ function Review() {
                     >
                         {
                             reviewObj.map((data) => {
-
                                 return (
                                     <SwiperSlide key={data.id} >
                                         <Card data={data} />
@@ -106,8 +104,6 @@ function Review() {
                                 )
                             })
                         }
-
-
                     </Swiper>
                 </div>
             </div>

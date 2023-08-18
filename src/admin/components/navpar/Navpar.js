@@ -1,28 +1,17 @@
 import React from 'react'
-import img from "../../../assets/imgs/icon/circle-info.svg"
-
-
 import calendar from "../../../assets/imgs/icon/calendar.svg"
 import calendarEnd from "../../../assets/imgs/icon/calendarend.svg"
 import calendarNew from "../../../assets/imgs/icon/calendarNew.svg"
 import blogIcon from "../../../assets/imgs/icon/blog.svg"
 import chatIcon from "../../../assets/imgs/icon/chat.svg"
 import couponIcon from "../../../assets/imgs/icon/coupon.svg"
-
-
-
-
 import { NavLink } from 'react-router-dom'
-import logo from "../../../assets/imgs/logo/logo.png"
 import logo2 from "../../../assets/imgs/logo/logo2.png"
-
 import { useEffect, useState } from 'react'
 import { BASE_URL } from "../../../server/server"
 import axios from 'axios'
 
 function Navpar() {
-
-
     let [adminId, setAdminId] = useState("")
     useEffect(() => {
         setAdminId(localStorage.getItem("adminId"))
@@ -33,15 +22,11 @@ function Navpar() {
             setAppointmentAvailable(response.data.filter(item => item.booked === false).length);
         });
     }, []);
-    
+
     let [userAppointments, setUserAppointments] = useState([])
     let appointmentsLength = userAppointments.length
 
     const totalAppointments = userAppointments.reduce((acc, user) => acc + user.appointments.length, 0);
-    const totalAvailableAppointments = userAppointments.reduce((acc, user) => {
-        return acc + user.appointments.filter(appointment => appointment.available).length;
-    }, 0);
-
     useEffect(() => {
         axios.get(`${BASE_URL}/api/user`)
             .then(response => {
@@ -71,8 +56,21 @@ function Navpar() {
         })
     }, [])
 
+    let [userAppointmentsCoupon, setUserAppointmentsCoupon] = useState([])
+    let userAppointmentsCouponLenght = userAppointmentsCoupon.length
+    useEffect(() => {
+        axios.get(`${BASE_URL}/api/company`)
+            .then(response => {
+                const usersData = response.data;
+                const filteredUsers = usersData.filter(userAvi => userAvi.availableAppointment.length > 0);
+                setUserAppointmentsCoupon(filteredUsers);
+            })
 
-    
+            .catch(error => {
+                console.error(error);
+            });
+    }, []);
+
 
     return (
         <div className="nav-par-side">
@@ -81,7 +79,7 @@ function Navpar() {
             </NavLink>
             <ul className="nav-sec nav-home-sec">
                 <li>
-                    <NavLink aria-label="Rasco-Borma" to={`/admin/appointment/${adminId}`} >
+                    <NavLink aria-label="Nav Link" to={`/admin/appointment/${adminId}`} >
                         <div className='list-icon' >
                             <img className="svg-icon-header icon" src={calendar}
                                 alt="icon-house-home" />
@@ -91,7 +89,7 @@ function Navpar() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink aria-label="Rasco-Borma" to={`/admin/appointment-end/${adminId}`} >
+                    <NavLink aria-label="Nav Link" to={`/admin/appointment-end/${adminId}`} >
                         <div className='list-icon' >
                             <img className="svg-icon-header icon" src={calendarEnd}
                                 alt="icon-house-home" />
@@ -102,7 +100,7 @@ function Navpar() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink aria-label="Rasco-Borma" to={`/admin/add-new-date/${adminId}`} >
+                    <NavLink aria-label="Nav Link" to={`/admin/add-new-date/${adminId}`} >
                         <div className='list-icon' >
                             <img className="svg-icon-header icon" src={calendarNew}
                                 alt="icon-house-home" />
@@ -112,7 +110,7 @@ function Navpar() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink aria-label="Rasco-Borma" to={`/admin/add-new-blog/${adminId}`} >
+                    <NavLink aria-label="Nav Link" to={`/admin/add-new-blog/${adminId}`} >
                         <div className='list-icon' >
                             <img className="svg-icon-header icon" src={blogIcon}
                                 alt="icon-house-home" />
@@ -122,7 +120,7 @@ function Navpar() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink aria-label="Rasco-Borma" to={`/admin/message/${adminId}`} >
+                    <NavLink aria-label="Nav Link" to={`/admin/message/${adminId}`} >
                         <div className='list-icon' >
                             <img className="svg-icon-header icon" src={chatIcon}
                                 alt="icon-house-home" />
@@ -133,12 +131,14 @@ function Navpar() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink aria-label="Rasco-Borma" to={`/admin/coupon/${adminId}`} >
+                    <NavLink aria-label="Nav Link" to={`/admin/coupon/${adminId}`} >
                         <div className='list-icon' >
                             <img className="svg-icon-header icon" src={couponIcon}
                                 alt="icon-house-home" />
                             coupon
                         </div>
+                        <span>{userAppointmentsCouponLenght}</span>
+
                     </NavLink>
                 </li>
             </ul>

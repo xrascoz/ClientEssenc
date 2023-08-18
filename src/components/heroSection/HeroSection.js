@@ -1,5 +1,4 @@
 import React from 'react'
-import heroImg from "../../assets/imgs/elment/heroImg.png"
 import heroImg2 from "../../assets/imgs/elment/heroImg2.png"
 import brainImg from "../../assets/imgs/icon/brain.svg"
 import brain2Img from "../../assets/imgs/icon/brain2.svg"
@@ -10,11 +9,7 @@ import company1 from "../../assets/imgs/company/1.svg"
 import company2 from "../../assets/imgs/company/2.svg"
 import company3 from "../../assets/imgs/company/3.svg"
 import company4 from "../../assets/imgs/company/4.svg"
-import company5 from "../../assets/imgs/company/5.svg"
 import company6 from "../../assets/imgs/company/6.svg"
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from "swiper";
 
 
 function HeroSection() {
@@ -62,28 +57,13 @@ function HeroSection() {
                     </div>
                 </div>
                 <div class="company-img-partner" data-aos="fade-up" data-aos-duration="1400">
-
                     <div name-company="nana" className='company-div-img'> <img src={company1} alt="company-img" /></div>
                     <div name-company="unifonic" className='company-div-img'> <img src={company2} alt="company-img" /></div>
                     <div name-company="robustagroup" className='company-div-img'> <img src={company3} alt="company-img" /></div>
                     <div name-company="instabug" className='company-div-img'> <img src={company4} alt="company-img" /></div>
-
-
                     <div name-company="united" className='company-div-img'> <img src={company6} alt="company-img" /></div>
-
                 </div>
-
             </div>
-
-
-
-
-
-
-
-
-
-
         </main>
     )
 }

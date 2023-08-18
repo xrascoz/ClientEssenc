@@ -40,30 +40,21 @@ import Page404 from './page/not-found/Page404';
 
 
 import { Routes, Route } from 'react-router-dom';
-import { useEffect, createContext } from "react";
+import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useLocation } from "react-router-dom";
 import { useCookies } from "react-cookie"
 
-const UserContext = createContext();
 
 function App() {
   const [cookies, setCookie] = useCookies(['access_token']);
   const [cookiesUser, setCookieUser] = useCookies(['access_token_User']);
 
- 
-
   const location = useLocation();
   let pathLocation = useLocation().pathname
 
-
-
   useEffect(() => {
-
-    // setCookieUser('access_token_User', 'access_token_User');
-    // setCookie('access_token', 'access_token');
-
     window.scrollTo({
       top: 0,
       left: 0,
@@ -111,9 +102,7 @@ function App() {
 
         <Route path="/admin/sing-up" element={cookies.access_token ? <Home /> : <SingUp />} />
         <Route path="/admin/login" element={cookies.access_token ? <Home /> : <Login />} />
-
-
-
+        
         <Route path="/admin/forgot-pass" element={<ForgetPasswordAdmin />} />
         <Route path="/admin/submit-otp-user" element={<SubmitOtpUserAdmin />} />
         <Route path="/admin/setting/:id" element={cookies.access_token ? <SettingAdmin /> : <LoginAdmin />} />

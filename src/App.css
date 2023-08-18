@@ -3033,6 +3033,7 @@ b {
   font-style: normal;
   font-weight: 500;
   line-height: 30px;
+  text-transform: initial !important;
 }
 
 .company-div .name-ot-meeting-div-remove {

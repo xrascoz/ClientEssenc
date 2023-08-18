@@ -31,7 +31,7 @@ function Navpar() {
 
             <ul className="nav-sec nav-home-sec">
                 <li>
-                    <NavLink aria-label="Rasco-Borma" to={`/user/appointment/${userId}`} >
+                    <NavLink aria-label="Nav Link" to={`/user/appointment/${userId}`} >
                         <div className='list-icon' >
                             <img className="svg-icon-header icon" src={calendar}
                                 alt="icon-house-home" />
@@ -41,7 +41,7 @@ function Navpar() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink aria-label="Rasco-Borma" to={`/user/appointment-end/${userId}`} >
+                    <NavLink aria-label="Nav Link" to={`/user/appointment-end/${userId}`} >
                         <div className='list-icon' >
 
                             <img className="svg-icon-header icon" src={calendarEnd}
@@ -52,7 +52,7 @@ function Navpar() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink aria-label="Rasco-Borma" to="/book-now" >
+                    <NavLink aria-label="Nav Link" to="/book-now" >
                         <div className='list-icon' >
 
                             <img className="svg-icon-header icon" src={calendarNew}

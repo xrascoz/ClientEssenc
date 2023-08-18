@@ -65,16 +65,6 @@ function MobileApp() {
                             </p>
 
                             <div className="download-a-div" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                                {/* <a href="https://play.google.com/store/apps/details?id=com.mangayapp.mangayapp"
-                                    target="_blank" rel="noopener noreferrer" className="download-bt" data-aos-duration="1200">
-                                    <p>جوجل بلاي</p>
-                                    <img src="imgs/icons/google-play.svg" alt="google-play" />
-                                </a>
-                                <a href="https://apps.apple.com/us/app/mangay/id1671925629" target="_blank"
-                                    rel="noopener noreferrer" className="download-bt">
-                                    <p>ستور بلاي</p>
-                                    <img src="imgs/icons/apple.svg" alt="apple-store" />
-                                </a> */}
                                 <button className='button' data-aos="fade-up" data-aos-duration="1200"> App Version Soon</button>
                             </div>
                         </div>
@@ -82,16 +72,7 @@ function MobileApp() {
                     </div>
                 </div>
             </div>
-            {/* </section>
-        <section className='phone-app-sec'>
-            <div className="container">
-                <Title titleObject={titleObject} />
-                <button className='button' data-aos="fade-up" data-aos-duration="1200"> App Version Soon</button>
-                <img src={phone} className='phone-app-img' data-aos="fade-up" data-aos-duration="1200" />
-            </div>
-        </section> */}
         </section>
-
     )
 }
 

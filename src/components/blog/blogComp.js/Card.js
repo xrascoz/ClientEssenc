@@ -1,14 +1,9 @@
 import React from 'react'
-
 import { Link } from 'react-router-dom'
-
 import {BASE_URL} from "../../../server/server"
 
 function Card({ data }) {
-  let { _id, title, summary, cover, content } = data
-
-
-
+  let { _id, title, summary, cover } = data
 
   return (
     <div className="serv card " data-aos="fade-up" data-aos-duration="1000"  >

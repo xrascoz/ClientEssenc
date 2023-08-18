@@ -45,7 +45,7 @@ function Order() {
 
 
     let toggleCouponFunc = (e) => {
-     e.currentTarget.parentNode.querySelector(".form-coupon").classList.toggle("active") 
+        e.currentTarget.parentNode.querySelector(".form-coupon").classList.toggle("active")
     }
 
 
@@ -94,7 +94,7 @@ function Order() {
         let available = e.target.getAttribute("available")
         let id = e.target.getAttribute("id")
 
-        axios.post(`${BASE_URL}/api/coupon-user/${userId}`, {
+        axios.post(`${BASE_URL}/api/free-appointment-user/${userId}`, {
             "dateHour": dateHour,
             "dateHourEnd": dateHourEnd,
             "dateDay": dateDay,
@@ -213,14 +213,23 @@ function Order() {
                                         )
                                     }
 
-                                    <div className='div-coupon-form' >
-                                        <button className='button' onClick={(e) => toggleCouponFunc(e)} > i have coupon</button>
-                                        <form className={toggleCoupon ? "form-coupon active" : "form-coupon"} onSubmit={(e) => getOrderCoupon(e)} >
-                                            <input type="text" placeholder="enter the coupon" required value={couponCode} onChange={(e) => setCouponCode(e.target.value)} />
-                                            <button className='button' dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id}> add it</button>
-                                        </form>
+                                    {
+                                        nameCatogry !== "Consultation".toLowerCase() ? (
+                                            <div className='div-coupon-form' >
+                                                <button className='button' onClick={(e) => toggleCouponFunc(e)} > i have coupon</button>
+                                                <form className={toggleCoupon ? "form-coupon active" : "form-coupon"} onSubmit={(e) => getOrderCoupon(e)} >
+                                                    <input type="text" placeholder="enter the coupon" required  onChange={(e) => setCouponCode(e.target.value)} />
+                                                    <button className='button' dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id}> add it</button>
+                                                </form>
+                                            </div>
+                                        ) : false
+                                            
+                                    }
 
-                                    </div>
+
+
+
+
                                 </div>
                             ))}
                         </div>
