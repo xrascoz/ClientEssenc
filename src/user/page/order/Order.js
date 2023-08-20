@@ -18,6 +18,7 @@ import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 
 
 
+
 function Order() {
     const navigate = useNavigate();
     const [appleToNavigate, setAppleToNavigate] = useState(false)
@@ -39,7 +40,7 @@ function Order() {
 
 
     let [couponCode, setCouponCode] = useState("")
-    console.log(couponCode)
+
 
     let [toggleCoupon, setToggleCoupon] = useState(false)
 
@@ -119,7 +120,7 @@ function Order() {
                 axios.put(`${BASE_URL}/api/appointment/${id}`, {
                     "booked": true,
                 }).then((response) => {
-                    console.log(response);
+                
                 })
             }
         })
@@ -160,13 +161,13 @@ function Order() {
                 axios.put(`${BASE_URL}/api/appointment/${id}`, {
                     "booked": true,
                 }).then((response) => {
-                    console.log(response);
+                    
                 })
 
                 axios.post(`${BASE_URL}/api/update-coupon`, {
                     "couponCode": couponCode,
                 }).then((response) => {
-                    console.log(response);
+                  
                 })
                 setAppleToNavigate(true)
             }
@@ -196,7 +197,7 @@ function Order() {
 
 
                             {order.map(item => (
-                                <div className="card-date" key={item._id} data-aos="fade-up" data-aos-duration="1200">
+                                <div className="card-date card-coupon" key={item._id} data-aos="fade-up" data-aos-duration="1200">
                                     <div className="time-date">
                                         <div>
                                             <h2>{item.dateHour}</h2>
@@ -210,7 +211,9 @@ function Order() {
                                             <button className='button' onClick={(e) => getOrderFree(e)} dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id}>add it</button>
                                         ) : (
                                             <PaymentPaypal dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id} price={price} />
-                                        )
+                                        
+                                            
+                                            )
                                     }
 
                                     {

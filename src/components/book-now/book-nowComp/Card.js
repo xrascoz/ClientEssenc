@@ -21,9 +21,10 @@ function Card({ data }) {
             </p>
             <div>
                 <h2 className='price-book' data-aos="fade-up" data-aos-duration="1200" >
-                    {price}$<sub>{time}</sub>
+                    {price} <span className='price-currency' >CAD</span>
+                    {/* <sub>{time}</sub> */}
                 </h2>
-
+                <h3 data-aos="fade-up" data-aos-duration="1200">{ time}</h3>
             </div>
             <Link to={`/order/${name}/${price}`} onClick={(e) => addPriceToLocalStorage(e)} className='button' data-aos="fade-up" data-aos-duration="1300">Get Started</Link>
             <div className='advantages-parent' data-aos="fade-up" data-aos-duration="1400" >

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import heroImg2 from "../../assets/imgs/elment/heroImg2.png"
 import brainImg from "../../assets/imgs/icon/brain.svg"
 import brain2Img from "../../assets/imgs/icon/brain2.svg"
 import vectorImg from "../../assets/imgs/icon/vector.svg"
 import playImg from "../../assets/imgs/icon/play.svg"
+import xmark from "../../assets/imgs/icon/xmark.svg"
 
 import company1 from "../../assets/imgs/company/1.svg"
 import company2 from "../../assets/imgs/company/2.svg"
@@ -12,9 +13,45 @@ import company4 from "../../assets/imgs/company/4.svg"
 import company6 from "../../assets/imgs/company/6.svg"
 
 
+import { Link } from 'react-router-dom'
+import { useRef } from 'react'
+
+
 function HeroSection() {
+    const iframeElement = useRef();
+
+
+    let [toggle, setToggle] = useState(false)
+
+
+    let srcIframe = "https://www.youtube.com/embed/gtWXlt8DA40?&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;disablekb=1"
+
+
+    let toggleIframe = (e) => {
+        setToggle(!toggle)
+       
+    }
+    let toggleIframeX = (e) => {
+        setToggle(!toggle)
+        iframeElement.current.src = srcIframe
+    }
+
+
+
     return (
         <main className="main-sec">
+
+            <div className={toggle ? "active-video-pop active" : "active-video-pop"}>
+                <span className="closex closex-iframe" onClick={(e) => toggleIframeX(e)}  >
+                    <img className="iconDefault" src={xmark} alt="icon" />
+                </span>
+
+                <div className="frame-pop-video">
+                    <iframe ref={iframeElement} title="Demo video showcasing Supabase" className="absolute h-full w-full rounded-b-md" id="iframe"
+                        src={srcIframe}
+                        frameBorder="0" allow="autoplay; modestbranding; encrypted-media"></iframe>
+                </div>
+            </div>
             <div className="container">
                 <div className="main-content">
                     <div className="main-text">
@@ -30,8 +67,8 @@ function HeroSection() {
                             </p>
                         </div>
                         <div className="get-started-div flex-div-align">
-                            <a className="button" href="#" data-aos="fade-up" data-aos-duration="1400"> Get Started</a>
-                            <span className="play-video-icon" data-aos="fade-up" data-aos-duration="1500">
+                            <Link to="/book-now" className="button" href="#" data-aos="fade-up" data-aos-duration="1400"> Get Started</Link>
+                            <span className="play-video-icon" data-aos="fade-up" data-aos-duration="1500" onClick={(e) => toggleIframe(e)} >
                                 <img src={playImg} alt="play" />
                             </span>
                         </div>
@@ -56,7 +93,7 @@ function HeroSection() {
                         </div>
                     </div>
                 </div>
-                <div class="company-img-partner" data-aos="fade-up" data-aos-duration="1400">
+                <div className="company-img-partner" data-aos="fade-up" data-aos-duration="1400">
                     <div name-company="nana" className='company-div-img'> <img src={company1} alt="company-img" /></div>
                     <div name-company="unifonic" className='company-div-img'> <img src={company2} alt="company-img" /></div>
                     <div name-company="robustagroup" className='company-div-img'> <img src={company3} alt="company-img" /></div>

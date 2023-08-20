@@ -5,7 +5,7 @@ import NotFoundImg from "../../assets/imgs/icon/addNew.svg"
 function NotFound({buttonNotFoundTittle , LinkTo , pNotFound}) {
     return (
         <div>
-            <div class="not-found-parent not-found-parent-appointment">
+            <div className="not-found-parent not-found-parent-appointment">
                 <img src={NotFoundImg} />
             </div>
 

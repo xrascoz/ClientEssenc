@@ -251,6 +251,13 @@ input::placeholder {
   gap: 20px;
 }
 
+@media (max-width : 400px) {
+  .grid-style{
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+
+  }
+}
+
 .card {
   text-align: center;
   text-transform: capitalize;
@@ -2518,6 +2525,11 @@ b {
   /* 125% */
   letter-spacing: -1.44px;
 }
+.price-currency{
+  font-size: 34px;
+  position: relative;
+  left: -15px;
+}
 
 .advantages-div {
   display: flex;
@@ -3041,6 +3053,95 @@ b {
   gap: 20px;
 
 }
+
+
+/* <!-- ======================== active-video-pop ======================== --> */
+
+.active-video-pop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(20px);
+  z-index: 555555;
+  background: #0b051a46;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: 0.5s;
+  top: -100%;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.active-video-pop.active {
+ top: 0;
+ opacity: 1;
+    pointer-events: initial;
+    visibility: initial;
+}
+
+.closex {
+
+  position: absolute;
+  z-index: 55;
+  background: var(--main-color);
+  top: 0;
+  width: 60px;
+  height: 60px;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.notification-div .closex {
+  background: var(--main-color);
+  top: 0;
+  width: 60px;
+  height: 60px;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  padding: 10px;
+  cursor: pointer;
+position: relative;
+}
+.closex .iconDefault {
+ 
+  width: 40%;
+}
+
+.frame-pop-video {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 5px;
+  overflow: hidden;
+  aspect-ratio: 2/1.13;
+  width: 70%;
+
+}
+
+.frame-pop-video iframe {
+  aspect-ratio: 2/1.13;
+  width: 100%;
+  border-radius: 10px;
+}
+
+@media (max-width: 750px) {
+  .frame-pop-video {
+    width: 90% !important;
+  }
+}
+
 
 /* <!-- ============================ header-dashboard ============================ --> */
 .header-dashboard {
@@ -4000,6 +4101,9 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.card-coupon{
+  height: fit-content;
 }
 /* <!-- ======================== not found ======================== --> */
 

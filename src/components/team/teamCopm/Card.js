@@ -11,6 +11,9 @@ function Card({ data }) {
   let { img, titleServe, descriptionServe, classColor } = data
 
 
+  
+
+
   return (
     <div className="serv card " data-aos="fade-up" data-aos-duration="1000">
       <div className={"icon-serv icon-card " + classColor} data-aos="fade-up" data-aos-duration="1100">

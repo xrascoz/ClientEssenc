@@ -2,15 +2,16 @@
 import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
-
-import {BASE_URL} from "../../../../server/server"
+import { BASE_URL } from "../../../../server/server"
 
 function PaymentPaypal({ dateHour, dateHourEnd, dateDay, price, category, booked, available, id }) {
-    const navigate = useNavigate();
 
+  console.log(window.location.origin);
+
+
+    const navigate = useNavigate();
     const paypal = useRef()
     useEffect(() => {
-
         let userId = localStorage.getItem("userId")
         window.paypal.Buttons({
             createOrder: (data, action, err) => {
@@ -29,7 +30,6 @@ function PaymentPaypal({ dateHour, dateHourEnd, dateDay, price, category, booked
             },
             onApprove: async (data, actions) => {
                 const order = await actions.order.capture()
-
                 axios.post(`${BASE_URL}/api/appointment-user/${userId}`, {
                     "dateHour": dateHour,
                     "dateHourEnd": dateHourEnd,
@@ -39,28 +39,26 @@ function PaymentPaypal({ dateHour, dateHourEnd, dateDay, price, category, booked
                     "available": available,
                     "price": price
                 }).then((response) => {
-                    console.log(response);
-                   
+
+
                 })
                 axios.put(`${BASE_URL}/api/appointment/${id}`, {
                     "booked": true,
                 }).then((response) => {
-                    console.log(response);
+
                 })
                 navigate(`/user/appointment/${userId}`)
-                
+
             },
             onError: (err) => {
                 console.log(err);
             }
         }).render(paypal.current)
     }, [])
-
     return (
         <div>
             <div ref={paypal}></div>
         </div>
     )
 }
-
 export default PaymentPaypal

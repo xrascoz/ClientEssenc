@@ -99,7 +99,7 @@ function Appointment() {
     let appointmentsLengthFalse = appointmentsStateFalse.length
 
     let [userAppointments, setUserAppointments] = useState([])
-    // console.log(userAppointments)
+
 
 
 

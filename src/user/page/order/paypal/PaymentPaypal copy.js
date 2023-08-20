@@ -39,13 +39,13 @@ function PaymentPaypal({ dateHour, dateHourEnd, dateDay, price, category, booked
                     "available": available,
                     "price": price
                 }).then((response) => {
-                    console.log(response);
+                  
                    
                 })
                 axios.put(`${BASE_URL}/api/appointment/${id}`, {
                     "booked": true,
                 }).then((response) => {
-                    console.log(response);
+                   
                 })
                 navigate(`/user/appointment/${userId}`)
                 
