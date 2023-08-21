@@ -20,6 +20,18 @@ import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 
 
 function Order() {
+
+
+    let paymentButton = async () => {
+        try {
+            const response = await axios.post(`${BASE_URL}/pay`);
+            const { approvalUrl } = response.data;
+            window.location.href = approvalUrl;
+        } catch (error) {
+            console.error('Error during payment:', error);
+        }
+    }
+
     const navigate = useNavigate();
     const [appleToNavigate, setAppleToNavigate] = useState(false)
 
@@ -120,7 +132,7 @@ function Order() {
                 axios.put(`${BASE_URL}/api/appointment/${id}`, {
                     "booked": true,
                 }).then((response) => {
-                
+
                 })
             }
         })
@@ -161,13 +173,13 @@ function Order() {
                 axios.put(`${BASE_URL}/api/appointment/${id}`, {
                     "booked": true,
                 }).then((response) => {
-                    
+
                 })
 
                 axios.post(`${BASE_URL}/api/update-coupon`, {
                     "couponCode": couponCode,
                 }).then((response) => {
-                  
+
                 })
                 setAppleToNavigate(true)
             }
@@ -210,10 +222,9 @@ function Order() {
                                         nameCatogry === "Consultation".toLowerCase() ? (
                                             <button className='button' onClick={(e) => getOrderFree(e)} dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id}>add it</button>
                                         ) : (
-                                            <PaymentPaypal dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id} price={price} />
-                                        
-                                            
-                                            )
+
+                                            <button className='button' onClick={() => paymentButton()}  >Pay Now</button>
+                                        )
                                     }
 
                                     {
@@ -221,12 +232,12 @@ function Order() {
                                             <div className='div-coupon-form' >
                                                 <button className='button' onClick={(e) => toggleCouponFunc(e)} > i have coupon</button>
                                                 <form className={toggleCoupon ? "form-coupon active" : "form-coupon"} onSubmit={(e) => getOrderCoupon(e)} >
-                                                    <input type="text" placeholder="enter the coupon" required  onChange={(e) => setCouponCode(e.target.value)} />
+                                                    <input type="text" placeholder="enter the coupon" required onChange={(e) => setCouponCode(e.target.value)} />
                                                     <button className='button' dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id}> add it</button>
                                                 </form>
                                             </div>
                                         ) : false
-                                            
+
                                     }
 
 
