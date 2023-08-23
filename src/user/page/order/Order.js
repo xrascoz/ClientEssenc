@@ -18,19 +18,9 @@ import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 
 
 
-
 function Order() {
 
 
-    let paymentButton = async () => {
-        try {
-            const response = await axios.post(`${BASE_URL}/pay`);
-            const { approvalUrl } = response.data;
-            window.location.href = approvalUrl;
-        } catch (error) {
-            console.error('Error during payment:', error);
-        }
-    }
 
     const navigate = useNavigate();
     const [appleToNavigate, setAppleToNavigate] = useState(false)
@@ -41,18 +31,15 @@ function Order() {
     let [toggleAlertError, setToggleAlertError] = useState(false)
     let [toggleAlertSucsses, setToggleAlertSucsses] = useState(false)
 
-
-
     let nameCatogry = useParams().id.toLowerCase();
 
     let [price, setPrice] = useState("")
+  
     const [order, setOrder] = useState([]);
     let [userId, setUserId] = useState("")
-
-
+    console.log(userId)
 
     let [couponCode, setCouponCode] = useState("")
-
 
     let [toggleCoupon, setToggleCoupon] = useState(false)
 
@@ -60,7 +47,6 @@ function Order() {
     let toggleCouponFunc = (e) => {
         e.currentTarget.parentNode.querySelector(".form-coupon").classList.toggle("active")
     }
-
 
     useEffect(() => {
 
@@ -94,8 +80,6 @@ function Order() {
         }
 
     }, [appleToNavigate]);
-
-
 
     let getOrderFree = (e) => {
 
@@ -173,9 +157,7 @@ function Order() {
                 axios.put(`${BASE_URL}/api/appointment/${id}`, {
                     "booked": true,
                 }).then((response) => {
-
                 })
-
                 axios.post(`${BASE_URL}/api/update-coupon`, {
                     "couponCode": couponCode,
                 }).then((response) => {
@@ -186,6 +168,24 @@ function Order() {
         })
     }
 
+
+    
+    let paymentButton = async (e) => {
+        try {
+            e.preventDefault()
+            let id = e.target.getAttribute("id")
+
+            const response = await axios.post(`${BASE_URL}/api/user/pay/${userId}`, {
+                "id": id,
+                "price": price,
+            });
+            const { approvalUrl } = response.data;
+            window.location.href = approvalUrl;
+        } catch (error) {
+            console.error('Error during payment:', error);
+        }
+    }
+
     let titleObject = {
         "nameTitle": nameCatogry,
         "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
@@ -193,6 +193,8 @@ function Order() {
     let buttonNotFoundTittle = "choose another Appointment"
     let pNotFound = "the all of Appointment are booked Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of    "
     let LinkTo = "/book-now"
+
+
 
 
     return (
@@ -223,7 +225,7 @@ function Order() {
                                             <button className='button' onClick={(e) => getOrderFree(e)} dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id}>add it</button>
                                         ) : (
 
-                                            <button className='button' onClick={() => paymentButton()}  >Pay Now</button>
+                                            <button className='button' onClick={(e) => paymentButton(e)}  dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id} >Pay Now</button>
                                         )
                                     }
 

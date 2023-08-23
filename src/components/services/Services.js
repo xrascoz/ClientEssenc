@@ -80,7 +80,10 @@ function Services({ limit }) {
       "classColor": "icon-color3"
     },
   ]
+
+
   let [limitArray, setLimitArray] = useState([])
+
 
 
   useEffect(() => {
@@ -91,7 +94,7 @@ function Services({ limit }) {
       
     }
   }, [])
-  
+
   return (
     <section>
       <div className="container">
@@ -109,3 +112,7 @@ function Services({ limit }) {
 }
 
 export default Services
+
+
+
+

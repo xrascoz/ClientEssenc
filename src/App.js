@@ -21,6 +21,8 @@ import Setting from './user/page/setting/Setting';
 import Order from './user/page/order/Order';
 import AppointmentUser from './user/page/appointment/AppointmentUser';
 import AppointmentUserEnd from './user/page/appointment/AppointmentUserEnd';
+
+import SuccessPay from './user/page/paymentPage/SuccessPay';
 // Admin
 import SingUpAdmin from './admin/page/register/SingUp';
 import LoginAdmin from './admin/page/register/Login';
@@ -131,7 +133,7 @@ function App() {
         <Route path="/user/appointment/:id" element={cookiesUser.access_token_User ? <AppointmentUser /> : <Login />} />
         <Route path="/user/appointment-end/:id" element={cookiesUser.access_token_User ? <AppointmentUserEnd /> : <Login />} />
         <Route path="/order/:id/:price" element={cookiesUser.access_token_User ? <Order /> : <Login />} />
-
+        <Route path="/success-pay/:idUser/:dateHour/:id/:dateHourEnd/:dateDay/:category" element={cookiesUser.access_token_User ? <SuccessPay /> : <Login />} />
 
         <Route path="*" element={ <Page404 />} />
       </Routes>

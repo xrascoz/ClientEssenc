@@ -42,7 +42,7 @@ function HeadOfSec() {
                 setUserAppointments(filteredUsers);
             })
             .catch(error => {
-                console.error('حدث خطأ في استرجاع البيانات:', error);
+                console.error('error', error);
             });
     }, []);
 

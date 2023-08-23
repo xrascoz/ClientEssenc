@@ -62,13 +62,17 @@ function AddNewDate() {
 
     const [order, setOrder] = useState([]);
    
+
+
     useEffect(() => {
         axios.get(`${BASE_URL}/api/appointment`).then(response => {
             setOrder(response.data.filter(item => item.booked == false && item.available == true));
-            
         });
     }, [updateUi]);
 
+
+
+    
 
     let addDate = (e) => {
         e.preventDefault()

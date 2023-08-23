@@ -8,8 +8,6 @@ function NotFound({buttonNotFoundTittle , LinkTo , pNotFound}) {
             <div className="not-found-parent not-found-parent-appointment">
                 <img src={NotFoundImg} />
             </div>
-
-
             <div className='div-NotFound-button' >
                 <p>
                     {pNotFound}
