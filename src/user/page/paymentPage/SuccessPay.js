@@ -26,6 +26,7 @@ function SuccessPay() {
     const sendRequest = () => {
       axios
         .post(`${BASE_URL}/api/appointment-user/${idUser}`, {
+          "idAppointment": id,
           "dateHour": dateHour,
           "dateHourEnd": dateHourEnd,
           "dateDay": dateDay,
@@ -38,14 +39,16 @@ function SuccessPay() {
             axios.put(`${BASE_URL}/api/appointment/${id}`, {
               "booked": true
             });
-            localStorage.setItem("orderPay", pathLocation);
-            setPreviousRequestMade(true);
+          
+            localStorage.setItem("orderPay", id);
           }
+          setPreviousRequestMade(true);
         });
-    };
+    }; 
+    sendRequest();
 
-    if (localStorage.getItem("orderPay") !== pathLocation && !previousRequestMade) {
-      sendRequest();
+    if (localStorage.getItem("orderPay") !== id && !previousRequestMade) {
+      setPreviousRequestMade(true);
     }
 
     if (location.pathname.includes('/success-pay')) {
