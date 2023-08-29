@@ -8,7 +8,8 @@ function Card({ data }) {
   return (
     <div className="serv card " data-aos="fade-up" data-aos-duration="1000"  >
       <Link className="a-img" to={`/blog/${_id}`} data-aos="fade-up" data-aos-duration="1100">
-        <img alt="img" loading="lazy" src={`${BASE_URL}/${cover}`} />
+        {/* <img alt="img" loading="lazy" src={`${BASE_URL}/${cover}`} /> */}
+        <img alt="img" loading="lazy"  src={cover} />
       </Link>
       <div className="content-serv content-card">
         <Link to={`/blog/${_id}`}>

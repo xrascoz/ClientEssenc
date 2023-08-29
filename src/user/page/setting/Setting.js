@@ -18,7 +18,7 @@ import { useLocation } from 'react-router-dom';
 import SuccessAlert from "../../../components/alertCopm/SuccessAlert"
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 
-import {BASE_URL} from "../../../server/server"
+import { BASE_URL } from "../../../server/server"
 
 
 function Setting() {
@@ -107,8 +107,7 @@ function Setting() {
                                 </label>
                                 <div className="avatar-div-img-change-img">
                                     <div className="avatar-div">
-                                        <img src={img ? `${BASE_URL}/${img}` : profileImg} alt="avatar img"
-                                            className="avatar-img" />
+                                        <img src={img ? img : profileImg} alt="avatar img" className="avatar-img" />
                                     </div>
                                 </div>
                                 <div className="name-username-avatar-div">

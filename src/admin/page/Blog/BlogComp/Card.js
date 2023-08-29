@@ -11,15 +11,15 @@ import { useState, useEffect } from 'react';
 import ErrorAlert from '../../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../../components/alertCopm/SuccessAlert'
 
-import {BASE_URL} from "../../../../server/server"
+import { BASE_URL } from "../../../../server/server"
 
 
 
-function Card({ data , setUpdateUi  ,setErrorAlertMessage , setSuccessAlertMessage , setToggleAlertError , setToggleAlertSucsses }) {
+function Card({ data, setUpdateUi, setErrorAlertMessage, setSuccessAlertMessage, setToggleAlertError, setToggleAlertSucsses, editBlogFunc }) {
   let { _id, title, summary, cover, content } = data
 
 
- 
+
 
   let DeleteBlog = (e) => {
     e.preventDefault()
@@ -46,7 +46,7 @@ function Card({ data , setUpdateUi  ,setErrorAlertMessage , setSuccessAlertMessa
     <div className="serv card "   >
 
       <Link className="a-img" to={`/blog/${_id}`} >
-        <img alt="img" loading="lazy" src={`${BASE_URL}/${cover}`} />
+        <img alt="img" loading="lazy" src={cover} />
       </Link>
       <div className="content-serv content-card">
         <Link to={`/blog/${_id}`}>
@@ -55,8 +55,8 @@ function Card({ data , setUpdateUi  ,setErrorAlertMessage , setSuccessAlertMessa
         <p className="">{summary}</p>
       </div>
       <div className='edit-trash-icon' >
-        {/* <div className='icon-img-blog' ><img src={editIcon} alt='editIcon' /></div> */}
-        <div className='icon-img-blog' onClick={(e) => DeleteBlog(e)} > <img src={trashIcon} alt='trashIcon' /></div>
+        <div className='icon-img-blog editIcon' onClick={(e) => editBlogFunc(true, _id, title, summary, cover, content)} ><img src={editIcon} alt='editIcon' /></div>
+        <div className='icon-img-blog trashIcon' onClick={(e) => DeleteBlog(e)} > <img src={trashIcon} alt='trashIcon' /></div>
       </div>
     </div>
   )

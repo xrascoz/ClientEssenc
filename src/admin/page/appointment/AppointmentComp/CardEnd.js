@@ -71,7 +71,8 @@ function Card({ user, setUpdateUi, setMessage, setLink, toggleCardPop, setMessag
             <div className='img-profile-name-contact' >
                 <div className='img-name' >
                     <div className='img-prof' >
-                        <img src={img ? `${BASE_URL}/${img}` : imgDefult} alt='img-prof' />
+                    <img src={img ? img: imgDefult} alt='img-prof' />
+
                     </div>
                     <div>
                         <p>{fullName}</p>

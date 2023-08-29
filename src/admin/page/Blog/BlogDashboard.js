@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import {BASE_URL} from "../../../server/server"
 
 
-function BlogDashboard({updateUi , setUpdateUi , setErrorAlertMessage , setSuccessAlertMessage , setToggleAlertError , setToggleAlertSucsses}) {
+function BlogDashboard({updateUi , setUpdateUi , setErrorAlertMessage , setSuccessAlertMessage , setToggleAlertError , setToggleAlertSucsses , editBlogFunc}) {
 
   
   
@@ -26,7 +26,7 @@ function BlogDashboard({updateUi , setUpdateUi , setErrorAlertMessage , setSucce
       <div className="blog-grid grid-style">
         {dataBlog.map((data) => {
           return (
-            <Card data={data} key={data._id} setUpdateUi={setUpdateUi}  setSuccessAlertMessage={setSuccessAlertMessage} setErrorAlertMessage={setErrorAlertMessage} setToggleAlertError={setToggleAlertError} setToggleAlertSucsses={setToggleAlertSucsses} />
+            <Card data={data} key={data._id} setUpdateUi={setUpdateUi} setSuccessAlertMessage={setSuccessAlertMessage} setErrorAlertMessage={setErrorAlertMessage} setToggleAlertError={setToggleAlertError} setToggleAlertSucsses={setToggleAlertSucsses} editBlogFunc={editBlogFunc} />
           )
         })}
       </div>

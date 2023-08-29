@@ -104,7 +104,7 @@ function Setting() {
                                 </label>
                                 <div className="avatar-div-img-change-img">
                                     <div className="avatar-div">
-                                        <img src={img ? `${BASE_URL}/${img}` : profileImg} alt="avatar img"
+                                        <img src={img ? img : profileImg} alt="avatar img"
                                             className="avatar-img" />
                                     </div>
                                 </div>

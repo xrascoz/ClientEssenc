@@ -48,7 +48,7 @@ function UserToggle() {
         <div className="account-parent " onClick={() => setToggle(!toggle)}>
             <div className="account-name-photo">
                 <div className="img-account">
-                    <img src={img ? `${BASE_URL}/${img}` : profileImg} alt="profileImg" />
+                    <img src={img ? img : profileImg} alt="profileImg" />
                 </div>
                 <div className="name-username">
                     <b className="name-user">{fullName}</b>

@@ -17,6 +17,24 @@ function BlogAddNew() {
     let [errorAlertMessage, setErrorAlertMessage] = useState("")
     let [toggleAlertError, setToggleAlertError] = useState(false)
 
+    let [Edit, setEdit] = useState(false)
+    let [idEdit, setIdEdit] = useState("")
+    let [titleEdit, setTitleEdit] = useState("")
+    let [summaryEdit, setSummaryEdit] = useState("")
+    let [coverEdit, setCoverEdit] = useState("")
+    let [contentEdit, setContentEdit] = useState("")
+
+    let editBlogState = [Edit, idEdit, titleEdit, summaryEdit, coverEdit, contentEdit]
+
+    let editBlogFunc = (Edit, id, title, summary, cover, content) => {
+        setEdit(Edit)
+        setIdEdit(id)
+        setTitleEdit(title)
+        setSummaryEdit(summary)
+        setCoverEdit(cover)
+        setContentEdit(content)
+    }
+
     return (
         <div className='grid-dashboard'>
             <ErrorAlert AlertMessage={errorAlertMessage} toggleAlert={toggleAlertError} />
@@ -25,8 +43,8 @@ function BlogAddNew() {
             <div className='content-dashboard' >
                 <Header />
                 <HeadOfSec />
-                <CreateBlog setUpdateUi={setUpdateUi} />
-                <BlogDashboard setUpdateUi={setUpdateUi} updateUi={updateUi} setSuccessAlertMessage={setSuccessAlertMessage} setErrorAlertMessage={setErrorAlertMessage} setToggleAlertError={setToggleAlertError} setToggleAlertSucsses={setToggleAlertSucsses}  />
+                <CreateBlog setUpdateUi={setUpdateUi} editBlogState={editBlogState} />
+                <BlogDashboard setUpdateUi={setUpdateUi} updateUi={updateUi} setSuccessAlertMessage={setSuccessAlertMessage} setErrorAlertMessage={setErrorAlertMessage} setToggleAlertError={setToggleAlertError} setToggleAlertSucsses={setToggleAlertSucsses} editBlogFunc={editBlogFunc} />
             </div >
         </div >
     )

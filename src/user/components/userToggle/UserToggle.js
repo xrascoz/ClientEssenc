@@ -10,18 +10,18 @@ import logOutIcon from "../../../assets/imgs/icon/arrow-right-from-line.svg"
 import settingIcon from "../../../assets/imgs/icon/gear.svg"
 import dashboard from "../../../assets/imgs/icon/widget.svg"
 
-import {BASE_URL} from "../../../server/server"
+import { BASE_URL } from "../../../server/server"
 
 
 function UserToggle() {
     const navigate = useNavigate();
     let [toggle, setToggle] = useState(false)
-    const [cookies, setCookie ] = useCookies(['access_token']);
-    const [cookiesUser, setCookieUser ] = useCookies(['access_token_User']);
+    const [cookies, setCookie] = useCookies(['access_token']);
+    const [cookiesUser, setCookieUser] = useCookies(['access_token_User']);
 
     let [user, setUser] = useState({})
 
-    let { fullName, img  , _id} = user
+    let { fullName, img, _id } = user
     useEffect(() => {
         let userId = localStorage.getItem("userId")
         axios.get(`${BASE_URL}/api/user/${userId}`).then(response => {
@@ -40,40 +40,41 @@ function UserToggle() {
 
 
 
-  return (
-    <div className="account-parent " onClick={() => setToggle(!toggle)}>
-    <div className="account-name-photo">
-        <div className="img-account">
-            <img src={img ? `${BASE_URL}/${img}` : profileImg} alt="profileImg"  />
-        </div>
-        <div className="name-username">
-            <b className="name-user">{fullName}</b>
+    return (
+        <div className="account-parent " onClick={() => setToggle(!toggle)}>
+            <div className="account-name-photo">
+                <div className="img-account">
+                    <img src={img ? img : profileImg} alt="profileImg" />
 
+                </div>
+                <div className="name-username">
+                    <b className="name-user">{fullName}</b>
+
+                </div>
+            </div>
+            <img src={chevronDown} alt="chevron-down" className="svg-icon-header chevron-down active" />
+            <ul className={toggle ? "down-li-account-parent active" : "down-li-account-parent"}>
+                <li>
+                    <Link to={`/user/appointment/${_id}`}>
+                        <p>dashboard</p>
+                        <img src={dashboard} alt="bell" className="svg-icon-header" />
+                    </Link>
+                </li>
+                <li>
+                    <Link to={`/setting/${_id}`}>
+                        <p>setting</p>
+                        <img src={settingIcon} alt="bell" className="svg-icon-header" />
+                    </Link>
+                </li>
+                <li>
+                    <Link onClick={(e) => logOutFunction(e)} >
+                        <p>log out</p>
+                        <img src={logOutIcon} alt="bell" className="svg-icon-header" />
+                    </Link>
+                </li>
+            </ul>
         </div>
-    </div>
-    <img src={chevronDown} alt="chevron-down" className="svg-icon-header chevron-down active" />
-    <ul className={toggle ? "down-li-account-parent active" : "down-li-account-parent"}>
-        <li>
-            <Link to={`/user/appointment/${_id}`}>
-                <p>dashboard</p>
-                <img src={dashboard} alt="bell" className="svg-icon-header" />
-            </Link>
-        </li>
-        <li>
-            <Link to={`/setting/${_id}`}>
-                <p>setting</p>
-                <img src={settingIcon} alt="bell" className="svg-icon-header" />
-            </Link>
-        </li>
-        <li>
-            <Link onClick={(e) => logOutFunction(e)} >
-                <p>log out</p>
-                <img src={logOutIcon} alt="bell" className="svg-icon-header" />
-            </Link>
-        </li>
-    </ul>
-</div>
-  )
+    )
 }
 
 export default UserToggle

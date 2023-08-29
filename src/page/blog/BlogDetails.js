@@ -26,7 +26,8 @@ function BlogDetails() {
                         {title}
                     </h1>
                 </div>
-                <img className='img-blog' src={`${BASE_URL}/${cover}`} />
+                {/* <img className='img-blog' src={`${BASE_URL}/${cover}`} /> */}
+                <img className='img-blog'  src={cover} />
                 <div dangerouslySetInnerHTML={{ __html: content }} className='div-content' />
             </div>
         </div>
