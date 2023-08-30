@@ -7,6 +7,8 @@ import youtube from '../../assets/imgs/icon/youtube.svg'
 import linkedinIn from '../../assets/imgs/icon/linkedin-in.svg'
 import facebook from '../../assets/imgs/icon/facebook-f.svg'
 import twitter from '../../assets/imgs/icon/twitter.svg'
+import { Link } from "react-router-dom";
+
 
 function Footer() {
     return (
@@ -14,37 +16,31 @@ function Footer() {
             <div className='container' >
 
                 <div className='logo-footer-div' >
-                 <a className='a-logo'>   <img src={logo}  /></a>
+                    <a className='a-logo'>   <img src={logo} /></a>
 
                     <button className='button' >
                         <img src={googlePlay} />
                     </button>
 
                 </div>
-                <p  className='about-p-footer'>Launch your own Software As A Service Application with Flex Solutions. Launch your own Software As A Service Application with Flex Solutions.        </p>
-                <ul className="list-website">
-                    <li className="list-ul-phone">
-                        <a href="/"> Home</a>
+                <p className='about-p-footer'>Launch your own Software As A Service Application with Flex Solutions. Launch your own Software As A Service Application with Flex Solutions.        </p>
+                <ul className="list-website-footer">  <li >
+                    <Link to="/"> Home</Link>
+                </li>
+                    <li >
+                        <Link to="our-services"> Our services</Link>
                     </li>
-                    <li className="list-ul-phone">
-                        <a href="/our-services"> Our services</a>
+                    <li >
+                        <Link to="review"> Review</Link>
                     </li>
-                    <li className="list-ul-phone">
-                        <a href="/review"> Review</a>
+                    <li >
+                        <Link to="blog"> Blog</Link>
                     </li>
-                    <li className="list-ul-phone">
-                        <a href="/blog"> Blog</a>
+                    <li >
+                        <Link to="contact"> Contact</Link>
                     </li>
-                    <li className="list-ul-phone">
-                        <a href="/contact"> Contact</a>
-                    </li>
-                    <li className="list-ul-phone">
-                        <a href="/book-now"> Book now</a>
-                    </li>
-                    <li className="li-login">
-                        <a className="a-login" href="/login">
-                            <span className="login-span">Login</span>
-                        </a>
+                    <li >
+                        <Link to="book-now"> Book now</Link>
                     </li>
                 </ul>
 

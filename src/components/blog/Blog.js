@@ -4,8 +4,9 @@ import Card from './blogComp.js/Card'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import {BASE_URL} from "../../server/server"
-
+import { BASE_URL } from "../../server/server"
+import LeftStyle from '../styleElment/LeftStyle'
+import RightStyle from '../styleElment/RightStyle'
 function Blog() {
 
   const location = useLocation().pathname;
@@ -29,16 +30,19 @@ function Blog() {
   }
 
   return (
-    <div className='container'>
-      <Title titleObject={titleObject} />
-      <div className="blog-grid grid-style">
-        {dataBlog.map((data) => {
-          return (
-            <Card data={data} key={data._id} />
-          )
-        })}
+    <section>
+       <RightStyle />
+      <div className='container'>
+        <Title titleObject={titleObject} />
+        <div className="blog-grid grid-style">
+          {dataBlog.map((data) => {
+            return (
+              <Card data={data} key={data._id} />
+            )
+          })}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
 

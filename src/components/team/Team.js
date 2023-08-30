@@ -3,6 +3,7 @@ import Title from '../title/Title'
 import Card from './teamCopm/Card'
 
 import photo from "../../assets/imgs/team/photo.jpg"
+import LeftStyle from '../styleElment/LeftStyle'
 
 
 
@@ -59,6 +60,7 @@ function Team() {
 
     return (
         <section>
+            <LeftStyle />
             <div className="container">
                 <Title titleObject={titleObject} />
                 <div className="team-grid grid-style" >

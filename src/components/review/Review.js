@@ -7,6 +7,7 @@ import 'swiper/css';
 import Card from './reviewComp/Card';
 
 import Title from '../title/Title';
+import RightStyle from '../styleElment/RightStyle';
 
 
 
@@ -68,7 +69,9 @@ function Review() {
 
 
     return (
-        <div>
+        <section>
+
+            <RightStyle />
             <div className="container" data-aos="fade-up" data-aos-duration="1200">
                 <Title titleObject={titleObject} />
                 <div className='review-grid' >
@@ -79,7 +82,7 @@ function Review() {
                             delay: 2500,
                             disableOnInteraction: false,
                         }}
-                      
+
                         breakpoints={{
                             50: {
                                 slidesPerView: 3,
@@ -107,7 +110,7 @@ function Review() {
                     </Swiper>
                 </div>
             </div>
-        </div >
+        </section >
     )
 }
 

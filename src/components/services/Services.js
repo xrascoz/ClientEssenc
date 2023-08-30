@@ -8,6 +8,8 @@ import serve1 from "../../assets/imgs/icon/brain.svg"
 import serve2 from "../../assets/imgs/icon/vector.svg"
 import serve3 from "../../assets/imgs/icon/brain2.svg"
 
+import LeftStyle from '../styleElment/LeftStyle'
+
 function Services({ limit }) {
 
   let titleObject = {
@@ -88,15 +90,16 @@ function Services({ limit }) {
 
   useEffect(() => {
     if (limit) {
-      setLimitArray(servicesArray.slice(0,6)) 
+      setLimitArray(servicesArray.slice(0, 6))
     } else {
-      setLimitArray(servicesArray) 
-      
+      setLimitArray(servicesArray)
+
     }
   }, [])
 
   return (
     <section>
+      <LeftStyle />
       <div className="container">
         <Title titleObject={titleObject} />
         <div className="services-grid grid-style">

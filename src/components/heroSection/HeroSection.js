@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import heroImg2 from "../../assets/imgs/elment/heroImg2.png"
+import heroImg2 from "../../assets/imgs/elment/heroImg3.png"
+import patient from "../../assets/imgs/elment/patient.png"
+
 import brainImg from "../../assets/imgs/icon/brain.svg"
 import brain2Img from "../../assets/imgs/icon/brain2.svg"
 import vectorImg from "../../assets/imgs/icon/vector.svg"
@@ -11,7 +13,7 @@ import company2 from "../../assets/imgs/company/2.svg"
 import company3 from "../../assets/imgs/company/3.svg"
 import company4 from "../../assets/imgs/company/4.svg"
 import company6 from "../../assets/imgs/company/6.svg"
-
+import RightStyle from '../styleElment/RightStyle'
 
 import { Link } from 'react-router-dom'
 import { useRef } from 'react'
@@ -29,7 +31,7 @@ function HeroSection() {
 
     let toggleIframe = (e) => {
         setToggle(!toggle)
-       
+
     }
     let toggleIframeX = (e) => {
         setToggle(!toggle)
@@ -56,11 +58,13 @@ function HeroSection() {
                 <div className="main-content">
                     <div className="main-text">
                         <div className="title">
-                            <h1 data-aos="fade-up" data-aos-duration="1000">Essence of Being</h1>
-                            <h2 data-aos="fade-up" data-aos-duration="1200">
-                                Check Your Dental
-                                Health Today
-                            </h2>
+                            <div>
+                                <h1 data-aos="fade-up" data-aos-duration="1000">Essence of Being</h1>
+                                <h2 data-aos="fade-up" data-aos-duration="1200">
+                                    Check Your Dental
+                                    Health Today
+                                </h2>
+                            </div>
                             <p data-aos="fade-up" data-aos-duration="1300">
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                                 been the industry's standard dummy of
@@ -77,14 +81,9 @@ function HeroSection() {
 
                     <div className="website-main-sec">
                         <div className="phone-div-flow-imgs">
-                            <div className="pop-img-div pop1">
-                                <img src={brainImg} alt="anime img" data-aos="fade-up" data-aos-duration="1250" />
-                            </div>
-                            <div className="pop-img-div pop2">
-                                <img src={brain2Img} alt="anime img" data-aos="fade-up" data-aos-duration="1250" />
-                            </div>
+
                             <div className="pop-img-div pop3">
-                                <img src={vectorImg} alt="anime img" data-aos="fade-up" data-aos-duration="1250" />
+                                <img src={patient} alt="anime img" data-aos="fade-up" data-aos-duration="1250" />
                             </div>
 
                             <img alt="phone app" className="hero-img" src={heroImg2}
