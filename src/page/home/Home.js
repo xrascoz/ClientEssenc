@@ -8,6 +8,7 @@ import WhyUs from '../../components/why_us/WhyUs'
 import MobileApp from '../../components/mobile_app/MobileApp'
 import Contact from '../../components/contact/Contact'
 
+import Project from '../../components/project/Project'
 
 
 
@@ -19,9 +20,10 @@ function Home() {
             <Services limit={true} />
             <Review />
             <Team />
-            <Blog />
             <WhyUs />
+            <Project />
             <MobileApp />
+            <Blog />
             <Contact />
         </>
     )

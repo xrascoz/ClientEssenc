@@ -1,13 +1,8 @@
 import React from 'react'
-import Navpar from '../../components/navpar/Navpar'
-import Header from '../../components/header/Header';
-import HeadOfSec from '../../components/head-of-sec/HeadOfSec';
 import Card from './AppointmentComp/Card';
 import NotFound from '../../../page/not-found/NotFound';
 
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { useCookies } from "react-cookie"
 import axios from 'axios'
 
 import { BASE_URL } from "../../../server/server"
@@ -18,9 +13,7 @@ function AppointmentUser() {
     let [appointmentsState, setAppointments] = useState([])
     let [appointmentsStateFalse, setAppointmentsFalse] = useState([])
     let appointmentsLength = appointmentsState.length
-    let appointmentsLengthFalse = appointmentsStateFalse.length
 
-    let { fullName, img, _id, appointments } = user
 
     useEffect(() => {
         let userId = localStorage.getItem("userId")
@@ -32,19 +25,16 @@ function AppointmentUser() {
     }, [])
 
 
-
-
     let buttonNotFoundTittle = "add Appointment"
     let pNotFound = "the all of Appointment are booked Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of    "
     let LinkTo = "/book-now"
 
-    return (
-        <div className='grid-dashboard'>
-            <Navpar />
-            <div className='content-dashboard' >
-                <Header />
-                <HeadOfSec user={user} appointmentsLength={appointmentsLength} appointmentsLengthFalse={appointmentsLengthFalse} />
 
+    return (
+       
+     
+            <div className='content-dashboard' >
+              
                 {appointmentsLength > 0 ? (
                     <div className='grid-card-dashboard' >
                         {
@@ -62,7 +52,7 @@ function AppointmentUser() {
                 )
                 }
             </div>
-        </div>
+    
     )
 }
 

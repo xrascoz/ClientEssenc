@@ -9,9 +9,7 @@ import emailImg from "../../../../assets/imgs/icon/email.svg"
 
 import { BASE_URL } from "../../../../server/server"
 
-import { useState, useEffect } from 'react';
 
-import plusIcon from "../../../../assets/imgs/icon/plusicon.svg"
 import axios from 'axios';
 
 function Card({ user, setUpdateUi, setMessage, setLink, toggleCardPop, setMessageSMS, toggleCardSMS, setToggleAlertSucssesParent, setToggleAlertErrorParent , setSuccessAlertMessage  , setErrorAlertMessage , setToggleAlertError , setToggleAlertSucsses}) {

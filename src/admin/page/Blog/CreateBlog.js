@@ -119,10 +119,10 @@ function CreateBlog({ setUpdateUi, editBlogState }) {
                         <ReactQuill value={contentNew} onChange={setContentNew} />;
                         <button type="submit" className='button' >Update Blog</button>
                     </form> : <form onSubmit={(e) => (postBlogFunc(e))}>
-                        <input type="text" placeholder='Title' value={title} onChange={(e) => setTitle(e.target.value)} />
-                        <input type="summary" placeholder='summary' value={summary} onChange={(e) => setSummary(e.target.value)} />
-                        <input type="file" onChange={(e) => setCover(e.target.files[0])} />
-                        <ReactQuill value={content} onChange={setContent} />;
+                        <input type="text" placeholder='Title' value={title} onChange={(e) => setTitle(e.target.value)} required />
+                        <input type="summary" placeholder='summary' value={summary} onChange={(e) => setSummary(e.target.value)} required />
+                        <input type="file" onChange={(e) => setCover(e.target.files[0])} required />
+                        <ReactQuill value={content} onChange={setContent} required />;
                         <button type="submit" className='button' >Create Blog</button>
                     </form>
 

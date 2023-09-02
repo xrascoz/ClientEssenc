@@ -39,7 +39,7 @@ function UserToggle() {
         localStorage.removeItem("emailUser")
         setCookie('access_token', '');
         setCookieUser('access_token_User', '');
-        // navigate("/")
+        navigate("/")
     }
 
 

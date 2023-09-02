@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import userSvg from "../../assets/imgs/icon/user.svg"
 import phoneSvg from "../../assets/imgs/icon/phone.svg"
@@ -12,7 +12,7 @@ import "react-phone-input-2/lib/bootstrap.css";
 import ErrorAlert from '../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../components/alertCopm/SuccessAlert'
 
-import LeftStyle from '../styleElment/LeftStyle'
+import RightStyle from '../styleElment/RightStyle'
 
 import locationIcon from "../../assets/imgs/icon/location-dot.svg"
 import phoneIcon from "../../assets/imgs/icon/phone.svg"
@@ -57,7 +57,7 @@ function Contact() {
 
   return (
     <section>
-      <LeftStyle />
+      <RightStyle />
       <div className="section-6 section" id="section-6" >
         <ErrorAlert AlertMessage={errorAlertMessage} toggleAlert={toggleAlertError} />
         <SuccessAlert AlertMessage={successAlertMessage} toggleAlert={toggleAlertSucsses} />

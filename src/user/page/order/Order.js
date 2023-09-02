@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import PaymentPaypal from './paypal/PaymentPaypal';
 import { useParams } from 'react-router-dom';
 
 import { BASE_URL } from "../../../server/server"
@@ -9,11 +8,11 @@ import { BASE_URL } from "../../../server/server"
 import { useNavigate } from 'react-router-dom';
 
 import NotFound from '../../../page/not-found/NotFound';
-import Page404 from '../../../page/not-found/Page404';
 
 import Title from "../../../components/title/Title"
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
+
 
 
 
@@ -34,10 +33,9 @@ function Order() {
     let nameCatogry = useParams().id.toLowerCase();
 
     let [price, setPrice] = useState("")
-  
+
     const [order, setOrder] = useState([]);
     let [userId, setUserId] = useState("")
-    console.log(userId)
 
     let [couponCode, setCouponCode] = useState("")
 
@@ -169,7 +167,7 @@ function Order() {
     }
 
 
-    
+
     let paymentButton = async (e) => {
         try {
             e.preventDefault()
@@ -224,11 +222,9 @@ function Order() {
                                         nameCatogry === "Consultation".toLowerCase() ? (
                                             <button className='button' onClick={(e) => getOrderFree(e)} dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id}>add it</button>
                                         ) : (
-
                                             <button className='button' onClick={(e) => paymentButton(e)}  dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id} >Pay Now</button>
                                         )
                                     }
-
                                     {
                                         nameCatogry !== "Consultation".toLowerCase() ? (
                                             <div className='div-coupon-form' >

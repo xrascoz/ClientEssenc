@@ -42,19 +42,7 @@ function Team() {
             descriptionServe: "Full Stack Developer",
             "classColor": "icon-color1"
         },
-        {
-            id: 5,
-            img: photo,
-            titleServe: "Dark Web Monitoring",
-            descriptionServe: "Full Stack Developer",
-            "classColor": "icon-color2"
-        },
-        {
-            id: 6,
-            img: photo,
-            titleServe: "Dark Web Monitoring",
-            descriptionServe: "Full Stack Developer",
-        },
+     
     ]
 
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import logo from "../../assets/imgs/logo/logo.png"
-import logo2 from "../../assets/imgs/logo/logo2.png"
 import googlePlay from "../../assets/imgs/icon/Google Play.svg"
 import instagram from '../../assets/imgs/icon/instagram.svg'
 import youtube from '../../assets/imgs/icon/youtube.svg'

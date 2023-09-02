@@ -1,14 +1,7 @@
 import React from 'react'
-
 import toggleImg from "../../../assets/imgs/icon/toggle-dark.svg"
 import UserToggle from '../userToggle/UserToggle'
-import { Link } from 'react-router-dom'
-
-import { useState } from 'react'
-
-
 function Header() {
-    let [toggle, setToggle] = useState(false)
 
     let toggleNavPar = () => {
         let navParSide = document.querySelector(".nav-par-side")

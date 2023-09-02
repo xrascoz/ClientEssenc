@@ -1,7 +1,4 @@
 import React from 'react'
-import Navpar from '../../components/navpar/Navpar'
-import Header from '../../components/header/Header';
-import HeadOfSec from '../../components/head-of-sec/HeadOfSec';
 import Card from './AppointmentComp/Card';
 import { BASE_URL } from "../../../server/server"
 
@@ -9,8 +6,6 @@ import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { useCookies } from "react-cookie"
 import axios from 'axios'
 
 import xmark from "../../../assets/imgs/icon/xmark.svg"
@@ -24,7 +19,8 @@ function Appointment() {
     let [toggle, setToggle] = useState(false)
     let [toggleSms, setToggleSms] = useState(false)
 
-    let [idUser, setIdUser] = useState("false")
+    let [idUser, setIdUser] = useState("")
+    console.log(idUser)
 
 
     let toggleCardPop = (e) => {
@@ -32,6 +28,7 @@ function Appointment() {
         setToggle(!toggle)
     }
     let toggleCardSMS = (e) => {
+        setIdUser(e.currentTarget.getAttribute("idUser"))
         setToggleSms(!toggleSms)
     }
 
@@ -88,34 +85,19 @@ function Appointment() {
     }
 
     let [updateUi, setUpdateUi] = useState(false)
-    const [appointmentsAvil, setAppointmentsAvil] = useState([]);
 
 
-    let [admin, setAdmin] = useState({})
-    let [appointmentsState, setAppointments] = useState([])
 
-    let [appointmentsStateFalse, setAppointmentsFalse] = useState([])
-    let appointmentsLength = appointmentsState.length
-    let appointmentsLengthFalse = appointmentsStateFalse.length
 
     let [userAppointments, setUserAppointments] = useState([])
 
-
-
-
- 
-
-    let { fullName, img, _id, appointments } = admin
-
     useEffect(() => {
-        // استرجاع بيانات المستخدمين من API
         axios.get(`${BASE_URL}/api/user`)
             .then(response => {
                 const usersData = response.data;
                 const filteredUsers = usersData.filter(userAvi => userAvi.appointments && userAvi.appointments.length > 0);
                 setUserAppointments(filteredUsers);
             })
-
             .catch(error => {
                 console.error('حدث خطأ في استرجاع البيانات:', error);
             });
@@ -125,7 +107,7 @@ function Appointment() {
 
 
     return (
-        <div className='grid-dashboard'>
+        <div className='grid-card-dashboard' >
             <ErrorAlert AlertMessage={errorAlertMessage} toggleAlert={toggleAlertError} />
             <SuccessAlert AlertMessage={successAlertMessage} toggleAlert={toggleAlertSucsses} />
             <div className={toggle ? "add-website div-pop active" : "add-website div-pop"} >
@@ -142,7 +124,7 @@ function Appointment() {
 
                         <textarea id="w3review" name="w3review" rows="3" cols="50" placeholder="type your message here" required value={message} onChange={(e) => setMessage(e.target.value)} />
                         <p className='label-p'  >link</p>
-                        <input type="text" placeholder="type your link here" required value={link} onChange={(e) => setLink(e.target.value)} />
+                        <input type="text" placeholder="type your link here"  value={link} onChange={(e) => setLink(e.target.value)} />
 
                         <button className="button-form" >send message</button>
                     </form>
@@ -162,8 +144,6 @@ function Appointment() {
                         <p className='label-p' >message</p>
 
                         <textarea id="w3review" name="w3review" rows="3" cols="50" placeholder="type your message here" required value={messageSMS} onChange={(e) => setMessageSMS(e.target.value)} />
-
-
                         <button className="button-form" >send message</button>
 
                     </form>
@@ -171,38 +151,28 @@ function Appointment() {
                 </div>
             </div>
 
-            <Navpar />
-            <div className='content-dashboard' >
+            {userAppointments.map(user => (
+                <Card user={user}
+                    setUpdateUi={setUpdateUi}
+                    key={user._id}
 
-                <Header />
-                <HeadOfSec user={admin}   />
-                <div className='grid-card-dashboard' >
-
-                    {userAppointments.map(user => (
-                        <Card user={user}
-                            setUpdateUi={setUpdateUi}
-                            key={user._id}
-
-                            setIdUser={setIdUser}
+                    setIdUser={setIdUser}
 
 
-                            setMessage={setMessage}
-                            setLink={setLink}
-                            toggleCardPop={toggleCardPop}
+                    setMessage={setMessage}
+                    setLink={setLink}
+                    toggleCardPop={toggleCardPop}
 
-                            setMessageSMS={setMessageSMS}
-                            toggleCardSMS={toggleCardSMS}
+                    setMessageSMS={setMessageSMS}
+                    toggleCardSMS={toggleCardSMS}
 
-                            setSuccessAlertMessage={setSuccessAlertMessage}
-                            setToggleAlertSucssesParent={setToggleAlertSucsses}
-                            setToggleAlertErrorParent={setToggleAlertError}
-                        />
-                    ))}
-
-
-                </div>
-            </div>
+                    setSuccessAlertMessage={setSuccessAlertMessage}
+                    setToggleAlertSucssesParent={setToggleAlertSucsses}
+                    setToggleAlertErrorParent={setToggleAlertError}
+                />
+            ))}
         </div>
+
     )
 }
 

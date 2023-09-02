@@ -1,6 +1,4 @@
 import React from 'react'
-import yesImg from "../../../../assets/imgs/icon/yes.svg"
-import removeImg from "../../../../assets/imgs/icon/remove.svg"
 
 
 

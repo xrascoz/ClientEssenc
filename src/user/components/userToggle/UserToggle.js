@@ -35,10 +35,8 @@ function UserToggle() {
         localStorage.removeItem("userId")
         setCookieUser('access_token_User', '');
         setCookie('access_token', '');
-        // navigate("/")
+        navigate("/")
     }
-
-
 
     return (
         <div className="account-parent " onClick={() => setToggle(!toggle)}>
@@ -61,7 +59,7 @@ function UserToggle() {
                     </Link>
                 </li>
                 <li>
-                    <Link to={`/setting/${_id}`}>
+                    <Link to={`/user/setting/${_id}`}>
                         <p>setting</p>
                         <img src={settingIcon} alt="bell" className="svg-icon-header" />
                     </Link>

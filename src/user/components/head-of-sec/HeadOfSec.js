@@ -1,5 +1,4 @@
 import React from 'react'
-import img from "../../../assets/imgs/icon/check.svg"
 import ClipboardCheck from "../../../assets/imgs/icon/Clipboard Check.svg"
 import ClipboardRemove from "../../../assets/imgs/icon/Clipboard Remove.svg"
 import DocumentText from "../../../assets/imgs/icon/Document Text.svg"
@@ -9,25 +8,30 @@ import { Link } from 'react-router-dom'
 
 import {BASE_URL} from "../../../server/server"
 
-function HeadOfSec({ appointmentsLength, appointmentsLengthFalse }) {
-
-
-
+function HeadOfSec() {
     let [userId, setUserId] = useState("")
-
     useEffect(() => {
         setUserId(localStorage.getItem("userId"))
     }, [])
-
-    let [appointmentAvailable, setAppointmentAvailable] = useState("")
-
-
+    let [appointmentAvailable, setAppointmentAvailable] = useState(0)
     useEffect(() => {
         axios.get(`${BASE_URL}/api/appointment`).then(response => {
             setAppointmentAvailable(response.data.filter(item => item.booked === false).length);
         });
     }, []);
+    let [appointmentsState, setAppointments] = useState([])
+    let [appointmentsStateFalse, setAppointmentsFalse] = useState([])
 
+    let appointmentsLength = appointmentsState.length || 0
+    let appointmentsLengthFalse = appointmentsStateFalse.length || 0
+
+    useEffect(() => {
+        let userId = localStorage.getItem("userId")
+        axios.get(`${BASE_URL}/api/user/${userId}`).then(response => {
+            setAppointments(response.data.appointments.filter(item => item.booked === true && item.available === true))
+            setAppointmentsFalse(response.data.appointments.filter(item => item.booked === true && item.available === false))
+        })
+    }, [])
 
     return (
         <div className='head-of-sec-parent' >

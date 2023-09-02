@@ -1,6 +1,5 @@
 import React from 'react'
 import yesImg from "../../../../assets/imgs/icon/yes.svg"
-import removeImg from "../../../../assets/imgs/icon/remove.svg"
 import imgDefult from "../../../../assets/imgs/proFile/imgDefult.svg"
 import phoneImg from "../../../../assets/imgs/icon/phone-sms.svg"
 import emailImg from "../../../../assets/imgs/icon/email.svg"
@@ -12,18 +11,10 @@ import { BASE_URL } from "../../../../server/server"
 
 import { useState, useEffect } from 'react';
 
-import plusIcon from "../../../../assets/imgs/icon/plusicon.svg"
 import axios from 'axios';
 
 function Card({ user, setUpdateUi, setMessage, setLink, toggleCardPop, setMessageSMS, toggleCardSMS, setToggleAlertSucssesParent, setToggleAlertErrorParent }) {
-
-
-
     let { appointments, fullName, email, phone, img, _id } = user
-
-    let [appointmentsLength, setAppointmentsLength] = useState([])
-
-
 
     let [successAlertMessage, setSuccessAlertMessage] = useState("")
     let [toggleAlertSucsses, setToggleAlertSucsses] = useState(false)
@@ -48,30 +39,24 @@ function Card({ user, setUpdateUi, setMessage, setLink, toggleCardPop, setMessag
                 setTimeout(() => {
                     setToggleAlertSucsses(false)
                 }, 5000)
-
                 setUpdateUi(prev => (!prev))
-
             }
         })
-
     }
-
-
     return (
-
         <>
             <ErrorAlert AlertMessage={errorAlertMessage} toggleAlert={toggleAlertError} />
             <SuccessAlert AlertMessage={successAlertMessage} toggleAlert={toggleAlertSucsses} />
-            {appointments.length > 0 ? (
+            {appointments.some(item => item.available) > 0 ? (
                 <div className='card-appointment'>
                     <div className='img-profile-name-contact' >
                         <div className='img-name' >
                             <div className='img-prof' >
-                                <img src={img ? img: imgDefult} alt='img-prof' />
+                                <img src={img ? img : imgDefult} alt='img-prof' />
                             </div>
                             <div  >
                                 <p>{fullName}</p>
-                          
+
                             </div>
                         </div>
                         <div className='contact' >
@@ -80,7 +65,7 @@ function Card({ user, setUpdateUi, setMessage, setLink, toggleCardPop, setMessag
                         </div>
                     </div>
                     {
-                        appointments.map((item , index) => {
+                        appointments.map((item, index) => {
                             if (item.available) {
                                 return (
                                     <div className='time-date' key={item._id}  >
@@ -102,13 +87,10 @@ function Card({ user, setUpdateUi, setMessage, setLink, toggleCardPop, setMessag
                     }
                 </div>
             ) : (
-                "false"
+                false
             )
             }
-
-
         </>
-
     )
 }
 

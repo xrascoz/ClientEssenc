@@ -5,6 +5,9 @@ import calendarNew from "../../../assets/imgs/icon/calendarNew.svg"
 import blogIcon from "../../../assets/imgs/icon/blog.svg"
 import chatIcon from "../../../assets/imgs/icon/chat.svg"
 import couponIcon from "../../../assets/imgs/icon/coupon.svg"
+import projectIcon from "../../../assets/imgs/icon/Window Frame.svg"
+
+
 import { NavLink } from 'react-router-dom'
 import logo2 from "../../../assets/imgs/logo/logo2.png"
 import { useEffect, useState } from 'react'
@@ -16,7 +19,7 @@ function Navpar() {
     useEffect(() => {
         setAdminId(localStorage.getItem("adminId"))
     }, [])
-    let [appointmentAvailable, setAppointmentAvailable] = useState("")
+    let [appointmentAvailable, setAppointmentAvailable] = useState(0)
     useEffect(() => {
         axios.get(`${BASE_URL}/api/appointment`).then(response => {
             setAppointmentAvailable(response.data.filter(item => item.booked === false).length);
@@ -24,9 +27,12 @@ function Navpar() {
     }, []);
 
     let [userAppointments, setUserAppointments] = useState([])
-    let appointmentsLength = userAppointments.length
+
 
     const totalAppointments = userAppointments.reduce((acc, user) => acc + user.appointments.length, 0);
+    const totalAvailableAppointments = userAppointments.reduce((acc, user) => {
+        return acc + user.appointments.filter(appointment => appointment.available).length;
+    }, 0);
     useEffect(() => {
         axios.get(`${BASE_URL}/api/user`)
             .then(response => {
@@ -35,29 +41,42 @@ function Navpar() {
                 setUserAppointments(filteredUsers);
             })
             .catch(error => {
-                console.error('حدث خطأ في استرجاع البيانات:', error);
+                console.error('An error occurred while retrieving data:', error);
             });
     }, []);
 
 
 
-    let [dataBlog, setDataBlog] = useState([])
+    let [dataBlog, setDataBlog] = useState(0)
     useEffect(() => {
         axios.get(`${BASE_URL}/api/blog`).then((response) => {
             setDataBlog(response.data.length)
         })
     }, [])
 
+    let [dataProject, setDataProject] = useState(0)
+    useEffect(() => {
+        axios.get(`${BASE_URL}/api/project`).then((response) => {
+            setDataProject(response.data.length)
+        })
+    }, [])
 
-    let [dataMessage, setDataMessage] = useState([])
+
+    let [dataMessage, setDataMessage] = useState(0)
     useEffect(() => {
         axios.get(`${BASE_URL}/api/contact`).then((response) => {
             setDataMessage(response.data.length);
         })
     }, [])
 
-    let [userAppointmentsCoupon, setUserAppointmentsCoupon] = useState([])
-    let userAppointmentsCouponLenght = userAppointmentsCoupon.length
+    let [userAppointmentsCoupon, setUserAppointmentsCoupon] = useState(0)
+
+
+
+    let userAppointmentsCouponLenght = userAppointmentsCoupon.length || 0
+
+
+    
     useEffect(() => {
         axios.get(`${BASE_URL}/api/company`)
             .then(response => {
@@ -85,7 +104,7 @@ function Navpar() {
                                 alt="icon-house-home" />
                             Appointment
                         </div>
-                        <span>{appointmentsLength}</span>
+                        <span>{totalAvailableAppointments}</span>
                     </NavLink>
                 </li>
                 <li>
@@ -96,7 +115,6 @@ function Navpar() {
                             Appointment End
                         </div>
                         <span>{totalAppointments}</span>
-
                     </NavLink>
                 </li>
                 <li>
@@ -110,6 +128,28 @@ function Navpar() {
                     </NavLink>
                 </li>
                 <li>
+                    <NavLink aria-label="Nav Link" to={`/admin/coupon/${adminId}`} >
+                        <div className='list-icon' >
+                            <img className="svg-icon-header icon" src={couponIcon}
+                                alt="icon-house-home" />
+                            coupon
+                        </div>
+                        <span>{userAppointmentsCouponLenght}</span>
+                    </NavLink>
+                </li>
+                
+                <li>
+                    <NavLink aria-label="Nav Link" to={`/admin/message/${adminId}`} >
+                        <div className='list-icon' >
+                            <img className="svg-icon-header icon" src={chatIcon}
+                                alt="icon-house-home" />
+                            message
+                        </div>
+                        <span>{dataMessage}</span>
+                    </NavLink>
+                </li>
+              
+                <li>
                     <NavLink aria-label="Nav Link" to={`/admin/add-new-blog/${adminId}`} >
                         <div className='list-icon' >
                             <img className="svg-icon-header icon" src={blogIcon}
@@ -120,27 +160,16 @@ function Navpar() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink aria-label="Nav Link" to={`/admin/message/${adminId}`} >
+                    <NavLink aria-label="Nav Link" to={`/admin/add-new-project/${adminId}`} >
                         <div className='list-icon' >
-                            <img className="svg-icon-header icon" src={chatIcon}
+                            <img className="svg-icon-header icon" src={projectIcon}
                                 alt="icon-house-home" />
-                            message
+                            Add new project
                         </div>
-                        <span>{dataMessage}</span>
-
+                        <span>{dataProject}</span>
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink aria-label="Nav Link" to={`/admin/coupon/${adminId}`} >
-                        <div className='list-icon' >
-                            <img className="svg-icon-header icon" src={couponIcon}
-                                alt="icon-house-home" />
-                            coupon
-                        </div>
-                        <span>{userAppointmentsCouponLenght}</span>
 
-                    </NavLink>
-                </li>
             </ul>
         </div>
     )

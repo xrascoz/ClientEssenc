@@ -6,7 +6,6 @@ import { BASE_URL } from "../../../../server/server"
 
 function PaymentPaypal({ dateHour, dateHourEnd, dateDay, price, category, booked, available, id }) {
 
-  console.log(window.location.origin);
 
 
     const navigate = useNavigate();

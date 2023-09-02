@@ -1,7 +1,4 @@
 import React from 'react'
-import Navpar from '../../components/navpar/Navpar'
-import Header from '../../components/header/Header';
-import HeadOfSec from '../../components/head-of-sec/HeadOfSec';
 import Card from './add-new-dateComp/Card';
 import { useState, useEffect } from 'react';
 
@@ -12,7 +9,7 @@ import axios from 'axios';
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 
-import {BASE_URL} from "../../../server/server"
+import { BASE_URL } from "../../../server/server"
 
 function AddNewDate() {
 
@@ -30,7 +27,7 @@ function AddNewDate() {
     }
 
 
-    let [updateUi , setUpdateUi] = useState(false) 
+    let [updateUi, setUpdateUi] = useState(false)
 
 
 
@@ -61,7 +58,7 @@ function AddNewDate() {
     };
 
     const [order, setOrder] = useState([]);
-   
+
 
 
     useEffect(() => {
@@ -72,7 +69,7 @@ function AddNewDate() {
 
 
 
-    
+
 
     let addDate = (e) => {
         e.preventDefault()
@@ -96,14 +93,13 @@ function AddNewDate() {
     }
 
 
-    
+
     let [userAppointments, setUserAppointments] = useState([])
 
 
 
 
     useEffect(() => {
-        // استرجاع بيانات المستخدمين من API
         axios.get(`${BASE_URL}/api/user`)
             .then(response => {
                 const usersData = response.data;
@@ -118,10 +114,10 @@ function AddNewDate() {
 
 
     return (
-        <div className='grid-dashboard'>
+        <div className='content-dashboard' >
             <ErrorAlert AlertMessage={errorAlertMessage} toggleAlert={toggleAlertError} />
             <SuccessAlert AlertMessage={successAlertMessage} toggleAlert={toggleAlertSucsses} />
-            <Navpar />
+
 
             <div className={toggle ? "add-website div-pop active" : "add-website div-pop"} >
                 <div className="card-div ">
@@ -137,11 +133,11 @@ function AddNewDate() {
                         <input type="date" required onChange={(e) => setDateDay(e.target.value)} value={dateDay} />
                         <p className='label-p'>start hour date </p>
                         <div className='input-time' >
-                            <p className='value-time'> {dateHour}</p>  <input type="time" id="appt" name="appt"   onChange={handleStartTimeChange} ></input>
+                            <p className='value-time'> {dateHour}</p>  <input type="time" id="appt" name="appt" onChange={handleStartTimeChange} ></input>
                         </div>
                         <p className='label-p'>end hour date</p>
                         <div className='input-time' >
-                            <p className='value-time'> {dateHourEnd}</p>   <input type="time" id="appt" name="appt"    onChange={handleEndTimeChange} ></input>
+                            <p className='value-time'> {dateHourEnd}</p>   <input type="time" id="appt" name="appt" onChange={handleEndTimeChange} ></input>
                         </div>
 
                         <p className='label-p'>category date</p>
@@ -157,28 +153,25 @@ function AddNewDate() {
 
                 </div>
             </div>
-            <div className='content-dashboard' >
-                <Header />
-                <HeadOfSec  />
-                <div className='card-date-grid' >
-                    <div className='add-new-date' onClick={toggleCardPop} >
-                        <img src={plusIcon} alt='img' />
-                    </div>
-                    {order.map(item => {
-                        return (
-                            <Card item={item} setUpdateUi={setUpdateUi} key={item._id}
-                            
+
+            <div className='card-date-grid' >
+                <div className='add-new-date' onClick={toggleCardPop} >
+                    <img src={plusIcon} alt='img' />
+                </div>
+                {order.map(item => {
+                    return (
+                        <Card item={item} setUpdateUi={setUpdateUi} key={item._id}
+
                             setToggleAlertError={setToggleAlertError}
                             setErrorAlertMessage={setErrorAlertMessage}
                             setToggleAlertSucsses={setToggleAlertSucsses}
                             setSuccessAlertMessage={setSuccessAlertMessage}
 
 
-                            />
-                        );
-                    })}
+                        />
+                    );
+                })}
 
-                </div>
             </div>
         </div>
     )

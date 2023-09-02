@@ -1,7 +1,5 @@
 import React from 'react'
-import Navpar from '../../components/navpar/Navpar'
-import Header from '../../components/header/Header';
-import HeadOfSec from '../../components/head-of-sec/HeadOfSec';
+
 import Card from './AppointmentComp/CardEnd';
 import { BASE_URL } from "../../../server/server"
 
@@ -10,8 +8,6 @@ import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 import xmark from "../../../assets/imgs/icon/xmark.svg"
 
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { useCookies } from "react-cookie"
 import axios from 'axios'
 
 
@@ -28,7 +24,8 @@ function AppointmentEnd() {
     let [toggle, setToggle] = useState(false)
     let [toggleSms, setToggleSms] = useState(false)
 
-    let [idUser, setIdUser] = useState("false")
+    let [idUser, setIdUser] = useState("")
+    console.log(idUser)
 
 
     let toggleCardPop = (e) => {
@@ -64,7 +61,7 @@ function AppointmentEnd() {
                 }, 5000)
                 setMessage("")
                 setLink("")
-                setToggle(!toggle)
+                setToggle(false)
             }
         })
     }
@@ -92,20 +89,9 @@ function AppointmentEnd() {
     }
 
     let [updateUi, setUpdateUi] = useState(false)
-    const [appointmentsAvil, setAppointmentsAvil] = useState([]);
-
-    let [admin, setAdmin] = useState({})
-    let [appointmentsState, setAppointments] = useState([])
-
-    let [appointmentsStateFalse, setAppointmentsFalse] = useState([])
-    let appointmentsLength = appointmentsState.length
-    let appointmentsLengthFalse = appointmentsStateFalse.length
-
-
     let [userAppointments, setUserAppointments] = useState([])
 
     useEffect(() => {
-        // استرجاع بيانات المستخدمين من API
         axios.get(`${BASE_URL}/api/user`)
             .then(response => {
                 const usersData = response.data;
@@ -116,13 +102,9 @@ function AppointmentEnd() {
                 console.error('حدث خطأ في استرجاع البيانات:', error);
             });
     }, [updateUi]);
-
-
-
-
     return (
-        <div className='grid-dashboard'>
-            
+        <div className='grid-card-dashboard' >
+
             <ErrorAlert AlertMessage={errorAlertMessage} toggleAlert={toggleAlertError} />
             <SuccessAlert AlertMessage={successAlertMessage} toggleAlert={toggleAlertSucsses} />
 
@@ -164,47 +146,38 @@ function AppointmentEnd() {
 
 
                         <button className="button-form" >send message</button>
-      
+
                     </form>
 
                 </div>
             </div>
 
+            {userAppointments.map(user => (
+                <Card user={user}
+                    setUpdateUi={setUpdateUi}
+                    key={user._id}
+
+                    setIdUser={setIdUser}
+
+                    setMessage={setMessage}
+                    setLink={setLink}
+                    toggleCardPop={toggleCardPop}
+
+                    setMessageSMS={setMessageSMS}
+                    toggleCardSMS={toggleCardSMS}
+
+                    setSuccessAlertMessage={setSuccessAlertMessage}
+                    setToggleAlertSucssesParent={setToggleAlertSucsses}
+                    setToggleAlertErrorParent={setToggleAlertError}
+                    setErrorAlertMessage={setErrorAlertMessage}
+                    setToggleAlertSucsses={setToggleAlertSucsses}
+
+                />
+            ))}
 
 
-            <Navpar />
-            <div className='content-dashboard' >
-                <Header />
-                <HeadOfSec user={admin}  />
-                <div className='grid-card-dashboard' >
-
-                    {userAppointments.map(user => (
-                        <Card user={user}
-                            setUpdateUi={setUpdateUi}
-                            key={user._id}
-
-                            setIdUser={setIdUser}
-
-                            setMessage={setMessage}
-                            setLink={setLink}
-                            toggleCardPop={toggleCardPop}
-
-                            setMessageSMS={setMessageSMS}
-                            toggleCardSMS={toggleCardSMS}
-
-                            setSuccessAlertMessage={setSuccessAlertMessage}
-                            setToggleAlertSucssesParent={setToggleAlertSucsses}
-                            setToggleAlertErrorParent={setToggleAlertError}
-                            setErrorAlertMessage = {setErrorAlertMessage}
-                            setToggleAlertSucsses = {setToggleAlertSucsses}
-
-                        />
-                    ))}
-
-
-                </div>
-            </div>
         </div>
+
     )
 }
 

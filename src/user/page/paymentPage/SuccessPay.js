@@ -10,7 +10,7 @@ function SuccessPay() {
   const navigate = useNavigate();
   const pathLocation = useLocation().pathname;
   const [userId, setUserId] = useState("");
-  const [previousRequestMade, setPreviousRequestMade] = useState(false); // حالة الطلب السابق
+  const [previousRequestMade, setPreviousRequestMade] = useState(false); 
 
   useEffect(() => {
     setUserId(localStorage.getItem("userId"));

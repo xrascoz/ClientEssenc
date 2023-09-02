@@ -1,5 +1,4 @@
 import React from 'react'
-import blogImg from "../../assets/imgs/article/blogimg.png"
 import { useParams } from 'react-router-dom'
 import {BASE_URL} from "../../server/server"
 
@@ -26,9 +25,8 @@ function BlogDetails() {
                         {title}
                     </h1>
                 </div>
-                {/* <img className='img-blog' src={`${BASE_URL}/${cover}`} /> */}
                 <img className='img-blog'  src={cover} />
-                <div dangerouslySetInnerHTML={{ __html: content }} className='div-content' />
+                <div dangerouslySetInnerHTML={{ __html: content }} className='div-content ' />
             </div>
         </div>
     )

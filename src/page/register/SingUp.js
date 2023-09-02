@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ErrorAlert from '../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../components/alertCopm/SuccessAlert'
@@ -114,9 +114,9 @@ function SingUp() {
                 <div className="container-card">
                    
                     <form action="" className={!toggleForm ? "form-register-parent form-register form-sing-up" : "form-register form-sing-up disabled"} onSubmit={(e) => sendDataForm(e)}>
-                    <img src={Layer1} class="element-img el1" alt="element-img" />
-                    <img src={Layer2} class="element-img el2" alt="element-img" />
-                    <img src={Layer3} class="element-img el3" alt="element-img" />
+                    <img src={Layer1} className="element-img el1" alt="element-img" />
+                    <img src={Layer2} className="element-img el2" alt="element-img" />
+                    <img src={Layer3} className="element-img el3" alt="element-img" />
 
                         <div className="register-up-div">
                             

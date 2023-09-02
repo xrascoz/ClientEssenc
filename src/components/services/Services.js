@@ -60,27 +60,7 @@ function Services({ limit }) {
       descriptionServe: "With Our Automated Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Prin Scrambled It To Make",
       "classColor": "icon-color3"
     },
-    {
-      id: 7,
-      img: serve1,
-      titleServe: "Dark Web Monitoring",
-      descriptionServe: "With Our Automated Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Prin Scrambled It To Make",
-      "classColor": "icon-color1"
-    },
-    {
-      id: 8,
-      img: serve2,
-      titleServe: "Dark Web Monitoring",
-      descriptionServe: "With Our Automated Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Prin Scrambled It To Make",
-      "classColor": "icon-color2"
-    },
-    {
-      id: 9,
-      img: serve3,
-      titleServe: "Dark Web Monitoring",
-      descriptionServe: "With Our Automated Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Prin Scrambled It To Make",
-      "classColor": "icon-color3"
-    },
+   
   ]
 
 
@@ -98,7 +78,7 @@ function Services({ limit }) {
   }, [])
 
   return (
-    <section>
+    <section  className='our-services' >
       <LeftStyle />
       <div className="container">
         <Title titleObject={titleObject} />

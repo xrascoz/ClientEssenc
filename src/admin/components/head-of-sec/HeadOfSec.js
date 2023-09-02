@@ -1,5 +1,4 @@
 import React from 'react'
-import img from "../../../assets/imgs/icon/check.svg"
 import ClipboardCheck from "../../../assets/imgs/icon/Clipboard Check.svg"
 import ClipboardRemove from "../../../assets/imgs/icon/Clipboard Remove.svg"
 import DocumentText from "../../../assets/imgs/icon/Document Text.svg"
@@ -16,7 +15,7 @@ function HeadOfSec() {
         setAdminId(localStorage.getItem("adminId"))
     }, [])
 
-    let [appointmentAvailable, setAppointmentAvailable] = useState("")
+    let [appointmentAvailable, setAppointmentAvailable] = useState(0)
 
     useEffect(() => {
         axios.get(`${BASE_URL}/api/appointment`).then(response => {
@@ -26,8 +25,6 @@ function HeadOfSec() {
     
     let [userAppointments, setUserAppointments] = useState([])
 
-    let appointmentsLength = userAppointments.length
-    
     const totalAppointments = userAppointments.reduce((acc, user) => acc + user.appointments.length, 0);
 
     const totalAvailableAppointments = userAppointments.reduce((acc, user) => {
@@ -56,7 +53,7 @@ function HeadOfSec() {
                     <div className='div-number-card-dashboard-icon'>
                         <div className='number-line' >
                             <h2>
-                                {appointmentsLength}
+                                {totalAvailableAppointments}
                             </h2>
                             <span className='line-span' ></span>
                         </div>

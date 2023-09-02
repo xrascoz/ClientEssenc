@@ -1,25 +1,20 @@
 import React from 'react'
 import logo from "../../assets/imgs/logo/logo.png"
 import logoIcon from "../../assets/imgs/logo/logo icon .png"
-import logo2 from "../../assets/imgs/logo/logo2.png"
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie"
-import axios from 'axios'
 import UserToggle from '../../user/components/userToggle/UserToggle';
 import AdminToggle from '../../admin/components/userToggle/UserToggle';
 
 
 import toggleImg from "../../assets/imgs/icon/toggle.svg"
 
-import { useLocation } from "react-router-dom";
-
-
 function Header() {
 
-    const location = useLocation();
-    let pathLocation = useLocation().pathname
+
+    
     let [toggle, setToggle] = useState(false)
     const [cookies, setCookie] = useCookies(['access_token']);
     const [cookiesUser, setCookieUser] = useCookies(['access_token_User']);
@@ -49,6 +44,9 @@ function Header() {
                         </li>
                         <li >
                             <Link to="review"> Review</Link>
+                        </li>
+                        <li >
+                            <Link to="project"> Our Project</Link>
                         </li>
                         <li >
                             <Link to="blog"> Blog</Link>

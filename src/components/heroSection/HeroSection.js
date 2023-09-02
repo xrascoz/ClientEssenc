@@ -2,9 +2,6 @@ import React, { useState } from 'react'
 import heroImg2 from "../../assets/imgs/elment/heroImg3.png"
 import patient from "../../assets/imgs/elment/patient.png"
 
-import brainImg from "../../assets/imgs/icon/brain.svg"
-import brain2Img from "../../assets/imgs/icon/brain2.svg"
-import vectorImg from "../../assets/imgs/icon/vector.svg"
 import playImg from "../../assets/imgs/icon/play.svg"
 import xmark from "../../assets/imgs/icon/xmark.svg"
 
@@ -13,7 +10,6 @@ import company2 from "../../assets/imgs/company/2.svg"
 import company3 from "../../assets/imgs/company/3.svg"
 import company4 from "../../assets/imgs/company/4.svg"
 import company6 from "../../assets/imgs/company/6.svg"
-import RightStyle from '../styleElment/RightStyle'
 
 import { Link } from 'react-router-dom'
 import { useRef } from 'react'

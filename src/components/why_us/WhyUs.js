@@ -3,7 +3,7 @@ import React from 'react'
 import Card from './whyUsComp/Card'
 import Title from '../title/Title'
 
-import LeftStyle from '../styleElment/LeftStyle'
+import RightStyle from '../styleElment/RightStyle'
 
 function WhyUs() {
 
@@ -47,7 +47,7 @@ function WhyUs() {
   ]
   return (
     <section>
-      <LeftStyle />
+      <RightStyle />
       <div className="container">
         <Title titleObject={titleObject} />
         <div className="grid-why-us">

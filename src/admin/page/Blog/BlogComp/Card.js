@@ -5,11 +5,6 @@ import editIcon from "../../../../assets/imgs/icon/edit.svg"
 import trashIcon from "../../../../assets/imgs/icon/trash.svg"
 
 import axios from "axios"
-import { useState, useEffect } from 'react';
-
-
-import ErrorAlert from '../../../../components/alertCopm/ErrorAlert';
-import SuccessAlert from '../../../../components/alertCopm/SuccessAlert'
 
 import { BASE_URL } from "../../../../server/server"
 

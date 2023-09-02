@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { BASE_URL } from "../../server/server"
 import LeftStyle from '../styleElment/LeftStyle'
-import RightStyle from '../styleElment/RightStyle'
 function Blog() {
 
   const location = useLocation().pathname;
@@ -31,7 +30,7 @@ function Blog() {
 
   return (
     <section>
-       <RightStyle />
+       <LeftStyle />
       <div className='container'>
         <Title titleObject={titleObject} />
         <div className="blog-grid grid-style">

@@ -1,7 +1,5 @@
 import React from 'react'
-import Navpar from '../../components/navpar/Navpar'
-import Header from '../../components/header/Header';
-import HeadOfSec from '../../components/head-of-sec/HeadOfSec';
+
 import CreateBlog from './CreateBlog';
 import BlogDashboard from './BlogDashboard';
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
@@ -36,17 +34,14 @@ function BlogAddNew() {
     }
 
     return (
-        <div className='grid-dashboard'>
+
+        <div className='content-dashboard' >
             <ErrorAlert AlertMessage={errorAlertMessage} toggleAlert={toggleAlertError} />
             <SuccessAlert AlertMessage={successAlertMessage} toggleAlert={toggleAlertSucsses} />
-            <Navpar />
-            <div className='content-dashboard' >
-                <Header />
-                <HeadOfSec />
-                <CreateBlog setUpdateUi={setUpdateUi} editBlogState={editBlogState} />
-                <BlogDashboard setUpdateUi={setUpdateUi} updateUi={updateUi} setSuccessAlertMessage={setSuccessAlertMessage} setErrorAlertMessage={setErrorAlertMessage} setToggleAlertError={setToggleAlertError} setToggleAlertSucsses={setToggleAlertSucsses} editBlogFunc={editBlogFunc} />
-            </div >
+            <CreateBlog setUpdateUi={setUpdateUi} editBlogState={editBlogState} />
+            <BlogDashboard setUpdateUi={setUpdateUi} updateUi={updateUi} setSuccessAlertMessage={setSuccessAlertMessage} setErrorAlertMessage={setErrorAlertMessage} setToggleAlertError={setToggleAlertError} setToggleAlertSucsses={setToggleAlertSucsses} editBlogFunc={editBlogFunc} />
         </div >
+
     )
 }
 

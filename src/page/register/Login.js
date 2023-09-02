@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 import ErrorAlert from '../../components/alertCopm/ErrorAlert';
-import SuccessAlert from '../../components/alertCopm/SuccessAlert'
 import logo2 from "../../assets/imgs/logo/logo.png"
 
 import Layer1 from "../../assets/imgs/icon/Layer1.png"
@@ -57,9 +56,9 @@ function Login() {
                 <div className="container-card">
                     <form action="" className="form-register form-login" onSubmit={(e) => sendDataForm(e)}>
                    
-                        <img src={Layer1}  class="element-img el1" alt="element-img" />
-                        <img src={Layer2}  class="element-img el2" alt="element-img" />
-                        <img src={Layer3}  class="element-img el3" alt="element-img" />
+                        <img src={Layer1}  className="element-img el1" alt="element-img" />
+                        <img src={Layer2}  className="element-img el2" alt="element-img" />
+                        <img src={Layer3}  className="element-img el3" alt="element-img" />
                         <div className="register-up-div">
                             <Link to="/" className="a-logo a-logo-dashboard">
                                 <img src={logo2} alt="logo.png" />

@@ -2,7 +2,6 @@ import React from 'react'
 import emailSvg from "../../../../assets/imgs/icon/envelope.svg"
 import phoneSvg from "../../../../assets/imgs/icon/phone.svg"
 import deleteIcon from "../../../../assets/imgs/icon/trash.svg"
-import { useEffect } from 'react'
 
 import { BASE_URL } from "../../../../server/server"
 

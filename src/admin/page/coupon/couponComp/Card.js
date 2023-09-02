@@ -42,7 +42,7 @@ function Card({ company, toggleCardPopCoupon }) {
                     }
                 </div>
             ) : (
-                "false"
+                false
             )
             }
 

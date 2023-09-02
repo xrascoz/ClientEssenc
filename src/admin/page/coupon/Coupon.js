@@ -1,7 +1,4 @@
 import React from 'react'
-import Navpar from '../../components/navpar/Navpar'
-import Header from '../../components/header/Header';
-import HeadOfSec from '../../components/head-of-sec/HeadOfSec';
 import Card from './couponComp/Card';
 import { BASE_URL } from "../../../server/server"
 
@@ -9,12 +6,7 @@ import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { useCookies } from "react-cookie"
-
-
 import axios from 'axios'
-
 import xmark from "../../../assets/imgs/icon/xmark.svg"
 import plusIcon from "../../../assets/imgs/icon/plusicon.svg"
 
@@ -23,11 +15,6 @@ function Coupon() {
     let [nameCompany, setNameCompany] = useState("")
     let [availableNumber, setAvailableNumber] = useState(null)
     let [category, setCategory] = useState("Initial Assessment")
-
-
-
-
-
 
     let [toggleCouponCompany, setToggleCouponCompany] = useState(false)
     let [toggleCoupon, setToggleCoupon] = useState(false)
@@ -112,7 +99,7 @@ function Coupon() {
             })
 
             .catch(error => {
-                console.error('حدث خطأ في استرجاع البيانات:', error);
+                console.error("error", error);
             });
     }, [updateUi]);
 
@@ -121,7 +108,8 @@ function Coupon() {
 
 
     return (
-        <div className='grid-dashboard grid-company'>
+            <div className='content-dashboard grid-company' >
+
             <ErrorAlert AlertMessage={errorAlertMessage} toggleAlert={toggleAlertError} />
             <SuccessAlert AlertMessage={successAlertMessage} toggleAlert={toggleAlertSucsses} />
 
@@ -176,11 +164,7 @@ function Coupon() {
                     </form>
                 </div>
             </div>
-            <Navpar />
-            <div className='content-dashboard' >
-
-                <Header />
-                <HeadOfSec  />
+                
                 <div className='grid-card-dashboard' >
                     
                     <div className='add-new-date add-new' onClick={() =>setToggleCouponCompany(!toggleCouponCompany)} >
@@ -204,8 +188,6 @@ function Coupon() {
 
                 </div>
             </div>
-        </div>
-
     )
 }
 

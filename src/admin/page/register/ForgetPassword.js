@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'

@@ -22,7 +22,6 @@ function Card({ data }) {
             <div>
                 <h2 className='price-book' data-aos="fade-up" data-aos-duration="1200" >
                     {price} <span className='price-currency' >CAD</span>
-                    {/* <sub>{time}</sub> */}
                 </h2>
                 <h3 data-aos="fade-up" data-aos-duration="1200">{ time}</h3>
             </div>
