@@ -3,9 +3,10 @@ import mainImg from "../../../assets/imgs/icon/success.svg";
 import { Link } from 'react-router-dom';
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { BASE_URL } from '../../../server/server';
+// import { BASE_URL } from '../../../server/server';
 
 function SuccessPay() {
+  let BASE_URL = process.env.REACT_APP_API_LINK
   const location = useLocation();
   const navigate = useNavigate();
   const pathLocation = useLocation().pathname;

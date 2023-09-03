@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
-import { BASE_URL } from "../../../server/server"
+// import { BASE_URL } from "../../../server/server"
 
 import logo2 from "../../../assets/imgs/logo/logo.png"
 
@@ -16,6 +16,8 @@ import Layer3 from "../../../assets/imgs/icon/Layer3.png"
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 function SingUp() {
+
+    let BASE_URL = process.env.REACT_APP_API_LINK
 
     let [fullName, setFullName] = useState("")
     let [phone, setPhone] = useState("")
@@ -77,7 +79,8 @@ function SingUp() {
                 setToggleAlertSucsses(true)
                 setTimeout(() => {
                     setToggleAlertSucsses(false)
-                    navigate('/login');
+                    navigate("/admin/login")
+
 
                 }, 5000)
             }

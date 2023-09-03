@@ -4,10 +4,10 @@ import Card from './projectComp.js/Card'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { BASE_URL } from "../../server/server"
+// import { BASE_URL } from "../../server/server"
 import LeftStyle from '../styleElment/LeftStyle'
 function Project() {
-
+  let BASE_URL = process.env.REACT_APP_API_LINK
   const location = useLocation().pathname;
   let [dataProject, setDataProject] = useState([])
 

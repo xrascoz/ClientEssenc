@@ -2,12 +2,12 @@ import React from 'react'
 import axios from 'axios';
 
 
-import {BASE_URL} from "../../../../server/server"
+// import {BASE_URL} from "../../../../server/server"
 
 
 function Card({ item , setUpdateUi , setSuccessAlertMessage , setErrorAlertMessage , setToggleAlertSucsses , setToggleAlertError }) {
    
-
+    let BASE_URL = process.env.REACT_APP_API_LINK
     let { dateHour, dateHourEnd, dateDay, category, available, booked , _id } = item
  
     let deleteDate = (e) => {

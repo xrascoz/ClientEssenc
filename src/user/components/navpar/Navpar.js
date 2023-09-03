@@ -10,10 +10,11 @@ import calendarNew from "../../../assets/imgs/icon/calendarNew.svg"
 
 import { useEffect, useState } from 'react'
 
-import { BASE_URL } from '../../../server/server'
+// import { BASE_URL } from '../../../server/server'
 import axios from 'axios'
 
 function Navpar() {
+    let BASE_URL = process.env.REACT_APP_API_LINK
     let [userId, setUserId] = useState("")
     useEffect(() => {
         setUserId(localStorage.getItem("userId"))

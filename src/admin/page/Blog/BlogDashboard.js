@@ -2,13 +2,13 @@ import React from 'react'
 import Card from './BlogComp/Card'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import {BASE_URL} from "../../../server/server"
+// import {BASE_URL} from "../../../server/server"
 
 
 function BlogDashboard({updateUi , setUpdateUi , setErrorAlertMessage , setSuccessAlertMessage , setToggleAlertError , setToggleAlertSucsses , editBlogFunc}) {
 
   
-  
+  let BASE_URL = process.env.REACT_APP_API_LINK
 
   let [dataBlog, setDataBlog] = useState([])
 

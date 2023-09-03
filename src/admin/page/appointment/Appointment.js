@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from './AppointmentComp/Card';
-import { BASE_URL } from "../../../server/server"
+// import { BASE_URL } from "../../../server/server"
 
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
@@ -11,7 +11,7 @@ import axios from 'axios'
 import xmark from "../../../assets/imgs/icon/xmark.svg"
 
 function Appointment() {
-
+    let BASE_URL = process.env.REACT_APP_API_LINK
     let [message, setMessage] = useState("")
     let [link, setLink] = useState("")
     let [messageSMS, setMessageSMS] = useState("")
@@ -20,7 +20,7 @@ function Appointment() {
     let [toggleSms, setToggleSms] = useState(false)
 
     let [idUser, setIdUser] = useState("")
-    console.log(idUser)
+
 
 
     let toggleCardPop = (e) => {

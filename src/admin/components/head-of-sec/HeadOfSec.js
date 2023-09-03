@@ -5,9 +5,11 @@ import DocumentText from "../../../assets/imgs/icon/Document Text.svg"
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import {BASE_URL} from "../../../server/server"
+// import {BASE_URL} from "../../../server/server"
 
 function HeadOfSec() {
+
+    let BASE_URL = process.env.REACT_APP_API_LINK
 
     let [adminId, setAdminId] = useState("")
 

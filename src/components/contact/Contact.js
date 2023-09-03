@@ -6,7 +6,7 @@ import phoneSvg from "../../assets/imgs/icon/phone.svg"
 import emailSvg from "../../assets/imgs/icon/envelope.svg"
 import messageSvg from "../../assets/imgs/icon/message-dots.svg"
 import Title from '../title/Title'
-import { BASE_URL } from "../../server/server"
+// import { BASE_URL } from "../../server/server"
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 import ErrorAlert from '../../components/alertCopm/ErrorAlert';
@@ -20,6 +20,7 @@ import envelopeIcon from "../../assets/imgs/icon/envelope.svg"
 
 
 function Contact() {
+  let BASE_URL = process.env.REACT_APP_API_LINK
   let [errorAlertMessage, setErrorAlertMessage] = useState("")
   let [successAlertMessage, setSuccessAlertMessage] = useState("")
   let [toggleAlertError, setToggleAlertError] = useState(false)

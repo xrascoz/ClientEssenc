@@ -10,10 +10,11 @@ import logOutIcon from "../../../assets/imgs/icon/arrow-right-from-line.svg"
 import settingIcon from "../../../assets/imgs/icon/gear.svg"
 import dashboard from "../../../assets/imgs/icon/widget.svg"
 
-import { BASE_URL } from "../../../server/server"
+// import { BASE_URL } from "../../../server/server"
 
 
 function UserToggle() {
+    let BASE_URL = process.env.REACT_APP_API_LINK
     const navigate = useNavigate();
     let [toggle, setToggle] = useState(false)
     const [cookies, setCookie] = useCookies(['access_token']);

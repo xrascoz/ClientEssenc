@@ -7,13 +7,15 @@ import emailImg from "../../../../assets/imgs/icon/email.svg"
 import ErrorAlert from '../../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../../components/alertCopm/SuccessAlert'
 
-import { BASE_URL } from "../../../../server/server"
+// import { BASE_URL } from "../../../../server/server"
 
 import { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
 function Card({ user, setUpdateUi, setMessage, setLink, toggleCardPop, setMessageSMS, toggleCardSMS, setToggleAlertSucssesParent, setToggleAlertErrorParent }) {
+
+    let BASE_URL = process.env.REACT_APP_API_LINK
     let { appointments, fullName, email, phone, img, _id } = user
 
     let [successAlertMessage, setSuccessAlertMessage] = useState("")

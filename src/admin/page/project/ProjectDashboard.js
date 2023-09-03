@@ -2,12 +2,12 @@ import React from 'react'
 import Card from './ProjectComp/Card'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import {BASE_URL} from "../../../server/server"
+// import {BASE_URL} from "../../../server/server"
 
 
 function ProjectDashboard({updateUi , setUpdateUi , setErrorAlertMessage , setSuccessAlertMessage , setToggleAlertError , setToggleAlertSucsses , editProjectFunc}) {
 
-  
+  let BASE_URL = process.env.REACT_APP_API_LINK
   
 
   let [dataProject, setDataProject] = useState([])

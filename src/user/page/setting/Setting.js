@@ -13,11 +13,11 @@ import "react-phone-input-2/lib/bootstrap.css";
 import SuccessAlert from "../../../components/alertCopm/SuccessAlert"
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 
-import { BASE_URL } from "../../../server/server"
+// import { BASE_URL } from "../../../server/server"
 
 
 function Setting() {
-
+    let BASE_URL = process.env.REACT_APP_API_LINK
 
     let [errorAlertMessage, setErrorAlertMessage] = useState("")
     let [toggleAlertError, setToggleAlertError] = useState(false)

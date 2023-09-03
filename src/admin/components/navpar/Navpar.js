@@ -11,10 +11,13 @@ import projectIcon from "../../../assets/imgs/icon/Window Frame.svg"
 import { NavLink } from 'react-router-dom'
 import logo2 from "../../../assets/imgs/logo/logo2.png"
 import { useEffect, useState } from 'react'
-import { BASE_URL } from "../../../server/server"
+// import { BASE_URL } from "../../../server/server"
 import axios from 'axios'
 
 function Navpar() {
+
+    let BASE_URL = process.env.REACT_APP_API_LINK
+
     let [adminId, setAdminId] = useState("")
     useEffect(() => {
         setAdminId(localStorage.getItem("adminId"))

@@ -5,9 +5,11 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
-import {BASE_URL} from "../../../server/server"
+// import {BASE_URL} from "../../../server/server"
 
 function ForgetPassword() {
+
+    let BASE_URL = process.env.REACT_APP_API_LINK
     const navigate = useNavigate();
     let [errorAlertMessage, setErrorAlertMessage] = useState("")
     let [toggleAlertError, setToggleAlertError] = useState(false)
@@ -34,7 +36,7 @@ function ForgetPassword() {
                 }, 5000)
                 localStorage.setItem("emailUser", email)
                 setTimeout(() => {
-                    navigate("/submit-otp-user")
+                    navigate("/admin/submit-otp-user")
                 }, 5000)
             }
         })
@@ -51,7 +53,7 @@ function ForgetPassword() {
                             <input type="email" placeholder="Email" required onChange={(e) => setEmail(e.target.value)} value={email} />
                             <input type='submit' className="button-form" />
                             <div className="sing-in">
-                                <Link className="sing" to="/sing-up"> Sing Up </Link>
+                                <Link className="sing" to="/admin/sing-up"> Sing Up </Link>
                             </div>
                         </div>
                     </form>

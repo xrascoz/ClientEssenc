@@ -3,7 +3,7 @@ import emailSvg from "../../../../assets/imgs/icon/envelope.svg"
 import phoneSvg from "../../../../assets/imgs/icon/phone.svg"
 import deleteIcon from "../../../../assets/imgs/icon/trash.svg"
 
-import { BASE_URL } from "../../../../server/server"
+// import { BASE_URL } from "../../../../server/server"
 
 
 import { useState } from 'react'
@@ -13,7 +13,7 @@ import axios from 'axios'
 
 function MessageCard({ data, setUpdateUi  , setSuccessAlertMessage , setToggleAlertSucsses , setErrorAlertMessage , setToggleAlertError }) {
 
-
+    let BASE_URL = process.env.REACT_APP_API_LINK
     let { name, phone, gmail, message, _id } = data
 
     let [toggle, setToggle] = useState(false)

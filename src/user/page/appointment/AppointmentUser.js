@@ -5,10 +5,10 @@ import NotFound from '../../../page/not-found/NotFound';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 
-import { BASE_URL } from "../../../server/server"
+// import { BASE_URL } from "../../../server/server"
 
 function AppointmentUser() {
-
+    let BASE_URL = process.env.REACT_APP_API_LINK
     let [user, setUser] = useState({})
     let [appointmentsState, setAppointments] = useState([])
     let [appointmentsStateFalse, setAppointmentsFalse] = useState([])

@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from './couponComp/Card';
-import { BASE_URL } from "../../../server/server"
+// import { BASE_URL } from "../../../server/server"
 
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
@@ -11,7 +11,7 @@ import xmark from "../../../assets/imgs/icon/xmark.svg"
 import plusIcon from "../../../assets/imgs/icon/plusicon.svg"
 
 function Coupon() {
-
+    let BASE_URL = process.env.REACT_APP_API_LINK
     let [nameCompany, setNameCompany] = useState("")
     let [availableNumber, setAvailableNumber] = useState(null)
     let [category, setCategory] = useState("Initial Assessment")

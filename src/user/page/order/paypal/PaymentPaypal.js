@@ -2,12 +2,12 @@
 import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from "../../../../server/server"
+// import { BASE_URL } from "../../../../server/server"
 
 function PaymentPaypal({ dateHour, dateHourEnd, dateDay, price, category, booked, available, id }) {
 
 
-
+    let BASE_URL = process.env.REACT_APP_API_LINK
     const navigate = useNavigate();
     const paypal = useRef()
     useEffect(() => {

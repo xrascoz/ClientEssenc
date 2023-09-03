@@ -84,7 +84,6 @@ function App() {
     AOS.refresh();
   }, []);
 
-  console.log(process.env.API_LINK);
 
 
   return (

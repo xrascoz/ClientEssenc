@@ -1,11 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import {BASE_URL} from "../../server/server"
+// import {BASE_URL} from "../../server/server"
 
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 function BlogDetails() {
+    let BASE_URL = process.env.REACT_APP_API_LINK
     const { id } = useParams()
     let [dataBlog, setDataBlog] = useState([])
     let { _id, title, cover, content } = dataBlog

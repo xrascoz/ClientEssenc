@@ -3,16 +3,16 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from "axios"
 
-import { BASE_URL } from "../../../server/server"
+// import { BASE_URL } from "../../../server/server"
 
 import { useState, useEffect } from 'react';
-
 
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 
 function CreateBlog({ setUpdateUi, editBlogState }) {
-
+    
+    let BASE_URL = process.env.REACT_APP_API_LINK
     let [Edit, idEdit, titleEdit, summaryEdit, coverEdit, contentEdit] = editBlogState
 
     let [editToggle , setEditToggle] = useState(Edit)

@@ -6,14 +6,14 @@ import trashIcon from "../../../../assets/imgs/icon/trash.svg"
 
 import axios from "axios"
 
-import { BASE_URL } from "../../../../server/server"
+// import { BASE_URL } from "../../../../server/server"
 
 
 
 function Card({ data, setUpdateUi, setErrorAlertMessage, setSuccessAlertMessage, setToggleAlertError, setToggleAlertSucsses, editProjectFunc }) {
   let { _id, title, summary, cover, content , youtubeLink } = data
 
-
+  let BASE_URL = process.env.REACT_APP_API_LINK
 
 
   let DeleteProject = (e) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import MessageCard from "../contact/contactComp/MessageCard"
-import { BASE_URL } from "../../../server/server"
+// import { BASE_URL } from "../../../server/server"
 
 import { useState, useEffect } from 'react';
 import axios from 'axios'
@@ -11,7 +11,7 @@ import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 
 function AdminMessage() {
 
-
+    let BASE_URL = process.env.REACT_APP_API_LINK
 
     let [successAlertMessage, setSuccessAlertMessage] = useState("")
     let [toggleAlertSucsses, setToggleAlertSucsses] = useState(false)

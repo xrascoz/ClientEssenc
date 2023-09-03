@@ -9,11 +9,11 @@ import axios from 'axios';
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 
-import { BASE_URL } from "../../../server/server"
+// import { BASE_URL } from "../../../server/server"
 
 function AddNewDate() {
 
-
+    let BASE_URL = process.env.REACT_APP_API_LINK
     let [successAlertMessage, setSuccessAlertMessage] = useState("")
     let [toggleAlertSucsses, setToggleAlertSucsses] = useState(false)
 

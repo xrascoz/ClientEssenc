@@ -15,9 +15,10 @@ import Layer3 from "../../assets/imgs/icon/Layer3.png"
 
 
 
-import { BASE_URL } from "../../server/server"
+// import { BASE_URL } from "../../server/server"
 
 function Login() {
+    let BASE_URL = process.env.REACT_APP_API_LINK
     const [cookiesUser, setCookieUser] = useCookies(['access_token_User']);
     const [cookies, setCookie] = useCookies(['access_token']);
 

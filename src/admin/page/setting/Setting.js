@@ -9,14 +9,14 @@ import uploadImg from "../../../assets/imgs/icon/arrow-up-from-line.svg"
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 
-import { BASE_URL } from "../../../server/server"
+// import { BASE_URL } from "../../../server/server"
 
 import SuccessAlert from "../../../components/alertCopm/SuccessAlert"
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 
 
 function Setting() {
-
+    let BASE_URL = process.env.REACT_APP_API_LINK
 
     let [errorAlertMessage, setErrorAlertMessage] = useState("")
     let [toggleAlertError, setToggleAlertError] = useState(false)

@@ -7,14 +7,14 @@ import emailImg from "../../../../assets/imgs/icon/email.svg"
 
 
 
-import { BASE_URL } from "../../../../server/server"
+// import { BASE_URL } from "../../../../server/server"
 
 
 import axios from 'axios';
 
 function Card({ user, setUpdateUi, setMessage, setLink, toggleCardPop, setMessageSMS, toggleCardSMS, setToggleAlertSucssesParent, setToggleAlertErrorParent , setSuccessAlertMessage  , setErrorAlertMessage , setToggleAlertError , setToggleAlertSucsses}) {
 
-
+    let BASE_URL = process.env.REACT_APP_API_LINK
 
     let { appointments, fullName, email, phone, img, _id } = user
 

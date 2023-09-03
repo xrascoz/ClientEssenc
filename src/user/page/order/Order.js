@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-import { BASE_URL } from "../../../server/server"
+// import { BASE_URL } from "../../../server/server"
 
 import { useNavigate } from 'react-router-dom';
 
@@ -18,7 +18,7 @@ import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 
 
 function Order() {
-
+   let BASE_URL = process.env.REACT_APP_API_LINK
 
 
     const navigate = useNavigate();
