@@ -2,7 +2,6 @@ import React from 'react'
 import Card from './ProjectComp/Card'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-// import {BASE_URL} from "../../../server/server"
 
 
 function ProjectDashboard({updateUi , setUpdateUi , setErrorAlertMessage , setSuccessAlertMessage , setToggleAlertError , setToggleAlertSucsses , editProjectFunc}) {

@@ -13,7 +13,6 @@ import Layer2 from "../../../assets/imgs/icon/Layer2.png"
 import Layer3 from "../../../assets/imgs/icon/Layer3.png"
 
 
-// import {BASE_URL} from "../../../server/server"
 
 function Login() {
 

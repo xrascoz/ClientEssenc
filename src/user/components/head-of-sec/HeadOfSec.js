@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-// import {BASE_URL} from "../../../server/server"
 
 function HeadOfSec() {
     let BASE_URL = process.env.REACT_APP_API_LINK

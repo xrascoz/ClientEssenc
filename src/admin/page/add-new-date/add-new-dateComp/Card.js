@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios';
 
 
-// import {BASE_URL} from "../../../../server/server"
 
 
 function Card({ item , setUpdateUi , setSuccessAlertMessage , setErrorAlertMessage , setToggleAlertSucsses , setToggleAlertError }) {
