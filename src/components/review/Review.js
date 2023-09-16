@@ -1,9 +1,11 @@
 import React from 'react'
+
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-
-
+import 'swiper/swiper-bundle.css';
+import { Autoplay } from "swiper";
 import 'swiper/css';
+
+
 import Card from './reviewComp/Card';
 
 import Title from '../title/Title';
@@ -14,7 +16,7 @@ import RightStyle from '../styleElment/RightStyle';
 function Review() {
     let titleObject = {
         "nameTitle": "Review",
-        "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+        "descriptionTitle": "We show you the best reviews we have received from visitors to our partners"
     }
 
 
@@ -22,49 +24,26 @@ function Review() {
     let reviewObj = [
         {
             "id": 1,
-            "title": "Rasco",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+            "title": "Ahmed Mohamed",
+            "description": "The first clinic in mental health. Thank you for this creativity"
         },
         {
             "id": 2,
-            "title": "Rasco",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+            "title": "Doaa Ahmed",
+            "description": "Thank you for your efforts. The staff is the best in health"
         },
         {
             "id": 3,
-            "title": "Rasco",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+            "title": "Khaled Ahmed",
+            "description": "All thanks to the distinguished medical staff"
         },
+
         {
             "id": 4,
-            "title": "Rasco",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+            "title": "Mohamed Ahmed",
+            "description": "Tremendous efforts to improve the psychological state"
         },
-        {
-            "id": 5,
-            "title": "Rasco",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
-        },
-        {
-            "id": 6,
-            "title": "Rasco",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
-        },
-        {
-            "id": 7,
-            "title": "Rasco",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
-        },
-        {
-            "id": 8,
-            "nTitle": "Rasco",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
-        },
-        {
-            "id": 9,
-            "title": "Rasco",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
-        },
+
     ]
 
 
@@ -74,41 +53,41 @@ function Review() {
             <RightStyle />
             <div className="container" data-aos="fade-up" data-aos-duration="1200">
                 <Title titleObject={titleObject} />
-                <div className='review-grid' >
-                    <Swiper loop
-                        spaceBetween={10}
-                        slidesPerView={3}
-                        autoplay={{
-                            delay: 2500,
-                            disableOnInteraction: false,
-                        }}
 
-                        breakpoints={{
-                            50: {
-                                slidesPerView: 3,
-                            },
-                            576: {
-                                slidesPerView: 3,
-                            },
-                            1000: {
-                                slidesPerView: 3,
-                            },
-                            1500: {
-                                slidesPerView: 3,
-                            },
-                        }}
-                    >
-                        {
-                            reviewObj.map((data) => {
-                                return (
-                                    <SwiperSlide key={data.id} >
-                                        <Card data={data} />
-                                    </SwiperSlide>
-                                )
-                            })
-                        }
-                    </Swiper>
-                </div>
+                <Swiper
+                    spaceBetween={10}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    modules={[Autoplay]}
+                    breakpoints={{
+                        20: {
+                            slidesPerView: 1,
+                        },
+                        576: {
+                            slidesPerView: 2,
+                        },
+                        1000: {
+                            slidesPerView: 3,
+                        },
+                        1500: {
+                            slidesPerView: 4,
+                        },
+                    }}
+
+                >
+                    {
+                        reviewObj.map((data) => {
+                            return (
+                                <SwiperSlide key={data.id} >
+                                    <Card data={data} />
+                                </SwiperSlide>
+                            )
+                        })
+                    }
+                </Swiper>
+
             </div>
         </section >
     )

@@ -7,7 +7,7 @@ function MobileApp() {
 
     let titleObject = {
         "nameTitle": "Mobile App",
-        "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+        "descriptionTitle": "The first application of its kind in the world in mental health."
     }
     return (
         <section className="app-phone">
@@ -60,10 +60,10 @@ function MobileApp() {
                                 </div>
                             </div>
                             <h2 data-aos="fade-up" data-aos-duration="1600" className="h1-app-text">
-                                Launch your own Software As A Service Application with Flex Solutions.
+                                The first application of its kind in the world in the field of mental health
                             </h2>
                             <p data-aos="fade-up" data-aos-duration="1700" className="p-app-text">
-                                Medical School Admissions Students Have Tons Of Questions About Their Chosen Field Of Study, So These Blogs Are A Great Place To Learn About The Interview Process, What It’s Like To Be Part Of A White Coat Ceremony, And How They Can Prepare For Residency.
+                                The first application of its kind in the world in the field of mental health will be published soon. It aims to facilitate service for patients and access to our medical staff from anywhere in the world.
                             </p>
 
                             <div className="download-a-div" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">

@@ -12,7 +12,7 @@ function Card({ data }) {
         <div className='card-review' data-aos="fade-up" data-aos-duration="1000"  >
             <div className='img-name-div' >
                 <div className='img-reviewer' data-aos="fade-up" data-aos-duration="1100">
-                    <img src={imgReview} />
+                    <img src={imgReview}  alt='reviewer-img'/>
                 </div>
                 <div className='about-reviewer' data-aos="fade-up" data-aos-duration="1200" >
                     <h2>{title}</h2>

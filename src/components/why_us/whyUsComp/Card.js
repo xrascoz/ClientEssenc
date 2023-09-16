@@ -6,6 +6,11 @@ function Card({ whyUsData }) {
 
     let { title, description } = whyUsData
     let toggleCard = (e) => {
+
+        let arrayWhyUsCard = document.querySelectorAll(".card-why-us")
+        arrayWhyUsCard.forEach(element => {
+            element.classList.remove("active")
+        });
         e.currentTarget.classList.toggle("active")
     }
     useEffect(() => {

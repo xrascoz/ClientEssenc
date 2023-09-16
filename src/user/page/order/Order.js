@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-// import { BASE_URL } from "../../../server/server"
 
 import { useNavigate } from 'react-router-dom';
 
@@ -13,6 +12,8 @@ import Title from "../../../components/title/Title"
 import ErrorAlert from '../../../components/alertCopm/ErrorAlert';
 import SuccessAlert from '../../../components/alertCopm/SuccessAlert'
 
+import paypalIcon from "../../../assets/imgs/icon/paypal.svg"
+import couponIcon from "../../../assets/imgs/icon/couponIcon.svg"
 
 
 
@@ -186,7 +187,7 @@ function Order() {
 
     let titleObject = {
         "nameTitle": nameCatogry,
-        "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+        "descriptionTitle": "Book now your treatment session in the fastest and simplest way."
     }
     let buttonNotFoundTittle = "choose another Appointment"
     let pNotFound = "the all of Appointment are booked Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of    "
@@ -222,16 +223,32 @@ function Order() {
                                         nameCatogry === "Consultation".toLowerCase() ? (
                                             <button className='button' onClick={(e) => getOrderFree(e)} dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id}>add it</button>
                                         ) : (
-                                            <button className='button' onClick={(e) => paymentButton(e)}  dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id} >Pay Now</button>
+                                                <button className='button' onClick={(e) => paymentButton(e)} dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id} >Pay Now
+                                                
+                                                
+                                                
+                                                <img src={paypalIcon} alt='paypal-icon' className='icon-pay' />
+                                                
+                                                
+                                                </button>
                                         )
                                     }
                                     {
                                         nameCatogry !== "Consultation".toLowerCase() ? (
                                             <div className='div-coupon-form' >
-                                                <button className='button' onClick={(e) => toggleCouponFunc(e)} > i have coupon</button>
+                                                <button className='button' onClick={(e) => toggleCouponFunc(e)} > i have coupon
+                                                <img src={couponIcon} alt='paypal-icon' className='icon-pay' />
+                                                
+                                                </button>
                                                 <form className={toggleCoupon ? "form-coupon active" : "form-coupon"} onSubmit={(e) => getOrderCoupon(e)} >
                                                     <input type="text" placeholder="enter the coupon" required onChange={(e) => setCouponCode(e.target.value)} />
-                                                    <button className='button' dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id}> add it</button>
+                                                    <button className='button' dateHour={item.dateHour} dateHourEnd={item.dateHourEnd} dateDay={item.dateDay} available={item.available} booked={item.booked} category={item.category} id={item._id}> add it
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    </button>
                                                 </form>
                                             </div>
                                         ) : false

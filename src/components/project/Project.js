@@ -25,7 +25,7 @@ function Project() {
 
   let titleObject = {
     "nameTitle": "Project",
-    "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+    "descriptionTitle": "You can view our projects that have contributed to the development of mental health."
   }
 
   return (

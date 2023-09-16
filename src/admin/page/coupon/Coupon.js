@@ -14,6 +14,9 @@ function Coupon() {
     let BASE_URL = process.env.REACT_APP_API_LINK
     let [nameCompany, setNameCompany] = useState("")
     let [availableNumber, setAvailableNumber] = useState(null)
+    let [expirationDate, setExpirationDate] = useState(null)
+    console.log(expirationDate)
+
     let [category, setCategory] = useState("Initial Assessment")
 
     let [toggleCouponCompany, setToggleCouponCompany] = useState(false)
@@ -38,7 +41,7 @@ function Coupon() {
 
     let addCompany = (e) => {
         e.preventDefault()
-        axios.post(`${BASE_URL}/api/company`, { nameCompany , availableNumber , category }).then((response) => {
+        axios.post(`${BASE_URL}/api/company`, { nameCompany , availableNumber , category , expirationDate}).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)
@@ -64,7 +67,7 @@ function Coupon() {
 
     let addCoupon = (e) => {
         e.preventDefault()
-        axios.post(`${BASE_URL}/api/company-new/${idUser}`, {  availableNumber , category }).then((response) => {
+        axios.post(`${BASE_URL}/api/company-new/${idUser}`, {  availableNumber , category , expirationDate }).then((response) => {
             if (response.data.error) {
                 setErrorAlertMessage(response.data.error)
                 setToggleAlertError(true)
@@ -128,9 +131,10 @@ function Coupon() {
                         <input type="text" placeholder="type company Name" required value={nameCompany} onChange={(e) => setNameCompany(e.target.value)} />
                         <p className='label-p' >available Number</p>
                         <input type="number" placeholder="available Number" required value={availableNumber} onChange={(e) => setAvailableNumber(e.target.value)} />
-                        <p className='label-p'>category date</p>
+                        <p className='label-p' >expiration Date</p>
+                        <input type="date" placeholder="expiration Date" required value={expirationDate} onChange={(e) => setExpirationDate(e.target.value)} />
+                        <p className='label-p'>category</p>
                         <select name="appointment" id="appointment" value={category} onChange={(e) => setCategory(e.target.value)}>
-                     
                             <option value="Initial Assessment">Initial Assessment</option>
                             <option value="Psychotherapy Session">Psychotherapy Session</option>
                             <option value="Family Therapy">Family Therapy</option>
@@ -152,6 +156,9 @@ function Coupon() {
                     <form action="" className="form-subscribe" id="form-subscribe" onSubmit={(e) => addCoupon(e)}>
                         <p className='label-p' >available Number</p>
                         <input type="number" placeholder="available Number" required value={availableNumber} onChange={(e) => setAvailableNumber(e.target.value)} />
+                        <p className='label-p' >expiration Date</p>
+                        <input type="date" placeholder="expiration Date" required value={expirationDate} onChange={(e) => setExpirationDate(e.target.value)} />
+
                         <p className='label-p'>category date</p>
                         <select name="appointment" id="appointment" value={category} onChange={(e) => setCategory(e.target.value)}>
                      

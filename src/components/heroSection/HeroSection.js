@@ -9,7 +9,14 @@ import company1 from "../../assets/imgs/company/1.svg"
 import company2 from "../../assets/imgs/company/2.svg"
 import company3 from "../../assets/imgs/company/3.svg"
 import company4 from "../../assets/imgs/company/4.svg"
+import company5 from "../../assets/imgs/company/5.svg"
 import company6 from "../../assets/imgs/company/6.svg"
+import company7 from "../../assets/imgs/company/7.svg"
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+
+
 
 import { Link } from 'react-router-dom'
 import { useRef } from 'react'
@@ -22,7 +29,7 @@ function HeroSection() {
     let [toggle, setToggle] = useState(false)
 
 
-    let srcIframe = "https://www.youtube.com/embed/gtWXlt8DA40?&amp;loop=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;disablekb=1"
+    let srcIframe = "https://www.youtube.com/embed/rkZl2gsLUp4?si=iobGLkuFfQ9z6Dd7"
 
 
     let toggleIframe = (e) => {
@@ -45,7 +52,9 @@ function HeroSection() {
                 </span>
 
                 <div className="frame-pop-video">
-                    <iframe ref={iframeElement} title="Demo video showcasing Supabase" className="absolute h-full w-full rounded-b-md" id="iframe"
+                    <iframe
+                        preload="none"
+                        ref={iframeElement} title="Demo video" className="absolute h-full w-full rounded-b-md" id="iframe"
                         src={srcIframe}
                         frameBorder="0" allow="autoplay; modestbranding; encrypted-media"></iframe>
                 </div>
@@ -57,13 +66,14 @@ function HeroSection() {
                             <div>
                                 <h1 data-aos="fade-up" data-aos-duration="1000">Essence of Being</h1>
                                 <h2 data-aos="fade-up" data-aos-duration="1200">
-                                    Check Your Dental
+                                    Check Your Mental
                                     Health Today
+
                                 </h2>
                             </div>
                             <p data-aos="fade-up" data-aos-duration="1300">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                been the industry's standard dummy of
+                                Our mission is to enhance mental health through comprehensive therapeutic services, advanced training programs, and expert consultation for individuals, families, and professionals.
+
                             </p>
                         </div>
                         <div className="get-started-div flex-div-align">
@@ -88,13 +98,51 @@ function HeroSection() {
                         </div>
                     </div>
                 </div>
-                <div className="company-img-partner" data-aos="fade-up" data-aos-duration="1400">
-                    <div name-company="nana" className='company-div-img'> <img src={company1} alt="company-img" /></div>
-                    <div name-company="unifonic" className='company-div-img'> <img src={company2} alt="company-img" /></div>
-                    <div name-company="robustagroup" className='company-div-img'> <img src={company3} alt="company-img" /></div>
-                    <div name-company="instabug" className='company-div-img'> <img src={company4} alt="company-img" /></div>
-                    <div name-company="united" className='company-div-img'> <img src={company6} alt="company-img" /></div>
-                </div>
+
+                 <div className="company-img-partner" data-aos="fade-up" data-aos-duration="1000">
+                    <div name-company="IOM" className='company-div-img'> <img src={company1} alt="company-img" /></div>
+                    <div name-company="USSOM " className='company-div-img'> <img src={company2} alt="company-img" /></div>
+                    <div name-company="MSF " className='company-div-img'> <img src={company3} alt="company-img" /></div>
+                    <div name-company="MIDMAR " className='company-div-img'> <img src={company4} alt="company-img" /></div>
+                    <div name-company="Heartland Alliance " className='company-div-img'> <img src={company5} alt="company-img" /></div>
+                    <div name-company="HIHFAD " className='company-div-img'> <img src={company6} alt="company-img" /></div>
+                    <div name-company="MDM" className='company-div-img'> <img src={company7} alt="company-img" /></div>
+                </div> 
+{/* 
+                <div className="company-img-container" data-aos="fade-up" data-aos-duration="1400">
+                    <Swiper
+                        spaceBetween={10}
+                        slidesPerView={3}
+                        autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        }}
+                        data-aos="fade-up" data-aos-duration="1100"
+                    >
+                        <SwiperSlide>
+                            <div name-company="IOM" className='company-div-img'> <img src={company1} alt="company-img" /></div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                        <div name-company="USSOM " className='company-div-img'> <img src={company2} alt="company-img" /></div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                        <div name-company="MSF " className='company-div-img'> <img src={company3} alt="company-img" /></div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                        <div name-company="MIDMAR " className='company-div-img'> <img src={company4} alt="company-img" /></div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                        <div name-company="Heartland Alliance " className='company-div-img'> <img src={company5} alt="company-img" /></div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                        <div name-company="HIHFAD " className='company-div-img'> <img src={company6} alt="company-img" /></div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                        <div name-company="MDM" className='company-div-img'> <img src={company7} alt="company-img" /></div>
+                        </SwiperSlide>
+                    </Swiper>
+
+                </div> */}
             </div>
         </main>
     )

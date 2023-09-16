@@ -10,39 +10,38 @@ import LeftStyle from '../styleElment/LeftStyle'
 function Team() {
     let titleObject = {
         "nameTitle": "Our team",
-        "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+        "descriptionTitle": "The first medical team in the Middle East and Canada for integrated psychological treatment."
     }
 
     let servicesArray = [
-        {
+       {
             id: 1,
             img: photo,
-            titleServe: "Rasco Pro",
-            descriptionServe: "Full Stack Developer",
+            titleServe: "Bilal Budair",
+            descriptionServe: "Registered Psychotherapist And MHPSS Consultant",
             "classColor": "icon-color1"
         },
         {
             id: 2,
             img: photo,
-            titleServe: "Attack Surface Discovery",
-            descriptionServe: "Full Stack Developer",
+            titleServe: "Tisha Wilson",
+            descriptionServe: "Registered Psychotherapist",
             "classColor": "icon-color2"
         },
         {
             id: 3,
             img: photo,
-            titleServe: "Security Assessment",
-            descriptionServe: "Full Stack Developer",
+            titleServe: "Elissar Al-Ayoubi",
+            descriptionServe: "Mental Health Worker",
             "classColor": "icon-color3"
         },
         {
             id: 4,
             img: photo,
-            titleServe: "Dark Web Monitoring",
-            descriptionServe: "Full Stack Developer",
+            titleServe: "Eman Maswadeh",
+            descriptionServe: "Psychotherapist Assistant (International)",
             "classColor": "icon-color1"
         },
-     
     ]
 
 

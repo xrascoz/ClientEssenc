@@ -15,14 +15,14 @@ function Footer() {
             <div className='container' >
 
                 <div className='logo-footer-div' >
-                    <a className='a-logo'>   <img src={logo} /></a>
+                    <a className='a-logo' href='#'>   <img src={logo} alt='logo-img' /></a>
 
-                    <button className='button' >
-                        <img src={googlePlay} />
+                    <button className='button googlePlay-button' >
+                        <img src={googlePlay}  alt='googlePlay-img' />
                     </button>
 
                 </div>
-                <p className='about-p-footer'>Launch your own Software As A Service Application with Flex Solutions. Launch your own Software As A Service Application with Flex Solutions.        </p>
+                <p className='about-p-footer'>At Essence of Being, we are firmly committed to nurturing lasting and positive transformation in your life. Depend on us as your allies in facilitating growth, fostering transformation, and promoting enduring well-being. Take the first step towards securing your transformative journey by connecting with us today.</p>
                 <ul className="list-website-footer">  <li >
                     <Link to="/"> Home</Link>
                 </li>
@@ -44,23 +44,23 @@ function Footer() {
                 </ul>
 
                 <div className='the-end-of-footer' >
-                    <p>© 2021 Essence . All rights reserved.</p>
+                    <p>Copyright © 2023 ❤ Essence Of Being ❤</p>
                     <div className="social-media">
-                        <a href="https://www.facebook.com/xrascoz/" target="_blank">
+                        <a href="https://www.facebook.com" target="_blank">
                             <img src={facebook} alt="icon" />
                         </a>
-                        <a href="https://www.instagram.com/xrascoz/" target="_blank">
+                        <a href="https://www.instagram.com" target="_blank">
                             <img src={instagram} alt="icon" />
                         </a>
 
-                        <a href="https://www.youtube.com/@xrascoz" target="_blank">
+                        <a href="https://www.youtube.com" target="_blank">
                             <img src={youtube} alt="icon" />
                         </a>
 
-                        <a href="https://www.linkedin.com/in/xrascoz/" target="_blank">
+                        <a href="https://www.linkedin.com" target="_blank">
                             <img src={linkedinIn} alt="icon" />
                         </a>
-                        <a href="https://www.linkedin.com/in/xrascoz/" target="_blank">
+                        <a href="https://www.linkedin.com" target="_blank">
                             <img src={twitter} alt="icon" />
                         </a>
                     </div>

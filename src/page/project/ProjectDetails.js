@@ -30,7 +30,9 @@ function ProjectDetails() {
                 <img className='img-blog'  src={cover} />
                 <div dangerouslySetInnerHTML={{ __html: content }} className='div-content' />
 
-                <iframe   title="Demo video showcasing Supabase" className="absolute h-full w-full rounded-b-md" id="iframe"
+                preload="none"<iframe
+                
+                    title="Demo video" className="absolute h-full w-full rounded-b-md" id="iframe"
                         src={youtubeLink}
                         frameBorder="0" allow="autoplay; modestbranding; encrypted-media"></iframe>
 

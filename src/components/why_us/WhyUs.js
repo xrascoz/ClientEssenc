@@ -9,41 +9,36 @@ function WhyUs() {
 
   let titleObject = {
     "nameTitle": "Why Us",
-    "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+    "descriptionTitle": "We Care: Your mental well-being is not just a profession for us—it's a passion. Our team genuinely cares about your journey, and we're dedicated to supporting you every step of the way."
   }
 
   let whyUsData = [
-    {
+       {
       id: 1,
-      title: "Comprehensive coverage",
-      description: "Our monitoring engine keeps a closer eye on wide range of markets, such as those hosted on Surface, Deep, and Dark Web, Hacking Forums, Code Sharing Sites, Paste Sites, Private Clouds, Telegram, Discord and what not. We collect as much data as possible to provide you with comprehensive protection.",
+      title: "Culturally Diverse and Multilingual Team",
+      description: "Our team comprises registered psychotherapist, assistants, and consultants who are fluent in both Arabic and English. This linguistic diversity ensures effective communication and a deep understanding of your needs.",
     },
     {
       id: 2,
-      title: "Hybrid Approach",
-      description: "Our monitoring engine keeps a closer eye on wide range of markets, such as those hosted on Surface, Deep, and Dark Web, Hacking Forums, Code Sharing Sites, Paste Sites, Private Clouds, Telegram, Discord and what not. We collect as much data as possible to provide you with comprehensive protection.",
+      title: "Culturally Sensitive Approach",
+      description: "Our culturally sensitive approach respects your background, beliefs, and values, ensuring a safe and comfortable environment for your healing journey.",
     },
     {
       id: 3,
-      title: "monitoring engine keeps",
-      description: "Our monitoring engine keeps a closer eye on wide range of markets, such as those hosted on Surface, Deep, and Dark Web, Hacking Forums, Code Sharing Sites, Paste Sites, Private Clouds, Telegram, Discord and what not. We collect as much data as possible to provide you with comprehensive protection.",
+      title: "Evidence-Based Excellence",
+      description: "We integrate proven therapeutic approaches and modern insights to offer you evidence-based solutions that promote lasting well-being.",
     },
     {
       id: 4,
-      title: "Always up-to-date",
-      description: "Our monitoring engine keeps a closer eye on wide range of markets, such as those hosted on Surface, Deep, and Dark Web, Hacking Forums, Code Sharing Sites, Paste Sites, Private Clouds, Telegram, Discord and what not. We collect as much data as possible to provide you with comprehensive protection.",
+      title: "Expertise in Training",
+      description: "We have extensive experience conducting specialized mental health training for professionals, NGOs, and individuals worldwide. This background ensures that our guidance is rooted in the latest practices and techniques.",
     },
     {
       id: 5,
-      title: "Post-Alerting Mitigation Plans",
-      description: "Our monitoring engine keeps a closer eye on wide range of markets, such as those hosted on Surface, Deep, and Dark Web, Hacking Forums, Code Sharing Sites, Paste Sites, Private Clouds, Telegram, Discord and what not. We collect as much data as possible to provide you with comprehensive protection.",
-    },
-    {
-      id: 6,
-      title: "Continues Monitoring",
-      description: "Our monitoring engine keeps a closer eye on wide range of markets, such as those hosted on Surface, Deep, and Dark Web, Hacking Forums, Code Sharing Sites, Paste Sites, Private Clouds, Telegram, Discord and what not. We collect as much data as possible to provide you with comprehensive protection.",
-    },
-
+      title: "Expert Consultation",
+      description: "We offer consultation that goes beyond theory, delivering practical and effective strategies for better mental health outcomes. We're dedicated to providing you with insights and guidance that have a tangible, positive impact on your mental health services or practice.",
+    }
+    
   ]
   return (
     <section>

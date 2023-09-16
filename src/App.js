@@ -33,7 +33,7 @@ import Order from './user/page/order/Order';
 import SuccessPay from './user/page/paymentPage/SuccessPay';
 // Admin
 import AdminRoutes from './admin/page/routeAdmin/AdminRoutes';
-import SingUpAdmin from './admin/page/register/SingUp';
+// import SingUpAdmin from './admin/page/register/SingUp';
 import LoginAdmin from './admin/page/register/Login';
 import ForgetPasswordAdmin from './admin/page/register/ForgetPassword';
 import SubmitOtpUserAdmin from './admin/page/register/SubmitOtpUser';
@@ -115,7 +115,7 @@ function App() {
 
         <Route path="/admin/*" element={cookies.access_token ? <AdminRoutes /> : <LoginAdmin />} />
 
-        <Route path="/admin/sing-up" element={cookies.access_token ? <Home /> : <SingUpAdmin />} />
+        {/* <Route path="/admin/sing-up" element={cookies.access_token ? <Home /> : <SingUpAdmin />} /> */}
         <Route path="/admin/login" element={cookies.access_token ? <Home /> : <LoginAdmin />} />
 
         <Route path="/admin/forgot-pass" element={<ForgetPasswordAdmin />} />
@@ -127,7 +127,7 @@ function App() {
         <Route path="/sing-up" element={cookiesUser.access_token_User ? <Home /> : <SingUp />} />
         <Route path="/login" element={cookiesUser.access_token_User ? <Home /> : <Login />} />
 
-        <Route path="/sing-up" element={cookiesUser.access_token_User ? <Home /> : <SingUpAdmin />} />
+        {/* <Route path="/sing-up" element={cookiesUser.access_token_User ? <Home /> : <SingUpAdmin />} /> */}
         <Route path="/login" element={cookiesUser.access_token_User ? <Home /> : <LoginAdmin />} />
 
 

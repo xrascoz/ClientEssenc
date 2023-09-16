@@ -29,21 +29,21 @@ function Card({ data }) {
         <p data-aos="fade-up" data-aos-duration="1300" className="">{descriptionServe}</p>
       </div>
       <div className="social-media" data-aos="fade-up" data-aos-duration="1200">
-        <a href="https://www.facebook.com/xrascoz/" target="_blank">
+        <a href="https://www.facebook.com" target="_blank">
           <img src={facebook} alt="icon" />
         </a>
-        <a href="https://www.instagram.com/xrascoz/" target="_blank">
+        <a href="https://www.instagram.com" target="_blank">
           <img src={instagram} alt="icon" />
         </a>
 
-        <a href="https://www.youtube.com/@xrascoz" target="_blank">
+        <a href="https://www.youtube.com" target="_blank">
           <img src={youtube} alt="icon" />
         </a>
 
-        <a href="https://www.linkedin.com/in/xrascoz/" target="_blank">
+        <a href="https://www.linkedin.com" target="_blank">
           <img src={linkedinIn} alt="icon" />
         </a>
-        <a href="https://www.linkedin.com/in/xrascoz/" target="_blank">
+        <a href="https://www.linkedin.com" target="_blank">
           <img src={twitter} alt="icon" />
         </a>
       </div>

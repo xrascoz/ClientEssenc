@@ -14,53 +14,52 @@ function Services({ limit }) {
 
   let titleObject = {
     "nameTitle": "Our services",
-    "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+    "descriptionTitle": "By relentlessly striving for best practices and established methodologies, we strive to provide an outstanding platform for everyone to reach the pinnacle of mental health."
   }
 
   let servicesArray = [
-    {
+   {
       id: 1,
       img: serve1,
-      titleServe: "Dark Web Monitoring",
-      descriptionServe: "With Our Automated Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Prin Scrambled It To Make",
+      titleServe: "Assessment",
+      descriptionServe: "Our Comprehensive Evaluation Process, Encompassing Motor Vehicle Accident (MVA) And Refugee Assessments, Along With General Assessments, Offers A Personalized And In-Depth Understanding Of Your Unique Strengths And Challenges.",
       "classColor": "icon-color1"
     },
     {
       id: 2,
       img: serve2,
-      titleServe: "Attack Surface Discovery",
-      descriptionServe: "Automated Security Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Prin Scrambled It To Make",
+      titleServe: "Psychotherapy",
+      descriptionServe: "Through Confidential Sessions, Our Skilled Therapists Provide Individual And Family Guidance In Navigating Challenges, Fostering Resilience, And Achieving Emotional Growth.",
       "classColor": "icon-color2"
     },
     {
       id: 3,
       img: serve3,
-      titleServe: "Security Assessment",
-      descriptionServe: "Information Security Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Prin Scrambled It To Make",
+      titleServe: "Training",
+      descriptionServe: "Our Comprehensive Training Programs Empower Mental Health Professionals With In-Depth Skills And Knowledge, Raising The Standards Of Care In The Field.",
       "classColor": "icon-color3"
     },
     {
       id: 4,
       img: serve1,
-      titleServe: "Dark Web Monitoring",
-      descriptionServe: "With Our Automated Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Prin Scrambled It To Make",
+      titleServe: "Consultation",
+      descriptionServe: "We offer expert consultation to therapists and organizations, sharing insights to enhance mental health care and promote positive client outcomes.",
       "classColor": "icon-color1"
     },
     {
       id: 5,
       img: serve2,
-      titleServe: "Dark Web Monitoring",
-      descriptionServe: "With Our Automated Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Prin Scrambled It To Make",
+      titleServe: "Digital Gateway to Mental Health Training (Budair Access)",
+      descriptionServe: "A comprehensive online training platform tailored for both specialized and non-specialized mental health education. Whether you're a seasoned professional seeking advanced knowledge or a concerned individual wanting to understand more about mental health, Budair Access is your trusted resource.",
       "classColor": "icon-color2"
     },
     {
       id: 6,
       img: serve3,
-      titleServe: "Dark Web Monitoring",
-      descriptionServe: "With Our Automated Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Prin Scrambled It To Make",
+      titleServe: "Cognitive Psychology",
+      descriptionServe: "We Offer Expert Consultation To Therapists And Organizations, Sharing Insights To Enhance Mental Health Care And Promote Positive Client Outcomes.",
       "classColor": "icon-color3"
-    },
-   
+    }
   ]
 
 

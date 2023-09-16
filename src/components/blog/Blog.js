@@ -25,7 +25,7 @@ function Blog() {
 
   let titleObject = {
     "nameTitle": "Blog",
-    "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+    "descriptionTitle": "You can view the latest posts published by our medical staff in terms of useful mental health blogs."
   }
 
   return (

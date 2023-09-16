@@ -27,7 +27,7 @@ function Contact() {
   let [toggleAlertSucsses, setToggleAlertSucsses] = useState(false)
   let titleObject = {
     "nameTitle": "Contact Us",
-    "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+    "descriptionTitle": "Fill in the form and you will be answered as soon as possible. We seek your convenience"
   }
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
@@ -93,27 +93,30 @@ function Contact() {
                 <img src={locationIcon} alt="icon" />
                 <div className='tittle-about-contact' >
                   <b>Place</b>
-                  <p>5025 Heatherleight Ave,Mississauga,OneL5v2Y7</p>
+                  <p>5025 Heatherleigh Ave, Mississauga, ON L5V 2Y7</p>
                 </div>
               </div>
               <div className='details-about-contact' data-aos="fade-up" data-aos-duration="1200" >
                 <img src={phoneIcon} alt="icon" />
                 <div className='tittle-about-contact' >
-                  <b>numper</b>
-                  <p>01011653271</p>
+                  <b>Number</b>
+                  <p>+1 226 504 4498</p>
                 </div>
               </div>
 
               <div className='details-about-contact' data-aos="fade-up" data-aos-duration="1200" >
                 <img src={envelopeIcon} alt="icon" />
                 <div className='tittle-about-contact' >
-                  <b>gmail</b>
-                  <p>xrasoz@gmail.com</p>
+                  <b>Gmail</b>
+                  <p>bbudair@gmail.com</p>
                 </div>
               </div>
               <div className='iframe-map' data-aos="fade-up" data-aos-duration="1200">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613507864!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sPT%20Kulkul%20Teknologi%20Internasional!5e0!3m2!1sen!2sid!4v1601138221085!5m2!1sen!2sid"
+                <iframe
+                  preload="none"
+                  title="map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.752330641163!2d-79.66922477519084!3d43.59087485646115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b40dff1bfaa3b%3A0xc3b9a16b6cc0b30e!2zNTAyNSBIZWF0aGVybGVpZ2ggQXZlLCBNaXNzaXNzYXVnYSwgT04gTDVWIDJZN9iMINmD2YbYr9in!5e0!3m2!1sar!2s!4v1693423256560!5m2!1sar!2s" 
+                
                 
                 frameBorder="0"
                 style={{ border: 0 }}

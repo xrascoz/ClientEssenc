@@ -5,7 +5,7 @@ import Card from './book-nowComp/Card'
 function BookNowComp() {
   let titleObject = {
     "nameTitle": "Booking Now",
-    "descriptionTitle": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy of"
+    "descriptionTitle": "Book now your treatment session in the fastest and simplest way."
   }
 
   let bookNowServiceObject = [
@@ -14,36 +14,37 @@ function BookNowComp() {
       name: "consultation",
       price: "Free",
       time: "20 minutes",
-      advantages: ["zoom 30 20 minutes", "five centuries, but", "many centuries", "Ipsum is simply dummy", "Lorem Ipsum has been"]
+      advantages: ["Therapist Introduction", "Client's Issues", "Therapist Insights", "Approach Preview", "Next Steps"]
     },
     {
       id: "2",
       name: "Initial Assessment",
       price: "800",
       time: "4 hours",
-      advantages: ["zoom 30 20 minutes", "five centuries, but", "many centuries", "Ipsum is simply dummy", "Lorem Ipsum has been"]
+      advantages: ["Information Gathering", "Psychometric Testing", "Detailed Treatment Plan", "Detailed Report"]
     },
     {
       id: "3",
       name: "Psychotherapy Session",
       price: "150",
       time: "60 minutes",
-      advantages: ["zoom 30 20 minutes", "five centuries, but", "many centuries", "Ipsum is simply dummy", "Lorem Ipsum has been", "Ipsum is simply dummy"]
+      advantages: ["Evidence-Based Therapies", "Safe Emotional Space", "Periodic Plan Reviews", "Addressing Concerns", "Enhancing Self-Awareness and self-regulation", "Self & Relational Growth", "Progress Monitoring"]
     },
     {
       id: "4",
       name: "Family Therapy",
       price: "270",
       time: "90 minutes",
-      advantages: ["zoom 30 20 minutes", "five centuries, but", "many centuries", "Ipsum is simply dummy", "Lorem Ipsum has been", "Ipsum is simply dummy", "Lorem Ipsum has been"]
+      advantages: ["Proven Models", "Family Dynamics Insight", "Safe Open Forum", "Selective Participation", "Positive Interaction Boost", "Conflict Resolution Training", "Communication Skills", "Role Re-definition", "Systemic Perspective"]
     },
     {
       id: "4",
       name: "Supervision",
       price: "100",
       time: "90 minutes",
-      advantages: ["zoom 30 20 minutes", "five centuries, but", "many centuries", "Ipsum is simply dummy", "Lorem Ipsum has been", "Ipsum is simply dummy", "Lorem Ipsum has been"]
+      advantages: ["Structured Sessions", "Constructive Feedback", "Case Discussions", "Skill Development", "Ethical Guidance", "Emotional Support", "Professional Development Planning", "Networking and Collaboration"]
     },
+
 
   ]
 
